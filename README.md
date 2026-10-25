@@ -8,7 +8,13 @@ Res. Normativa 1/2024 (as amended) and the prior Res. Cofiex 17/2021 regime.
 - `fichas/` — structured + narrative record per pleito and avaliação (the RAG corpus, queried by header grep); 390 avaliações across both regimes
 - `data/` — anonymized case table (`cases_anonymized.csv`)
 - `docs/` — strategic-area analysis scheme and per-avaliação registry (reference for humans)
+- `reference-data/External_Credit_Operations_Database_September_2026.xlsx` — compiled external-debt/COFIEX dataset (Senate resolutions, STN/SADIPEM, World Bank, IBGE, COFIEX/MPO): CAPAG ratings, IDH(M), borrowing capacity, loan history. Aggregate official fiscal data, not carta-consulta content — used by PHASE 1.6 as the primary CAPAG/IDH/debt cross-check (see `skills/cofiex-scorer/references/rubric/official-data-sources.md`).
 - `tools/` — rebuild pipeline (needs local, non-published source files: raw CC/NT texts, the results workbook)
+
+Raw carta-consulta/NT texts and COFIEX meeting results are kept in a separate private archive
+(`Cofiex-scorer-archive`), not in this repo, so the skill's own retrieval corpus (`fichas/`) stays
+anonymized — that separation is what stops the skill from citing or self-looking-up a real case,
+not a blanket privacy rule on every file.
 
 Source documents (PDFs/NTs/workbooks) are **not** in this repository by design.
 Rebuild pipeline (local source files only, run in this order): `build_fichas.py` (skeleton +

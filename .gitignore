@@ -1,6 +1,7 @@
 *.pdf
 *.xlsx
 *.xls
+!reference-data/*.xlsx
 Cartas-Consultas/
 Resultados_Cofiex/
 __pycache__/
