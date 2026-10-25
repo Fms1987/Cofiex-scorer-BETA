@@ -1,0 +1,8 @@
+*.pdf
+*.xlsx
+*.xls
+Cartas-Consultas/
+Resultados_Cofiex/
+__pycache__/
+.DS_Store
+.Rhistory
