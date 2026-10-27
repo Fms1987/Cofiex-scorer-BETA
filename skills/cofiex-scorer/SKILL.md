@@ -154,6 +154,14 @@ when the phase below needs it, never all at once. Start from `references/INDEX.m
    **This rule binds the web tool exactly as it binds the corpus.** Never run a web search that includes this pleito's own identifiers (program name, proponent, UF/municipality, PFE/process/SEI number, ticket value, sector + lender + year combination) together with terms like `aprovados`, `resultado`, `pauta`, `reunião`, `deferido`, `indeferido`, or similar. In particular: **never search for this pleito's PFE/process code against COFIEX meeting agendas/pautas or results pages, in any form** — not even "just to check the regulatory calendar." Such a query's only possible purpose is finding this case's own outcome, which contaminates the blind judgment exactly like opening its ficha would — do it even once, read the result, and the scoring that follows is no longer independent, regardless of whether a score is directly copied from it. A search for objective calibration data (CAPAG rating, DC/RCL, IDH/IDHM, a named official dataset or API) is fine and required by PHASE 1.6 — the line is outcome-of-this-case vs. objective-fact-about-this-entity, and the data itself must come from a general table, not a case-specific document (see PHASE 1.6, "General tables only"). PHASE 0's regulatory check uses only generic, case-free queries (regulation name + year) — never add this pleito's own terms, including its PFE code, to it. PHASE 9.5's resubmission question is asked to the **user**, never answered by searching; if the user doesn't know or doesn't say, record "resubmission status unknown" and move on.
 6. **Test mode.** If the user passes `exclude_ids: [...]` (blind test of a corpus case), skip those ids in every Grep and Read, including their sibling attempts of the same pleito.
 7. **Privacy.** Do not output proponent, project, place or process identifiers even if the user supplies them elsewhere; do not try to re-identify a ficha.
+8. **No Nota Técnica (NT) lookup during blind scoring.** Never search for, open, or read this
+   pleito's own NT text (web search, or any document the user did not directly attach as the CC
+   itself) while running the blind-scoring flow — not even to source CAPAG/debt/IDH, and not even
+   to flag it as unconfirmed; use only the general tables (PHASE 1.6) or ask the user, and record
+   `input_flag` if neither is available. The one exception: the user explicitly asks, outside the
+   scoring flow, for this case's real/historical evaluation result — only then may the NT (or the
+   meeting record) be looked up, and the answer must say plainly that it is leaving blind mode to
+   do so.
 
 ## PHASE-BY-PHASE EXECUTION
 Run PHASES 0 → 1 → 1.6 → 2 (below, in this file), then 3 → 12 loading the references listed above.
@@ -216,12 +224,11 @@ Regulated inputs are not auto-trusted. Run BEFORE classification:
 - **General tables only, never a case-specific document.** CAPAG, debt and IDH(M) values must come
   from a general official table or dataset (the bundled workbook, the STN CAPAG bulletin, RREO/RGF,
   Tesouro Transparente, IBGE, IPEA) that lists many entities — never from a Nota Técnica (NT),
-  parecer, ofício or any other document that was produced to evaluate this specific process (an
-  "SEI .../MF" NT, a COFIEX/MPO technical note citing this pleito's own process number, etc.). Such
-  a document is both an unreliable source (it is a draft-stage read, not the STN's own consolidated
-  rating) and a blind-judgment risk (a process-specific NT can carry the same process's own
-  evaluation context). If only a case-specific NT is found, treat the CAPAG/debt/IDH value as
-  unconfirmed (`input_flag`) and look for the general table instead of citing the NT.
+  parecer, ofício or any other document produced to evaluate this specific process (an "SEI .../MF"
+  NT, a COFIEX/MPO technical note citing this pleito's own process number, etc.). Do not search for
+  or open such a document at all during blind scoring, not even to use it as a fallback or to flag
+  it (see hard rule 8) — if the general table doesn't have the value, the result is `input_flag`,
+  full stop; request the figure from the user instead of reaching for the process's own NT.
 - **Where to check.** Use only free/official sources for CAPAG, debt and IDH(M) cross-checks
   (Tesouro Transparente, IBGE API, IPEA `ipeadatar`/`ipeadatapy`, SNIRH, Base dos Dados — never a
   paid vendor); see `references/rubric/official-data-sources.md`.
@@ -242,14 +249,29 @@ Regulated inputs are not auto-trusted. Run BEFORE classification:
 SEAID coordination axes: State Modernization | Infrastructure | Social & Sustainability.
 
 ## OUTPUT FORMAT
-1. **Header:** CC, proponent, creditor, ticket size
+**No abbreviations, anywhere in the output — including section titles.** Write out the full name
+every time: not "AE" but "Strategic-Area Score"; not "GTEC" but "Technical-Group Questions"; not
+"MDB" but "Multilateral Development Bank"; not "NT" but "Technical Note"; not "CC" but "proposal"
+or "carta-consulta" in full; not "PFE" but "External Financing Portal". This applies to table
+headers and section numbers too (e.g. write "4. Strategic-Area Score by area", never
+"4. AE por área"). Official statutory names that are themselves the regulation's own term for an
+index or institution (CAPAG, IDH/IDHM, COFIEX, PPA, LOA, the lender names BIRD/BID/CAF/etc.) are
+not internal shorthand and may stand — but spell out an invented or internal abbreviation on every
+use regardless of language.
+
+0. **[FIRST] Executive summary:** every identified header field (proposal name, proponent,
+   creditor, total/loan/counterpart value, target sublimit, entity type) plus the scores assigned
+   under blind judgment — Strategic-Area Score, Human Development Index Score, Payment-Capacity
+   Rating, Debt-Trend Score, and the final [Min — Expected — Max] range — in one compact block,
+   before any of the sections below.
+1. **Header:** proposal, proponent, creditor, ticket size
 2. **Input Integrity (PHASE 1.6):** any input_flag raised
 3. **Eliminatory Check (PHASE 2/4):** PASS/FAIL with details
-4. **AE Score Breakdown (PHASE 5):** area-by-area with tier classification + bonus range
-5. **Component Scores (PHASEs 6–8):** IDH, CAPAG, Debt with scenario ranges
+4. **Strategic-Area Score Breakdown (PHASE 5):** area-by-area with tier classification + bonus range
+5. **Component Scores (PHASEs 6–8):** Human Development Index, Payment-Capacity Rating, Debt Trend with scenario ranges
 6. **Final Score (PHASE 9):** [Min — Expected — Max] + the **Calibration basis** line (n, filters relaxed, weak-data flags, anchor; see RETRIEVAL RECIPE step 7)
-7. **GTEC Simulation (PHASE 10):** question-by-question table
-8. **MDB Review (PHASE 11):** A.1–A.5 ratings
+7. **Technical-Group Questions Simulation (PHASE 10):** question-by-question table
+8. **Senior Multilateral-Bank Review (PHASE 11):** ratings A.1–A.5 in full (theory of change, results framework, risks, implementation, financial sustainability)
 9. **Correction Plan (PHASE 12):** prioritized table
 10. **[LAST] Window & Timing (circumstantial):** sublimit viability, approval probability, iteration strategy
 
