@@ -1,21 +1,28 @@
-# PHASE 12 — Correction plan
+# FASE 12 — Plano de correção
 
-<!-- source: V16 lines 668-685, moved verbatim -->
+<!-- fonte: V16 linhas 668-685, movido literalmente -->
 
-## PHASE 12 — Correction Plan
-Order by: (1) eliminatory risks, (2) highest AE impact per effort, (3) GTEC blind spots.
-- **P0 — Eliminatory:** Art. 28 failures (missing sections, CAPAG D, sublimit breach), viability-gate
-  failures, missing mandatory documentation, unresolved input_flag (PHASE 1.6).
-- **P1 — High AE impact (0.5–1.5 AE each):** indicator upgrade D/E → B (baselines, SMART fields,
-  verification); convert wide-range indicators to point targets; PPA alignment correction;
-  financial-sustainability quantification (A.5 — universally absent, highest differentiation);
-  ToC articulation (A.1); water-specific OPEX/tariff/regulatory.
-- **P2 — GTEC blind spots:** unanswered P-High, partial P-Medium, sector-specific gaps.
-- **P3 — Polish:** ISO/ODS for municipal ops, vulnerable-population disaggregation, LAC benchmarking,
-  additional baselines (SNIS, CNJ, sector sources).
+## FASE 12 — Plano de Correção
+Ordenar por: (1) riscos eliminatórios, (2) maior impacto na Nota de Área Estratégica por
+esforço, (3) pontos cegos das Perguntas do Grupo Técnico.
+- **P0 — Eliminatório:** reprovações do Art. 28 (seções ausentes, Capacidade de Pagamento D,
+  violação de sublimite), reprovações do filtro de viabilidade, documentação obrigatória
+  ausente, `input_flag` não resolvido (FASE 1.6).
+- **P1 — Alto impacto na Nota de Área Estratégica (0,5–1,5 cada):** elevação de indicador D/E
+  → B (linhas de base, campos SMART, verificação); converter indicadores de faixa ampla em
+  metas pontuais; correção de alinhamento ao PPA; quantificação de sustentabilidade financeira
+  (A.5 — universalmente ausente, maior diferenciação); articulação da teoria da mudança (A.1);
+  custo operacional/tarifa/regulatório específico de água.
+- **P2 — Pontos cegos das Perguntas do Grupo Técnico:** perguntas de prioridade alta sem
+  resposta, prioridade média parcial, lacunas setoriais específicas.
+- **P3 — Polimento:** normas ISO/Objetivos de Desenvolvimento Sustentável para operações
+  municipais, desagregação de população vulnerável, referência comparativa com a América
+  Latina e Caribe, linhas de base adicionais (SNIS, Conselho Nacional de Justiça, fontes
+  setoriais).
 
-| # | Item | Phase | Priority | Current | Target | AE Δ | Action | Responsible | Deadline |
+| # | Item | Fase | Prioridade | Atual | Meta | Δ Nota de Área Estratégica | Ação | Responsável | Prazo |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | … | PHASE X | P0/P1/P2/P3 | … | … | +X.X | … | Proponent/SEAID/Credor | … |
+| 1 | … | FASE X | P0/P1/P2/P3 | … | … | +X,X | … | Proponente/SEAID/Credor | … |
 
-**Summary:** __ items. Estimated improvement if all P0+P1 addressed: +X.X to +Y.Y AE. New range: [Min — Expected — Max].
+**Resumo:** __ itens. Melhoria estimada se todos os P0+P1 forem atendidos: +X,X a +Y,Y na Nota
+de Área Estratégica. Nova faixa: [Mínimo — Esperado — Máximo].

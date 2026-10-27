@@ -1,6 +1,10 @@
-# Sector card — water
+# Cartão de setor — water
 
-n = 33 avaliações (meetings 165-185). AE median (NR 1/2024) = n/a; total median = 7.37.
+<!-- A tabela de dados abaixo usa os códigos de coluna do esquema de data/cases_anonymized.csv
+     (identificadores, regime, outcome, etc.) -- não traduzidos, pois são valores de dado/código
+     usados pela recuperação, não prosa. -->
+
+n = 33 avaliações (reuniões 165-185). Mediana da Nota de Área Estratégica (NR 1/2024) = n/d; mediana do total = 7,37.
 
 | case | pleito | regime | yr-Q | att | subtype | lender | ticket | CP% | outcome | reason | AE | CAPAG | Debt | IDH | TOTAL | #ind | base% | yr% | narr |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -38,4 +42,4 @@ n = 33 avaliações (meetings 165-185). AE median (NR 1/2024) = n/a; total media
 | AE57858 | PC1D45E | R17_2021 | 2024-Q2 | 2 | Subnational - General | IDB | 200-400M | 20.0 | approved |  |  |  |  |  | 7.373 | 11 | 64 | 0 | filled |
 | AFEFA10 | PDDD926 | R17_2021 | 2024-Q1 | 2 | Subnational - General | AFD | 50-100M | 20.0 | withdrawn | capag_gate |  |  |  |  |  | 9 | 89 | 89 | filled |
 
-`*` total taken from the official meeting result (workbook blank). `narr`: filled / pending / no_cc_text.
+`*` total obtido do resultado oficial da reunião (planilha em branco). `narr`: filled (preenchida) / pending (pendente) / no_cc_text (sem texto de carta-consulta).

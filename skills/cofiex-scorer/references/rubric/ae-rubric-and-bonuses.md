@@ -1,59 +1,67 @@
-# PHASE 5 — AE rubric, PPA objectives and bonus treatment
+# FASE 5 — rubrica da Nota de Área Estratégica, objetivos do PPA e tratamento de bônus
 
-<!-- source: V16 lines 283-337, moved verbatim -->
+<!-- fonte: V16 linhas 283-337, movido literalmente -->
 
-## PHASE 5 — Strategic Areas Scoring (AE)
-### PPA 2024–2027 Objectives (35)
-Axis 1 — Social: 101 Poverty · 102 Health/SUS · 103 Early childhood/edu · 104 Secondary/technical
-· 105 Creative economy · 106 Human rights · 107 Women · 108 Indigenous/quilombola · 109 Anti-racism
-· 110 Social security · 111 Sustainable cities · 112 Safety · 113 Sport.
-Axis 2 — Economic: 201 Environment · 202 Disaster/climate · 203 Family farming · 204 Decarbonization
-· 205 Competitiveness · 206 ST&I · 207 Labor · 208 Clean energy · 209 Digital · 210 Logistics
-· 211 Trade · 212 Water · 213 Tourism · 214 Regional equity · 215 Mining.
-Axis 3 — Democracy: 301 Transparency · 302 State capacity · 303 Digital govt · 304 Defense
-· 305 Int'l cooperation · 306 Fiscal · 307 Justice.
-*Art. 15 §3º priorities (bonus-eligible): 101, 102, 103, 111, 201, 210, 212.*
+## FASE 5 — Pontuação das Áreas Estratégicas (Nota de Área Estratégica)
+### Objetivos do PPA 2024–2027 (35)
+Eixo 1 — Social: 101 Pobreza · 102 Saúde/SUS · 103 Primeira infância/educação · 104 Ensino
+médio/técnico · 105 Economia criativa · 106 Direitos humanos · 107 Mulheres · 108 Indígenas/
+quilombolas · 109 Antirracismo · 110 Previdência social · 111 Cidades sustentáveis ·
+112 Segurança · 113 Esporte.
+Eixo 2 — Econômico: 201 Meio ambiente · 202 Desastres/clima · 203 Agricultura familiar ·
+204 Descarbonização · 205 Competitividade · 206 Ciência, Tecnologia e Inovação ·
+207 Trabalho · 208 Energia limpa · 209 Digital · 210 Logística · 211 Comércio · 212 Água ·
+213 Turismo · 214 Equidade regional · 215 Mineração.
+Eixo 3 — Democracia: 301 Transparência · 302 Capacidade estatal · 303 Governo digital ·
+304 Defesa · 305 Cooperação internacional · 306 Fiscal · 307 Justiça.
+*Prioridades do Art. 15 §3º (elegíveis a bônus): 101, 102, 103, 111, 201, 210, 212.*
 
-### Rubric — Annex II + operational checklist
-| Grade | Score | Description | Checklist (all YES) |
+### Rubrica — Anexo II + lista de verificação operacional
+| Nota | Pontos | Descrição | Lista de verificação (todos SIM) |
 |---|---|---|---|
-| A | 5 | Direct + SMART + structural + majority resources + innovative | Direct PPA link · SMART w/baseline · >50% budget · feasible timeline · innovation |
-| B | 3 | Direct + SMART + high impact + significant resources | Direct PPA link · SMART w/baseline · >30% budget · feasible timeline |
-| C | 2 | Relevant + SMART + moderate impact | PPA relevance · indicators (not fully SMART) · some budget |
-| D | 1 | Specific + indicators + low impact | PPA mention · basic indicators · minimal budget |
-| E | 0.5 | Low relevance | tangential PPA · no indicators/targets |
+| A | 5 | Direto + SMART + estrutural + maioria dos recursos + inovador | Vínculo direto com o PPA · SMART com linha de base · >50% do orçamento · cronograma viável · inovação |
+| B | 3 | Direto + SMART + alto impacto + recursos significativos | Vínculo direto com o PPA · SMART com linha de base · >30% do orçamento · cronograma viável |
+| C | 2 | Relevante + SMART + impacto moderado | Relevância para o PPA · indicadores (não totalmente SMART) · algum orçamento |
+| D | 1 | Específico + indicadores + baixo impacto | Menção ao PPA · indicadores básicos · orçamento mínimo |
+| E | 0,5 | Baixa relevância | relação tangencial com o PPA · sem indicadores/metas |
 
-**SMART (per indicator):** 1. Specific (single defined outcome) · 2. Measurable (formula + unit)
-· 3. Achievable (realistic vs. baseline/timeframe) · 4. Relevant (measures the objective) ·
-5. Time-bound (baseline year + target year).
+**SMART (por indicador):** 1. Específico (um único resultado definido) · 2. Mensurável
+(fórmula + unidade) · 3. Alcançável (realista frente à linha de base/prazo) · 4. Relevante
+(mede o objetivo) · 5. Com prazo definido (ano de linha de base + ano-meta).
 
-**AE score drivers (anonymized):**
-- ISO-standard / ready-made benchmark indicators (ISO 37120/22/23; CID-10; IDEB; iRAP; DEC/FEC;
-  SNIS) satisfy SMART by design → strongest predictor of AE ≥ 8.0.
-- A **national-benchmark anchor indicator** present in a multi-sector CC adds a systematic
-  ~+0.5 to the AE estimate (anchor: multi-sector CC, 7 OEs mix 3B + 4C/D, with a national
-  anchor indicator → AE ~8.0).
-- "Indicators to be defined during preparation" / baseline=0 by design → tier D–E (typical of
-  genuinely deferred on-lending; NOT applied to funds with fully specified indicators).
-- Physical baselines with year-over-year targets → tier B–A.
-- Output-only indicators ("X systems deployed") without outcome measurement → tier C–D.
-- Technical exhaustiveness ≠ SMART compliance (a highly detailed CC with output-level indicators
-  is still mid-tier AE).
-- The +1 "100% PPA integral" bonus is rare in practice — only single-sector-focused CCs qualify;
-  multi-component hybrids do not.
+**Fatores que movem a Nota de Área Estratégica (anonimizados):**
+- Indicadores padronizados/prontos de referência internacional (ISO 37120/22/23; CID-10; IDEB;
+  iRAP; DEC/FEC; SNIS) satisfazem o SMART por construção → o preditor mais forte de Nota de
+  Área Estratégica ≥ 8,0.
+- Um **indicador-âncora de referência nacional** presente em uma carta-consulta multissetorial
+  adiciona sistematicamente cerca de +0,5 à estimativa da Nota de Área Estratégica (âncora:
+  carta-consulta multissetorial, mix de 7 objetivos estratégicos com 3B + 4C/D, com um
+  indicador-âncora nacional → Nota de Área Estratégica ~8,0).
+- "Indicadores a serem definidos durante a preparação" / linha de base = 0 por construção →
+  nível D–E (típico de repasses genuinamente postergados; NÃO se aplica a fundos com
+  indicadores totalmente especificados).
+- Linhas de base físicas com metas ano a ano → nível B–A.
+- Indicadores apenas de produto ("X sistemas implantados") sem medição de resultado →
+  nível C–D.
+- Exaustividade técnica ≠ conformidade SMART (uma carta-consulta altamente detalhada com
+  indicadores no nível de produto ainda é Nota de Área Estratégica de nível médio).
+- O bônus de +1 "100% integral ao PPA" é raro na prática — só cartas-consulta focadas em um
+  único setor se qualificam; híbridos multicomponentes não.
 
-`Subtotal = min(10, Σ) | +PPA priority (range, see bonuses) | +Frontier Zone (range, see bonuses)`
-Floor: AE + bonuses < 3.0 → eliminatory (subnational only).
+`Subtotal = mín(10, Σ) | +prioridade do PPA (faixa, ver bônus) | +Zona de Fronteira (faixa, ver bônus)`
+Piso: Nota de Área Estratégica + bônus < 3,0 → eliminatório (apenas subnacional).
 
-### Bonus treatment (Art. 15 §3º / §4º) — modeled as a range
-Bonuses are uncertain until confirmed by COFIEX/SEAID. Model each as a discrete distribution
-**[0 — 0.5 — 2.0]** with expected weight **0.5** in the probabilistic estimate. Apply the
-**full value only when a documentary framing is attached** (ofício/Portaria evidencing the
-frame, e.g. Lei 6.634/1979 for frontier zone). Without the document, carry the bonus in the
-optimistic scenario only, not the base estimate. Both bonuses remain jointly capped inside AE=10.
+### Tratamento de bônus (Art. 15 §3º / §4º) — modelado como uma faixa
+Os bônus são incertos até confirmados pela COFIEX/SEAID. Modelar cada um como uma distribuição
+discreta **[0 — 0,5 — 2,0]** com peso esperado **0,5** na estimativa probabilística. Aplicar
+o **valor cheio apenas quando houver enquadramento documental anexado** (ofício/Portaria que
+evidencie o enquadramento, ex.: Lei 6.634/1979 para zona de fronteira). Sem o documento,
+carregar o bônus apenas no cenário otimista, não na estimativa-base. Os dois bônus permanecem
+limitados juntos dentro do teto de 10 da Nota de Área Estratégica.
 
-**Frontier-Zone bonus — "strong-presumed" criteria** (include in the base estimate, not the
-optimistic scenario, only when ALL hold): (1) a named cross-border conurbation with specific
-neighbouring-country cities; (2) a dedicated, quantified cross-border-flow indicator;
-(3) explicit reference to Lei 6.634/1979. Anchor: border municipality meeting all three → +1.0
-(AE ~8.5 vs. ~7.5 without).
+**Bônus de Zona de Fronteira — critérios de "presunção forte"** (incluir na estimativa-base,
+não no cenário otimista, apenas quando TODOS se verificarem): (1) uma conurbação
+transfronteiriça nomeada com cidades específicas do país vizinho; (2) um indicador dedicado e
+quantificado de fluxo transfronteiriço; (3) referência explícita à Lei 6.634/1979. Âncora:
+município de fronteira que atende aos três critérios → +1,0 (Nota de Área Estratégica ~8,5
+contra ~7,5 sem o bônus).

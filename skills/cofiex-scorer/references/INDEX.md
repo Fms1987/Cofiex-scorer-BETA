@@ -1,20 +1,25 @@
-# references/ — retrieval index
+# references/ — índice de recuperação
 
-Load only what the current phase needs (see RETRIEVAL PROTOCOL in `../SKILL.md`).
+Carregar apenas o que a fase atual precisa (ver PROTOCOLO DE RECUPERAÇÃO em `../SKILL.md`).
 
-| Folder | Content | Used in |
+| Pasta | Conteúdo | Usado em |
 |---|---|---|
-| `regulation/` | Annex I screening, Art. 28 eliminatory checks | Phases 3–4 |
-| `rubric/` | AE rubric + bonuses, IDH, CAPAG, Debt, final-score formula, official data sources for CAPAG/debt/IDH cross-checks | Phases 1.6, 5–9 |
-| `calibration/` | Cross-cutting findings, AE ranges by sector, **area base rates** (`areas-stats.md`), **case cards** (`cases/`) | Phases 5, 9 |
-| `iteration/` | Persistence / resubmission analysis | Phase 9.5 |
-| `gtec/` | Calibrated GTEC questions | Phase 10 |
-| `review/` | Senior MDB review, correction plan | Phases 11–12 |
+| `regulation/` | Triagem do Anexo I, checagens eliminatórias do Art. 28 | Fases 3–4 |
+| `rubric/` | Rubrica da Nota de Área Estratégica + bônus, Índice de Desenvolvimento Humano, Capacidade de Pagamento, Dívida, fórmula da nota final, fontes de dados oficiais para conferência cruzada de Capacidade de Pagamento/dívida/Índice de Desenvolvimento Humano | Fases 1.6, 5–9 |
+| `calibration/` | Achados transversais, faixas de Nota de Área Estratégica por setor, **taxas-base por área** (`areas-stats.md`), **cartões de caso** (`cases/`) | Fases 5, 9 |
+| `iteration/` | Análise de persistência / reenvio | Fase 9.5 |
+| `gtec/` | Perguntas calibradas do Grupo Técnico | Fase 10 |
+| `review/` | Revisão sênior de banco multilateral de desenvolvimento, plano de correção | Fases 11–12 |
 
-Outside `references/`:
-- `fichas/pleitos/`, `fichas/avaliacoes/` — structured header (grep-able) + anonymized narrative per pleito / avaliação (patterns, never cases).
-- `data/cases_anonymized.csv` — one row per avaliação (schema in `data/README.md`).
-- `docs/analise-areas-estrategicas.md` — human reference: scheme of the strategic-area analysis (section 1), per-avaliação area record (section 2, do not load), workbook reconciliation (section 3).
+Fora de `references/`:
+- `fichas/pleitos/`, `fichas/avaliacoes/` — cabeçalho estruturado (pesquisável por grep) +
+  narrativa anonimizada por pleito / avaliação (padrões, nunca casos).
+- `data/cases_anonymized.csv` — uma linha por avaliação (esquema em `data/README.md`).
+- `docs/analise-areas-estrategicas.md` — referência para humanos: esquema da análise de área
+  estratégica (seção 1), registro de área por avaliação (seção 2, não carregar), reconciliação
+  com a planilha de resultados (seção 3).
 
-Case cards: `calibration/cases/INDEX.md` lists sectors with n, approval counts, AE/total medians and how many narratives are filled.
-Rows are anonymized (opaque ids). **Ids are never to be quoted in an evaluation** (SKILL.md, hard rules).
+Cartões de caso: `calibration/cases/INDEX.md` lista os setores com n, contagem de aprovações,
+medianas de Nota de Área Estratégica/total e quantas narrativas estão preenchidas.
+As linhas são anonimizadas (identificadores opacos). **Identificadores nunca devem ser citados
+em uma avaliação** (SKILL.md, regras duras).

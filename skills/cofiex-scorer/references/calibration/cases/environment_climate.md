@@ -1,6 +1,10 @@
-# Sector card — environment_climate
+# Cartão de setor — environment_climate
 
-n = 24 avaliações (meetings 165-185). AE median (NR 1/2024) = 6.50; total median = 7.35.
+<!-- A tabela de dados abaixo usa os códigos de coluna do esquema de data/cases_anonymized.csv
+     (identificadores, regime, outcome, etc.) -- não traduzidos, pois são valores de dado/código
+     usados pela recuperação, não prosa. -->
+
+n = 24 avaliações (reuniões 165-185). Mediana da Nota de Área Estratégica (NR 1/2024) = 6,50; mediana do total = 7,35.
 
 | case | pleito | regime | yr-Q | att | subtype | lender | ticket | CP% | outcome | reason | AE | CAPAG | Debt | IDH | TOTAL | #ind | base% | yr% | narr |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -29,4 +33,4 @@ n = 24 avaliações (meetings 165-185). AE median (NR 1/2024) = 6.50; total medi
 | AFB2EAD | P47F173 | NR1_2024 | 2025-Q3 | 1 | Subnational - Environmental and Climate | CAF | <50M | 20.0 | approved |  | 5.5 | 0.5 | 1 | 2 | 9 | 7 | 100 | 100 | filled |
 | AFF6027 | P4F0E79 | NR1_2024 | 2026-Q1 | 1 | Subnational - Environmental and Climate | CAF | 100-200M | 20.0 | not_approved | cap_exceeded |  |  |  |  | 9.092* | 5 | 100 | 100 | filled |
 
-`*` total taken from the official meeting result (workbook blank). `narr`: filled / pending / no_cc_text.
+`*` total obtido do resultado oficial da reunião (planilha em branco). `narr`: filled (preenchida) / pending (pendente) / no_cc_text (sem texto de carta-consulta).

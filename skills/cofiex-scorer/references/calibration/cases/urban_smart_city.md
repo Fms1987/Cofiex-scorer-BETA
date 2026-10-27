@@ -1,6 +1,10 @@
-# Sector card — urban_smart_city
+# Cartão de setor — urban_smart_city
 
-n = 45 avaliações (meetings 165-185). AE median (NR 1/2024) = 6.50; total median = 9.10.
+<!-- A tabela de dados abaixo usa os códigos de coluna do esquema de data/cases_anonymized.csv
+     (identificadores, regime, outcome, etc.) -- não traduzidos, pois são valores de dado/código
+     usados pela recuperação, não prosa. -->
+
+n = 45 avaliações (reuniões 165-185). Mediana da Nota de Área Estratégica (NR 1/2024) = 6,50; mediana do total = 9,10.
 
 | case | pleito | regime | yr-Q | att | subtype | lender | ticket | CP% | outcome | reason | AE | CAPAG | Debt | IDH | TOTAL | #ind | base% | yr% | narr |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -50,4 +54,4 @@ n = 45 avaliações (meetings 165-185). AE median (NR 1/2024) = 6.50; total medi
 | AE954C5 | P28A26B | NR1_2024 | 2026-Q1 | 1 | Subnational - General | FONPLATA | <50M | 20.0 | not_approved | cap_exceeded |  |  |  |  | 11.000* | 11 | 82 | 82 | filled |
 | AF982EF | PBFCFFA | R17_2021 | 2023-Q2 | 1 | Subnational - General | AFD | 100-200M | 20.0 | withdrawn | cap_exceeded |  |  |  |  |  | 14 | 36 | 0 | filled |
 
-`*` total taken from the official meeting result (workbook blank). `narr`: filled / pending / no_cc_text.
+`*` total obtido do resultado oficial da reunião (planilha em branco). `narr`: filled (preenchida) / pending (pendente) / no_cc_text (sem texto de carta-consulta).

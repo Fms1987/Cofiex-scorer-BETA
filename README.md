@@ -1,29 +1,45 @@
 # cofiex-scorer
 
-Claude skill that simulates the COFIEX technical evaluation of a *carta-consulta*, covering both
-Res. Normativa 1/2024 (as amended) and the prior Res. Cofiex 17/2021 regime.
+Habilidade do Claude que simula a avaliação técnica da COFIEX para uma *carta-consulta*,
+cobrindo tanto a Res. Normativa 1/2024 (conforme alterada) quanto o regime anterior da Res.
+Cofiex 17/2021.
 
-- `skills/cofiex-scorer/SKILL.md` — workflow, hard rules, retrieval protocol
-- `skills/cofiex-scorer/references/` — rubric, calibration, GTEC, anonymized case cards (RAG corpus)
-- `fichas/` — structured + narrative record per pleito and avaliação (the RAG corpus, queried by header grep); 390 avaliações across both regimes
-- `data/` — anonymized case table (`cases_anonymized.csv`)
-- `docs/` — strategic-area analysis scheme and per-avaliação registry (reference for humans)
-- `reference-data/External_Credit_Operations_Database_September_2026.xlsx` — compiled external-debt/COFIEX dataset (Senate resolutions, STN/SADIPEM, World Bank, IBGE, COFIEX/MPO): CAPAG ratings, IDH(M), borrowing capacity, loan history. Aggregate official fiscal data, not carta-consulta content — used by PHASE 1.6 as the primary CAPAG/IDH/debt cross-check (see `skills/cofiex-scorer/references/rubric/official-data-sources.md`).
-- `tools/` — rebuild pipeline (needs local, non-published source files: raw CC/NT texts, the results workbook)
+- `skills/cofiex-scorer/SKILL.md` — fluxo de trabalho, regras duras, protocolo de recuperação
+- `skills/cofiex-scorer/references/` — rubrica, calibração, perguntas do Grupo Técnico,
+  cartões de caso anonimizados (corpus RAG)
+- `fichas/` — registro estruturado + narrativo por pleito e avaliação (o corpus RAG,
+  consultado por grep de cabeçalho); 390 avaliações nos dois regimes
+- `data/` — tabela de casos anonimizados (`cases_anonymized.csv`)
+- `docs/` — esquema de análise de área estratégica e registro por avaliação (referência para
+  humanos)
+- `reference-data/External_Credit_Operations_Database_September_2026.xlsx` — dataset
+  compilado de dívida externa/COFIEX (resoluções do Senado, STN/SADIPEM, Banco Mundial, IBGE,
+  COFIEX/MPO): classificações de Capacidade de Pagamento, Índice de Desenvolvimento
+  Humano/Municipal, capacidade de endividamento, histórico de empréstimos. Dado fiscal
+  oficial agregado, não conteúdo de carta-consulta — usado pela FASE 1.6 como a conferência
+  cruzada primária de Capacidade de Pagamento/Índice de Desenvolvimento Humano/dívida (ver
+  `skills/cofiex-scorer/references/rubric/official-data-sources.md`).
+- `tools/` — pipeline de reconstrução (precisa de arquivos-fonte locais, não publicados: textos
+  brutos de carta-consulta/Nota Técnica, a planilha de resultados)
 
-Raw carta-consulta/NT texts and COFIEX meeting results are kept in a separate private archive
-(`Cofiex-scorer-archive`), not in this repo, so the skill's own retrieval corpus (`fichas/`) stays
-anonymized — that separation is what stops the skill from citing or self-looking-up a real case,
-not a blanket privacy rule on every file.
+Os textos brutos de carta-consulta/Nota Técnica e os resultados de reunião da COFIEX ficam em
+um acervo privado separado (`Cofiex-scorer-archive`), fora deste repositório, para que o
+próprio corpus de recuperação da habilidade (`fichas/`) permaneça anonimizado — essa separação
+é o que impede a habilidade de citar ou autoconsultar um caso real, não uma regra genérica de
+privacidade sobre todo arquivo.
 
-Source documents (PDFs/NTs/workbooks) are **not** in this repository by design.
-Rebuild pipeline (local source files only, run in this order): `build_fichas.py` (skeleton +
-NT linking) → narrative fill-in → `clean_fichas.py` (lender/counterpart/tags) →
-`audit_nt_scores.py` (NT vs. workbook) → `build_cases_from_fichas.py` (CSV + sector cards) →
-`build_areas_stats.py` + `build_areas_doc.py` (strategic-area reference) → `validate_fichas.py`
-+ `validate_anonymity.py` before publishing anything.
+Documentos-fonte (PDFs/Notas Técnicas/planilhas) **não** estão neste repositório por
+desenho.
+Pipeline de reconstrução (apenas com arquivos-fonte locais, executar nesta ordem):
+`build_fichas.py` (esqueleto + vínculo com Nota Técnica) → preenchimento narrativo →
+`clean_fichas.py` (credor/contrapartida/marcadores) → `audit_nt_scores.py` (Nota Técnica
+versus planilha) → `build_cases_from_fichas.py` (CSV + cartões de setor) →
+`build_areas_stats.py` + `build_areas_doc.py` (referência de área estratégica) →
+`validate_fichas.py` + `validate_anonymity.py` antes de publicar qualquer coisa.
 
-## Anonymity: what it does and does not protect
-Fichas carry no names, places, process numbers, dates, amounts or asset counts. The combination of header fields (subtype, lender, sector,
-ticket band, year-quarter) can still identify a pleito to someone who knows the portfolio. The protection is the skill's output rule
-(SKILL.md, hard rules): it never cites or describes an individual case. Keep the repository private.
+## Anonimidade: o que protege e o que não protege
+As fichas não trazem nomes, locais, números de processo, datas, valores ou quantidades de
+ativos. A combinação dos campos de cabeçalho (subtipo, credor, setor, faixa de valor,
+ano-trimestre) ainda pode identificar um pleito para quem conhece a carteira. A proteção é a
+regra de saída da habilidade (SKILL.md, regras duras): ela nunca cita ou descreve um caso
+individual. Mantenha o repositório privado.

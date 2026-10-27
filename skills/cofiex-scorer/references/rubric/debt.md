@@ -1,39 +1,47 @@
-# PHASE 8 — Debt trajectory
+# FASE 8 — Trajetória da dívida
 
-<!-- source: V16 lines 472-507, moved verbatim -->
+<!-- fonte: V16 linhas 472-507, movido literalmente -->
 
-## PHASE 8 — Debt Trajectory (Art. 21, Annex III — max 1.000)
-Art. 10, I, d: max 1 point. **Measures the entity's ACCUMULATED debt level/trajectory**
-(DC/RCL, trend, Senate limits), analyzed by STN — NOT the proposed operation's financial terms.
-**The proposed operation does not buy points here:** neither a promise of future improvement nor
-the institutionalization of fiscal regimes (EC, LC) changes the score — STN assesses the stock at
-analysis time.
+## FASE 8 — Trajetória da Dívida (Art. 21, Anexo III — máx. 1,000)
+Art. 10, I, d: máximo 1 ponto. **Mede o nível/trajetória de dívida ACUMULADA da entidade**
+(Dívida Consolidada/Receita Corrente Líquida, tendência, limites do Senado), analisada pela
+Secretaria do Tesouro Nacional — NÃO os termos financeiros da operação proposta. **A operação
+proposta não compra pontos aqui:** nem a promessa de melhoria futura nem a institucionalização
+de regimes fiscais (Emenda Constitucional, Lei Complementar) muda a nota — a Secretaria do
+Tesouro Nacional avalia o estoque no momento da análise.
 
-| Trend | Score |
+| Tendência | Pontuação |
 |---|---|
-| Decreasing or stable within Senate limits | 1.000 |
-| Increasing but within limits | 0.750 |
-| Approaching prudential limit | 0.500 |
-| Exceeding prudential limit | 0.250 |
-| Significantly exceeding | 0.000 |
+| Decrescente ou estável dentro dos limites do Senado | 1,000 |
+| Crescente, mas dentro dos limites | 0,750 |
+| Aproximando-se do limite prudencial | 0,500 |
+| Excedendo o limite prudencial | 0,250 |
+| Excedendo significativamente | 0,000 |
 
-**DC/RCL → score reference (empirically calibrated):**
-| DC/RCL | Trend | Expected score |
+**Dívida Consolidada/Receita Corrente Líquida → referência de pontuação (calibrada
+empiricamente):**
+| Dívida Consolidada/Receita Corrente Líquida | Tendência | Pontuação esperada |
 |---|---|---|
-| < 40% | any | 0.875–1.000 |
-| 40–55% | stable/decreasing | 0.750 |
-| 40–55% | increasing | 0.500–0.750 |
-| 55–65% | strongly increasing | 0.250–0.500 |
-| > 65% or Senate-limit breach | any | 0.000–0.250 |
+| < 40% | qualquer | 0,875–1,000 |
+| 40–55% | estável/decrescente | 0,750 |
+| 40–55% | crescente | 0,500–0,750 |
+| 55–65% | fortemente crescente | 0,250–0,500 |
+| > 65% ou violação do limite do Senado | qualquer | 0,000–0,250 |
 
-**Conditional floor (v15 anchor):** first MDB operation AND CAPAG C → expected **0.50** (was 0.75).
-SEAID tends to apply a conservative floor when there is no MDB track record and weaker CAPAG.
+**Piso condicional (âncora v15):** primeira operação com banco multilateral de desenvolvimento
+E Capacidade de Pagamento C → esperado **0,50** (era 0,75). A SEAID tende a aplicar um piso
+conservador quando não há histórico com banco multilateral e a Capacidade de Pagamento é mais
+fraca.
 
-**Refinancing vs. net new debt (critical distinction):**
-1. **Refinancing without stock increase** (new creditor, same liability): DC/RCL does not rise →
-   score reflects the pre-existing historical level (anchor: first MDB op, low DC/RCL → 0.750).
-2. **Restructuring DPL (e.g. CDI → external)**: does not reduce the stock, only changes its
-   composition. STN scores the historical trajectory, ignoring the forward effect (anchor:
-   DC/RCL ~62.7%, rising since 2017 → 0.250).
+**Refinanciamento versus dívida nova líquida (distinção crítica):**
+1. **Refinanciamento sem aumento de estoque** (novo credor, mesmo passivo): a Dívida
+   Consolidada/Receita Corrente Líquida não sobe → a nota reflete o nível histórico
+   preexistente (âncora: primeira operação com banco multilateral, Dívida Consolidada/Receita
+   Corrente Líquida baixa → 0,750).
+2. **Reestruturação de Dívida Pública Interna/Externa (ex.: Certificado de Depósito
+   Interbancário → externa)**: não reduz o estoque, apenas muda sua composição. A Secretaria
+   do Tesouro Nacional pontua a trajetória histórica, ignorando o efeito prospectivo (âncora:
+   Dívida Consolidada/Receita Corrente Líquida ~62,7%, crescente desde 2017 → 0,250).
 
-Statals Exig/PL: Δ1→0.5 = 1→0.7 | IFs: A+/A→1.0, B+/B→0.5.
+Estatais, Exigível/Patrimônio Líquido: Δ1→0,5 = 1→0,7 | Instituições financeiras: A+/A→1,0,
+B+/B→0,5.

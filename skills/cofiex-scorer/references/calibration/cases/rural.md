@@ -1,6 +1,10 @@
-# Sector card — rural
+# Cartão de setor — rural
 
-n = 21 avaliações (meetings 165-185). AE median (NR 1/2024) = 6.25; total median = 7.96.
+<!-- A tabela de dados abaixo usa os códigos de coluna do esquema de data/cases_anonymized.csv
+     (identificadores, regime, outcome, etc.) -- não traduzidos, pois são valores de dado/código
+     usados pela recuperação, não prosa. -->
+
+n = 21 avaliações (reuniões 165-185). Mediana da Nota de Área Estratégica (NR 1/2024) = 6,25; mediana do total = 7,96.
 
 | case | pleito | regime | yr-Q | att | subtype | lender | ticket | CP% | outcome | reason | AE | CAPAG | Debt | IDH | TOTAL | #ind | base% | yr% | narr |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -26,4 +30,4 @@ n = 21 avaliações (meetings 165-185). AE median (NR 1/2024) = 6.25; total medi
 | AF2D9CD | P09CECC | R17_2021 | 2023-Q2 | 1 | Federal | IFAD | <50M | 22.2 | withdrawn | budget_inadequacy |  |  |  |  | 4.019 | 12 | 0 | 0 | filled |
 | AFB838A | P2E5923 | R17_2021 | 2024-Q1 | 1 | Subnational - General | IBRD | 100-200M | 20.0 | approved |  |  |  |  |  | 7.728 | 11 | 0 | 0 | filled |
 
-`*` total taken from the official meeting result (workbook blank). `narr`: filled / pending / no_cc_text.
+`*` total obtido do resultado oficial da reunião (planilha em branco). `narr`: filled (preenchida) / pending (pendente) / no_cc_text (sem texto de carta-consulta).

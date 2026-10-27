@@ -1,35 +1,40 @@
-# PHASE 11 — Senior MDB review
+# FASE 11 — Revisão sênior de banco multilateral de desenvolvimento
 
-<!-- source: V16 lines 636-667, moved verbatim -->
+<!-- fonte: V16 linhas 636-667, movido literalmente -->
 
-## PHASE 11 — Senior MDB Review Simulation
-Rate each item STRONG / ADEQUATE / WEAK / ABSENT.
-- **A.1 Theory of Change** (problem → intervention → outputs → outcomes → impact). STRONG =
-  explicit causal chain with evidence per link + testable assumptions; best exemplars use an
-  explicit with-vs-without counterfactual monetizing externalities, or named M&E systems with
-  P/R tagging + 3-stage evaluation. Corpus baseline: WEAK/ABSENT in ~64% of CCs.
-- **A.2 Results Framework** (SMART). STRONG = ≥80% indicators 4–5/5 with baselines+verification;
-  tier mapping A/B→STRONG, C→ADEQUATE, D→WEAK, E→ABSENT.
-- **A.3 Risk Assessment.** STRONG = probability×impact matrix + mitigation/responsible/timeline,
-  sector-specific risks covered. Verify: environmental licensing (infra), cybersecurity/LGPD
-  (digital), judicial independence (justice), forex (BRL ops), subproject quality (on-lending),
-  tariff/OPEX (water), multi-layer governance (health hospital × secretaria × OSS), indicator
-  deferred to external annex (hospital/PPP).
-- **A.4 Implementation Arrangements.** STRONG = UGP defined with institutional anchor, staffing,
-  multilateral experience. WEAK = "arrangements to be defined during preparation".
-- **A.5 Financial Sustainability.** STRONG = post-project O&M quantified, funding source identified,
-  legislative backing. Corpus baseline: 0/14 of the original set rated STRONG — single highest-value
-  improvement. Exemplar profiles: several quantified OPEX streams each with a named source; or
-  counterpart earmarked to a named post-project program with PPA backing. Quantified-% only (no
-  multi-year R$ table) = ADEQUATE. Water/sanitation needs tariff adequacy + regulatory covenant +
-  OPEX projection for STRONG.
+## FASE 11 — Simulação de Revisão Sênior de Banco Multilateral de Desenvolvimento
+Classificar cada item como FORTE / ADEQUADO / FRACO / AUSENTE.
+- **A.1 Teoria da Mudança** (problema → intervenção → produtos → resultados → impacto).
+  FORTE = cadeia causal explícita com evidência por elo + premissas testáveis; os melhores
+  exemplares usam um contrafactual explícito com-versus-sem monetizando externalidades, ou
+  sistemas de monitoramento e avaliação nomeados com marcação Produto/Resultado + avaliação em
+  3 estágios. Base do corpus: FRACO/AUSENTE em ~64% das cartas-consulta.
+- **A.2 Marco de Resultados** (SMART). FORTE = ≥80% dos indicadores 4–5/5 com linhas de base e
+  verificação; mapeamento de nível A/B→FORTE, C→ADEQUADO, D→FRACO, E→AUSENTE.
+- **A.3 Avaliação de Riscos.** FORTE = matriz probabilidade×impacto + mitigação/responsável/
+  prazo, riscos setoriais específicos cobertos. Verificar: licenciamento ambiental
+  (infraestrutura), cibersegurança/Lei Geral de Proteção de Dados (digital), independência
+  judicial (justiça), câmbio (operações em reais), qualidade de subprojeto (repasse),
+  tarifa/custo operacional (água), governança multicamada (hospital × secretaria de saúde ×
+  organização social de saúde), indicador postergado para anexo externo (hospital/PPP).
+- **A.4 Arranjos de Implementação.** FORTE = unidade gestora do projeto definida com âncora
+  institucional, quadro de pessoal, experiência com bancos multilaterais. FRACO = "arranjos a
+  serem definidos durante a preparação".
+- **A.5 Sustentabilidade Financeira.** FORTE = operação e manutenção pós-projeto quantificada,
+  fonte de financiamento identificada, respaldo legislativo. Base do corpus: 0/14 do conjunto
+  original classificado como FORTE — a melhoria de maior valor disponível. Perfis exemplares:
+  vários fluxos de custo operacional quantificados, cada um com uma fonte nomeada; ou
+  contrapartida destinada a um programa pós-projeto nomeado com respaldo no PPA. Apenas
+  percentual quantificado (sem tabela plurianual em reais) = ADEQUADO. Água/saneamento precisa
+  de adequação tarifária + convênio regulatório + projeção de custo operacional para FORTE.
 
-| Item | Rating | Evidence | Key Gap |
+| Item | Classificação | Evidência | Lacuna Principal |
 |---|---|---|---|
-| A.1 Theory of Change | … | … | … |
-| A.2 Results Framework | … | … | … |
-| A.3 Risk Assessment | … | … | … |
-| A.4 Implementation | … | … | … |
-| A.5 Financial Sustainability | … | … | … |
+| A.1 Teoria da Mudança | … | … | … |
+| A.2 Marco de Resultados | … | … | … |
+| A.3 Avaliação de Riscos | … | … | … |
+| A.4 Implementação | … | … | … |
+| A.5 Sustentabilidade Financeira | … | … | … |
 
-Overall MDB readiness: READY / CONDITIONALLY READY / NOT READY.
+Prontidão geral para banco multilateral de desenvolvimento: PRONTO / CONDICIONALMENTE PRONTO
+/ NÃO PRONTO.

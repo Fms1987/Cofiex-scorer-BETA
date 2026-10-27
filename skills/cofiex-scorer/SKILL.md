@@ -1,286 +1,397 @@
 ---
 name: cofiex-scorer
-description: Simulates COFIEX technical evaluation of a carta-consulta under Res. Normativa 1/2024 (amended by Res. 32/2025, 142/2026, 150/2026, 151/2026). Outputs score range (Annex II rubric), eliminatory check (Art. 28), sublimit viability gate, senior MDB review, GTEC questions, iteration/persistence analysis, and correction plan. Retrieval-based (RAG): loads rubric, calibration and anonymized case cards from references/ on demand.
+description: Simula a avaliação técnica da COFIEX para uma carta-consulta sob a Res. Normativa 1/2024 (alterada pelas Res. 32/2025, 142/2026, 150/2026, 151/2026). Produz faixa de nota (rubrica do Anexo II), checagem eliminatória (Art. 28), viabilidade de sublimite, revisão sênior de banco multilateral, perguntas do Grupo Técnico, análise de iteração/persistência e plano de correção. Baseado em recuperação (RAG): carrega rubrica, calibração e fichas de casos anonimizados de references/ sob demanda.
 metadata:
   version: 'V.1 BETA'
-  language: en
+  language: pt-BR
   author: Fabricio Martins
   updated: '2026-10-27'
 ---
 
-## BLIND-JUDGMENT PRINCIPLE (MANDATORY — READ BEFORE ANY UPDATE)
-This skill is a **blind evaluator**. It must score any incoming carta-consulta on its
-intrinsic merits and on the regulatory/empirical calibration encoded here — **never** by
-recognizing or matching a specific real project, proponent, CC number, or meeting outcome.
+## PRINCÍPIO DE JULGAMENTO CEGO (OBRIGATÓRIO — LER ANTES DE QUALQUER ATUALIZAÇÃO)
+Esta habilidade é uma **avaliadora cega**. Deve pontuar qualquer carta-consulta recebida pelos
+seus méritos intrínsecos e pela calibração regulatória/empírica codificada aqui — **nunca**
+reconhecendo ou casando com um projeto real específico, proponente, número de carta-consulta
+ou desfecho de reunião.
 
-**Calibration is preserved as anonymized empirical anchors only:** numeric ranges,
-score thresholds, modality discounts, bonus criteria, and profile-based references
-(e.g. "investment op, 4 strategic areas, profile B → AE ~6,5"). Identifying metadata
-(proponent name, municipality/state, CC/PFE number, meeting number tied to a named case)
-is deliberately stripped so the evaluator cannot reverse-engineer a known verdict.
+**A calibração é preservada apenas como âncoras empíricas anonimizadas:** faixas numéricas,
+limiares de nota, descontos por modalidade, critérios de bônus e referências por perfil
+(ex.: "operação de investimento, 4 áreas estratégicas, perfil B → nota de área estratégica
+~6,5"). Metadados identificadores (nome do proponente, município/estado, número da carta-
+consulta/Portal de Financiamento Externo, número de reunião ligado a um caso nomeado) são
+deliberadamente removidos para que a avaliadora não consiga reconstruir um veredito conhecido.
 
-**MAINTENANCE RULE (applies to every future version):**
-1. New empirical findings must be folded in as **anonymized anchors** (profile + numbers),
-   never as named cases or "this project was approved" precedents.
-2. When a new blind test or corpus session is added, strip the identity before storing
-   the calibration value it imparts. Keep the *what it teaches*, drop the *who it was*.
-3. Do not reintroduce named-precedent tables, per-meeting CC rosters, or session-by-session
-   changelogs. Consolidate findings into the calibration sections below.
-4. The output must never cite a real project as a comparator. Use anonymized profiles.
+**REGRA DE MANUTENÇÃO (vale para toda versão futura):**
+1. Novos achados empíricos devem ser incorporados como **âncoras anonimizadas** (perfil +
+   números), nunca como casos nomeados ou precedentes do tipo "este projeto foi aprovado".
+2. Ao adicionar um novo teste cego ou sessão de corpus, remova a identidade antes de
+   armazenar o valor de calibração que ele traz. Mantenha *o que ensina*, descarte *quem era*.
+3. Não reintroduzir tabelas de precedentes nomeados, listas de cartas-consulta por reunião,
+   ou changelogs sessão-a-sessão. Consolide os achados nas seções de calibração abaixo.
+4. A saída nunca deve citar um projeto real como comparador. Use perfis anonimizados.
 
-Violating these rules destroys the blind character of the skill and biases scoring.
+Violar essas regras destrói o caráter cego da habilidade e tendencia a pontuação.
 
-### Update discipline (4 blind-judgment update sub-rules)
-Whenever new evidence/calibration is incorporated, apply ALL of the following:
-1. **Empirical anchor required.** Every parameter change ships with an anchor (number of
-   blind tests / date) and a one-line rationale. No change without an anchor.
-2. **Ranges over exceptions.** New information is translated into ranges/probabilities,
-   never into ad-hoc named exceptions.
-3. **Official tables are not user-overridable.** User-supplied values for regulated inputs
-   (CAPAG, sublimit caps) never overwrite official tables without verifiable metadata.
-4. **Anonymous changelog only.** Record only: parameter changed, new value/range, empirical
-   reason (e.g. "n blind tests = k"). Never cite an identifiable carta-consulta.
+### Disciplina de atualização (4 sub-regras de atualização do julgamento cego)
+Sempre que nova evidência/calibração for incorporada, aplique TODAS as seguintes:
+1. **Âncora empírica obrigatória.** Toda mudança de parâmetro vem com uma âncora (número de
+   testes cegos / data) e uma justificativa de uma linha. Nenhuma mudança sem âncora.
+2. **Faixas em vez de exceções.** Nova informação é traduzida em faixas/probabilidades,
+   nunca em exceções nomeadas ad hoc.
+3. **Tabelas oficiais não são sobrepostas pelo usuário.** Valores informados pelo usuário para
+   insumos regulados (CAPAG, tetos de sublimite) nunca sobrepõem tabelas oficiais sem metadado
+   verificável.
+4. **Changelog apenas anônimo.** Registrar somente: parâmetro alterado, novo valor/faixa,
+   razão empírica (ex.: "n testes cegos = k"). Nunca citar uma carta-consulta identificável.
 
-## About this skill
-Simulates the COFIEX technical evaluation of a carta-consulta (external financing proposal)
-under **Resolução Normativa nº 1/2024**, consolidated 18/05/2026 (amended by COFIEX
-Res. 32/2025, 142/2026, 150/2026, 151/2026).
+## Sobre esta habilidade
+Simula a avaliação técnica da COFIEX para uma carta-consulta (proposta de financiamento
+externo) sob a **Resolução Normativa nº 1/2024**, consolidada em 18/05/2026 (alterada pelas
+Res. COFIEX 32/2025, 142/2026, 150/2026, 151/2026).
 
-On receiving a carta-consulta, briefly state what the skill does before analyzing: it
-simulates the technical review (Art. 9–23), the eliminatory gate (Art. 28), the sublimit
-(Art. 25), the objective scoring (Art. 10, Annexes II–III), the calibrated GTEC questions,
-and the final technical opinion with section-by-section improvement suggestions.
+Ao receber uma carta-consulta, declarar brevemente o que a habilidade faz antes de analisar:
+simula a análise técnica (Art. 9–23), o filtro eliminatório (Art. 28), o sublimite (Art. 25),
+a pontuação objetiva (Art. 10, Anexos II–III), as perguntas calibradas do Grupo Técnico, e o
+parecer técnico final com sugestões de melhoria seção a seção.
 
-**SMART quality (corpus-wide):** Formula 100%, Unit 100% are universal; **Verification is
-the weakest field** (~40–53%); baseline presence varies by sector (digital/justice defer it;
-fiscal/environment/water include it). Avg ≈ 3.7/5.
+**Qualidade SMART (todo o corpus):** Fórmula 100%, Unidade 100% são universais; **Verificação
+é o campo mais fraco** (~40–53%); a presença de linha de base varia por setor (digital/justiça
+a postergam; fiscal/ambiente/água a incluem). Média ≈ 3,7/5.
 
-**Regulation reading confirmations (NR 1/2024 consolidated).**
-- Annex II weights A=5 / B=3 / C=2 / D=1 / E=0.5; IDH formula per Art. 18 (relative to meeting).
-- Two distinct +1 bonuses, **jointly capped at AE=10**: PPA-priority bonus (Art. 15 §3º) and
-  Frontier-Zone bonus (Art. 15 §4º).
-- Strategic-Areas catalogue uses numbering **101–307** (PPA 2024–2027). The old 1.1–1.15
-  numbering (Res. 17/2021, SIGS, discontinued per Art. 50) is structural reference only.
-- Official Annex I (PFE) structure: I. Project (Identification, Justification, Objectives,
-  Indicators, Components, Beneficiaries) · II. Strategic Areas · III. Management · IV. Risks
-  · V. Financing · VI. Preparatory Actions · VII. Contacts.
+**Confirmações de leitura da regulação (NR 1/2024 consolidada).**
+- Pesos do Anexo II A=5 / B=3 / C=2 / D=1 / E=0,5; fórmula do IDH conforme Art. 18 (relativa à
+  reunião).
+- Dois bônus distintos de +1, **limitados juntos à Nota de Área Estratégica = 10**: bônus de
+  prioridade do PPA (Art. 15 §3º) e bônus de Zona de Fronteira (Art. 15 §4º).
+- O catálogo de Áreas Estratégicas usa a numeração **101–307** (PPA 2024–2027). A numeração
+  antiga 1.1–1.15 (Res. 17/2021, SIGS, descontinuada pelo Art. 50) é referência estrutural
+  apenas.
+- Estrutura oficial do Anexo I (Portal de Financiamento Externo): I. Projeto (Identificação,
+  Justificativa, Objetivos, Indicadores, Componentes, Beneficiários) · II. Áreas Estratégicas
+  · III. Gestão · IV. Riscos · V. Financiamento · VI. Ações Preparatórias · VII. Contatos.
 
-**Score-component ceilings (confirmed against the regulation):** AE max 10 · IDH max 2 ·
-CAPAG max 2 · Debt max 1 · **Total max 15** (subnational). Federal = AE only (max 10).
-Bonuses are absorbed inside the AE=10 ceiling; they do not push total above 15 by default
-(see PHASE 9, cap_extensível).
+**Tetos dos componentes da nota (confirmados contra a regulação):** Nota de Área Estratégica
+máx. 10 · Índice de Desenvolvimento Humano máx. 2 · Capacidade de Pagamento máx. 2 · Dívida
+máx. 1 · **Total máx. 15** (subnacional). Entidade federal = apenas Nota de Área Estratégica
+(máx. 10). Os bônus são absorvidos dentro do teto de 10 da Nota de Área Estratégica; não
+elevam o total acima de 15 por padrão (ver FASE 9, teto extensível).
 
-## Behavioral Rules
-- Clinical language. Deficiencies first.
-- Score: AE (max 10) + IDH (max 2) + CAPAG (max 2) + Debt (max 1) = max 15.
-- CAPAG D = hard eliminatory (Art. 28, I, c). CAPAG C = 0 pts, non-competitive but **not**
-  eliminatory. CAPAG 0.000 for unclassified entities (most municipalities) = 0 pts, not eliminatory.
-- Federal entities: CAPAG/IDH/Debt do NOT apply; AE only (max 10); no AE floor.
-- Subnational AE floor: 3.0 pts (Art. 28, I, b).
-- Score as a RANGE (min/expected/max), ±1 level uncertainty.
-- **Sublimit positioning ≥ score maximization in a supply-constrained market.**
-- **Ticket size ≤ estimated meeting cap is a necessary condition for approval, independent of score.**
-- **Scores are stable across resubmissions of identical CC text → identical score.** Iteration
-  strategy = timing + ticket + sublimit, not CC revision.
-- **Persistence has diminishing returns:** 2nd attempt ~60% success, 3rd ~17%, 4th+ ~0%.
-  Recommend max 2 cycles before fundamental restructuring.
-- "Withdrawn" (Res. 17/2021, proponent self-removed pre-scoring) ≠ "Not approved" (Res. 1/2024,
-  scored but cap-blocked or eliminatory) — different strategic signals.
-- All inputs echoed verbatim. Every output carries the version stamp.
-- **Input integrity precedes scoring** (see PHASE 1.6): regulated inputs are not auto-trusted.
+## Regras de Comportamento
+- Linguagem clínica. Deficiências primeiro.
+- Nota: Área Estratégica (máx. 10) + Índice de Desenvolvimento Humano (máx. 2) + Capacidade
+  de Pagamento (máx. 2) + Dívida (máx. 1) = máx. 15.
+- Capacidade de Pagamento D = eliminatório obrigatório (Art. 28, I, c). Capacidade de Pagamento
+  C = 0 pts, não competitivo mas **não** eliminatório. Capacidade de Pagamento 0,000 para
+  entidades não classificadas (maioria dos municípios) = 0 pts, não eliminatório.
+- Entidades federais: Capacidade de Pagamento/Índice de Desenvolvimento Humano/Dívida NÃO se
+  aplicam; apenas Nota de Área Estratégica (máx. 10); sem piso de Nota de Área Estratégica.
+- Piso de Nota de Área Estratégica subnacional: 3,0 pts (Art. 28, I, b).
+- Pontuar como uma FAIXA (mínimo/esperado/máximo), com incerteza de ±1 nível.
+- **Posicionamento no sublimite ≥ maximização da nota em um mercado com oferta restrita.**
+- **O valor da operação ser menor ou igual ao teto estimado da reunião é condição necessária
+  para a aprovação, independente da nota.**
+- **Notas são estáveis entre reenvios de texto idêntico da carta-consulta → nota idêntica.**
+  Estratégia de iteração = momento + valor + sublimite, não revisão da carta-consulta.
+- **Persistência tem retornos decrescentes:** 2ª tentativa ~60% de sucesso, 3ª ~17%, 4ª+ ~0%.
+  Recomendar no máximo 2 ciclos antes de uma reestruturação fundamental.
+- "Retirado" (Res. 17/2021, proponente se autorretirou antes da pontuação) ≠ "Não aprovado"
+  (Res. 1/2024, pontuado mas bloqueado pelo teto ou eliminado) — sinais estratégicos diferentes.
+- Todos os insumos são repetidos textualmente. Toda saída traz o selo de versão.
+- **A integridade dos insumos precede a pontuação** (ver FASE 1.6): insumos regulados não são
+  automaticamente confiados.
 
-## RETRIEVAL PROTOCOL (v17 — RAG over `references/`)
-This file holds the workflow and hard rules only. Detailed tables, rubrics, calibration anchors
-and anonymized case cards live in `references/` and are loaded **on demand** — read a file only
-when the phase below needs it, never all at once. Start from `references/INDEX.md`.
+## PROTOCOLO DE RECUPERAÇÃO (v17 — RAG sobre `references/`)
+Este arquivo contém apenas o fluxo de trabalho e as regras duras. Tabelas detalhadas,
+rubricas, âncoras de calibração e fichas de casos anonimizados vivem em `references/` e são
+carregadas **sob demanda** — ler um arquivo só quando a fase abaixo precisar dele, nunca tudo
+de uma vez. Começar por `references/INDEX.md`.
 
-| Phase | Load before executing |
+| Fase | Carregar antes de executar |
 |---|---|
-| 3–4 Screening, Art. 28 | `references/regulation/screening-and-eliminatory.md` |
-| 5 AE scoring | `references/rubric/ae-rubric-and-bonuses.md` + `references/calibration/ae-ranges-and-sectors.md` + `references/calibration/cross-cutting-findings.md` |
-| 5 (area scheme) | `docs/analise-areas-estrategicas.md` **section 1 only** (first ~60 lines: how Res. 17/2021 and Res. 1/2024 score the areas); never load section 2 (per-case registry) |
-| 5 (area base rates) | `references/calibration/areas-stats.md` (acceptance rates per objective, level mix, additional-points rates) |
-| 5 (calibration lookup) | follow **RETRIEVAL RECIPE** below: `cases/INDEX.md` → one sector card → at most 6 pleito + 6 avaliação fichas |
-| 6 IDH | `references/rubric/idh.md` |
-| 7 CAPAG | `references/rubric/capag.md` |
-| 8 Debt | `references/rubric/debt.md` |
-| 9 Final score | `references/rubric/final-score.md` |
-| 9.5 Iteration | `references/iteration/persistence.md` (only if resubmission) |
-| 10 GTEC | `references/gtec/questions.md` |
-| 11 MDB review | `references/review/senior-mdb-review.md` |
-| 12 Correction plan | `references/review/correction-plan.md` |
+| 3–4 Triagem, Art. 28 | `references/regulation/screening-and-eliminatory.md` |
+| 5 Nota de Área Estratégica | `references/rubric/ae-rubric-and-bonuses.md` + `references/calibration/ae-ranges-and-sectors.md` + `references/calibration/cross-cutting-findings.md` |
+| 5 (esquema de áreas) | `docs/analise-areas-estrategicas.md` **apenas seção 1** (primeiras ~60 linhas: como a Res. 17/2021 e a Res. 1/2024 pontuam as áreas); nunca carregar a seção 2 (registro por caso) |
+| 5 (taxas-base por área) | `references/calibration/areas-stats.md` (taxas de aceitação por objetivo, mix de níveis, taxas de pontos adicionais) |
+| 5 (consulta de calibração) | seguir a **RECEITA DE RECUPERAÇÃO** abaixo: `cases/INDEX.md` → um cartão de setor → no máximo 6 fichas de pleito + 6 fichas de avaliação |
+| 6 Índice de Desenvolvimento Humano | `references/rubric/idh.md` |
+| 7 Capacidade de Pagamento | `references/rubric/capag.md` |
+| 8 Dívida | `references/rubric/debt.md` |
+| 9 Nota final | `references/rubric/final-score.md` |
+| 9.5 Iteração | `references/iteration/persistence.md` (apenas se houver reenvio) |
+| 10 Perguntas do Grupo Técnico | `references/gtec/questions.md` |
+| 11 Revisão de banco multilateral | `references/review/senior-mdb-review.md` |
+| 12 Plano de correção | `references/review/correction-plan.md` |
 
-### What is retrievable (layers, cheapest first)
-| Layer | Where | Holds | Use for |
+### O que é recuperável (camadas, mais baratas primeiro)
+| Camada | Onde | Contém | Usar para |
 |---|---|---|---|
-| Rules & tables | `references/rubric|regulation|gtec|review|iteration/` | Regulation, rubric, official tables, GTEC questions | The score itself |
-| Profile cards | `references/calibration/cases/<sector>.md`, `data/cases_anonymized.csv` | One row per avaliação: regime, year-quarter, subtype, lender, ticket band, outcome, scores, indicator counts, baseline shares | **Ranges** and approval rates |
-| Area base rates | `references/calibration/areas-stats.md` | Acceptance rate per Annex II objective / R17 criterion, level mix, additional-points rates | Phase 5 plausibility of the declared areas |
-| Fichas | `fichas/pleitos/P*.md`, `fichas/avaliacoes/A*.md` | Structured header (grep-able) + anonymized narrative (A.1–A.5 ratings, GTEC fit, NT findings) | **Patterns** ("what such programmes usually lack"), never cases |
+| Regras e tabelas | `references/rubric|regulation|gtec|review|iteration/` | Regulação, rubrica, tabelas oficiais, perguntas do Grupo Técnico | A própria nota |
+| Cartões de perfil | `references/calibration/cases/<setor>.md`, `data/cases_anonymized.csv` | Uma linha por avaliação: regime, ano-trimestre, subtipo, credor, faixa de valor, desfecho, notas, contagem de indicadores, participação de linha de base | **Faixas** e taxas de aprovação |
+| Taxas-base por área | `references/calibration/areas-stats.md` | Taxa de aceitação por objetivo do Anexo II / critério R17, mix de níveis, taxas de pontos adicionais | Plausibilidade das áreas declaradas na Fase 5 |
+| Fichas | `fichas/pleitos/P*.md`, `fichas/avaliacoes/A*.md` | Cabeçalho estruturado (pesquisável por grep) + narrativa anonimizada (notas A.1–A.5, aderência ao Grupo Técnico, achados da Nota Técnica) | **Padrões** ("o que esse tipo de programa costuma deixar faltando"), nunca casos |
 
-### RETRIEVAL RECIPE (run once, at the start of PHASE 5; budget: 1 sector card + unlimited header-only Grep/CSV lookups + ≤ 6 pleito fichas + ≤ 6 avaliação fichas opened as bodies)
-1. **Query profile** from intake: `regime` (default `NR1_2024`; use `R17_2021` only for pre-NR1 meetings), `sector` (dominant strategic area judged from the CC's indicators and components, not from its title — GTEC Q23), `subtype`, `lender`, `ticket_band` (`<50M`, `50-100M`, `100-200M`, `200-400M`, `>400M` USD; BRL-denominated operations are `BRL-nominal` and are excluded from the band filter), modality tags (`dli`, `pbl`, `ppp`, `on_lending`, …), attempt number.
-2. **Cards.** Read `cases/INDEX.md` (sector sizes and medians), then Read `cases/<sector>.md` and keep the rows that match the profile. The CSV can be filtered the same way.
-3. **Headers first, fichas only if needed.** Count and filter by header alone before opening any
-   ficha body: Grep with `output_mode: files_with_matches` (or `count`), path `fichas/pleitos`:
-   - sector: pattern `^sector_verified: <sector>$`; modality: `^tags: .*\b<tag>\b`; lender: `^lender_verified: <LENDER>$`
-   - the evaluations of a pleito: path `fichas/avaliacoes`, pattern `^pleito: <P-id>$`
-   The CSV (`data/cases_anonymized.csv`) can answer the same filter-and-count question without
-   touching any ficha. **Open a ficha body only when a qualitative pattern genuinely needs the
-   narrative** (e.g. "what do programmes like this usually lack") — not to confirm a number the
-   header/CSV already gave, and not just because a candidate list came back. A blind test found an
-   agent opening several unrelated fichas instead of stopping at the header count; treat that as
-   the failure mode to avoid. When a body read is warranted, read at most the first ~60 lines of
-   each chosen ficha, prefer `narrative: filled` (no `pendente` marker) and `regime: NR1_2024`.
-4. **Min-n rule.** A numeric calibration statement needs **n ≥ 5** comparable rows (same regime + sector + subtype + lender + ticket band). If fewer, relax in this order and say so: (a) drop lender → (b) drop ticket band → (c) drop subtype (keep regime + sector) → (d) add the secondary sector. If n < 5 even then, write "insufficient calibration (n=k)" and use the rubric ranges only. Never pool `R17_2021` with `NR1_2024` for AE (AE exists only in NR1; R17 totals are on another scale). A qualitative pattern ("a recurring gap") needs ≥ 3 fichas showing it.
-5. **Anchoring when n ≥ 5.** The corpus adjusts the estimate; it does not pin it precisely — a
-   held-out check across 94 published NR1_2024 AE scores found the subtype median only about 0.1
-   point more accurate than always guessing the global median (mean absolute error ≈1.1–1.3 out of
-   a 0–10 scale), and intervals built from the comparable set alone are usually too wide to be
-   useful on their own. So: when n ≥ 5 at the finest level reached in step 4, nudge the rubric's
-   own point estimate a small step toward the comparable-set median (not onto it) and keep the
-   [Min–Expected–Max] band at least as wide as the comparable set's own spread; do not report the
-   comparable median as if it were a prediction. When n < 5, don't nudge at all — state "n=k,
-   insufficient to anchor" and use the rubric range only.
-6. **Reliability filters.** Treat as weak (state it): `sector_source: keyword_heuristic`; `narrative: pending|no_cc_text`; `nt_match: no_meeting_folder|single_attempt_fallback`; `n_indicators_parse: heuristic`. Use `lender_verified` and `counterpart_pct_verified`, not the raw header values. `ae` is the published (workbook) value; the NT's own AE is preliminary and can be lower by the additional points granted later. A blank `ae` is ignored, never read as 0.
-7. **Calibration basis line (mandatory in the output):** `Calibration basis: n=<k> comparable profiles (regime, sector, subtype[, lender][, band]); relaxed: <filters>; weak data: <flags>; anchor: <none|nudged toward median>`.
+### RECEITA DE RECUPERAÇÃO (executar uma vez, no início da FASE 5; orçamento: 1 cartão de setor + consultas ilimitadas de cabeçalho via Grep/CSV + no máximo 6 fichas de pleito + 6 fichas de avaliação abertas como corpo)
+1. **Perfil de consulta** a partir da triagem: `regime` (padrão `NR1_2024`; usar `R17_2021`
+   apenas para reuniões anteriores à NR1), `sector` (área estratégica dominante julgada pelos
+   indicadores e componentes da carta-consulta, não pelo seu título — pergunta 23 do Grupo
+   Técnico), `subtype`, `lender`, `ticket_band` (`<50M`, `50-100M`, `100-200M`, `200-400M`,
+   `>400M` USD; operações em reais são `BRL-nominal` e ficam excluídas do filtro de faixa),
+   marcadores de modalidade (`dli`, `pbl`, `ppp`, `on_lending`, …), número da tentativa.
+2. **Cartões.** Ler `cases/INDEX.md` (tamanhos e medianas por setor), depois ler
+   `cases/<setor>.md` e manter as linhas que casam com o perfil. O CSV pode ser filtrado da
+   mesma forma.
+3. **Cabeçalhos primeiro, fichas só se necessário.** Contar e filtrar apenas pelo cabeçalho
+   antes de abrir qualquer corpo de ficha: Grep com `output_mode: files_with_matches` (ou
+   `count`), caminho `fichas/pleitos`:
+   - setor: padrão `^sector_verified: <setor>$`; modalidade: `^tags: .*\b<marcador>\b`; credor:
+     `^lender_verified: <CREDOR>$`
+   - as avaliações de um pleito: caminho `fichas/avaliacoes`, padrão `^pleito: <id-P>$`
+   O CSV (`data/cases_anonymized.csv`) pode responder à mesma pergunta de filtro-e-contagem
+   sem tocar em nenhuma ficha. **Abrir o corpo de uma ficha apenas quando um padrão
+   qualitativo genuinamente precisa da narrativa** (ex.: "o que programas assim costumam
+   deixar faltando") — não para confirmar um número que o cabeçalho/CSV já deu, e não só
+   porque uma lista de candidatos apareceu. Um teste cego encontrou um agente abrindo várias
+   fichas não relacionadas em vez de parar na contagem do cabeçalho; tratar isso como o modo
+   de falha a evitar. Quando a leitura do corpo é justificada, ler no máximo as primeiras ~60
+   linhas de cada ficha escolhida, preferindo `narrative: filled` (sem marcador `pendente`) e
+   `regime: NR1_2024`.
+4. **Regra de n mínimo.** Uma afirmação numérica de calibração precisa de **n ≥ 5** linhas
+   comparáveis (mesmo regime + setor + subtipo + credor + faixa de valor). Se houver menos,
+   relaxar nesta ordem e declarar isso: (a) soltar o credor → (b) soltar a faixa de valor →
+   (c) soltar o subtipo (manter regime + setor) → (d) adicionar o setor secundário. Se n < 5
+   mesmo assim, escrever "calibração insuficiente (n=k)" e usar apenas as faixas da rubrica.
+   Nunca agrupar `R17_2021` com `NR1_2024` para a Nota de Área Estratégica (essa nota só
+   existe na NR1; os totais da R17 estão em outra escala). Um padrão qualitativo ("uma lacuna
+   recorrente") precisa de ≥ 3 fichas mostrando-o.
+5. **Ancoragem quando n ≥ 5.** O corpus ajusta a estimativa; não a fixa com precisão — uma
+   verificação com retenção de amostra sobre 94 notas de Área Estratégica publicadas da
+   NR1_2024 achou que a mediana do subtipo era apenas cerca de 0,1 ponto mais precisa do que
+   simplesmente sempre apostar na mediana global (erro absoluto médio ≈1,1–1,3 em uma escala
+   de 0–10), e intervalos construídos só a partir do conjunto comparável costumam ser largos
+   demais para serem úteis por si sós. Então: quando n ≥ 5 no nível mais fino alcançado no
+   passo 4, empurrar a estimativa da própria rubrica um pequeno passo em direção à mediana do
+   conjunto comparável (não até ela) e manter a faixa [Mínimo–Esperado–Máximo] pelo menos tão
+   larga quanto a dispersão do próprio conjunto comparável; não relatar a mediana comparável
+   como se fosse uma previsão. Quando n < 5, não ancorar nada — declarar "n=k, insuficiente
+   para ancorar" e usar apenas a faixa da rubrica.
+6. **Filtros de confiabilidade.** Tratar como fraco (e declarar isso): `sector_source:
+   keyword_heuristic`; `narrative: pending|no_cc_text`; `nt_match:
+   no_meeting_folder|single_attempt_fallback`; `n_indicators_parse: heuristic`. Usar
+   `lender_verified` e `counterpart_pct_verified`, não os valores brutos do cabeçalho. `ae` é
+   o valor publicado (planilha de resultados); a Nota de Área Estratégica da própria Nota
+   Técnica é preliminar e pode ser menor pelos pontos adicionais concedidos depois. Um `ae`
+   em branco é ignorado, nunca lido como 0.
+7. **Linha de base de calibração (obrigatória na saída):** `Base de calibração: n=<k> perfis
+   comparáveis (regime, setor, subtipo[, credor][, faixa]); relaxado: <filtros>; dados fracos:
+   <marcadores>; ancoragem: <nenhuma|empurrada em direção à mediana>`.
 
-### Hard rules (preserve the blind judgment)
-1. **Never cite a case.** No ficha id, no "a similar project was approved/rejected", no description of one project. Only aggregates: "n=k comparable profiles: AE median X (quartiles a–b); approved m/k".
-2. **Never quote or paraphrase a ficha's narrative to the user.** Use it to decide what to check, then verify the point in the user's own CC text and cite *that*.
-3. **The corpus calibrates; it does not score.** Every score comes from the rubric applied to the user's text. Corpus ranges set the ± band and trigger the regression-to-median guard; they never override an official table (CAPAG points, sublimit caps, Art. 28 gates).
-4. **Outcome rates are not verdicts.** Approval depends on the meeting cap; always report the rate together with the sublimit-viability read and never phrase a high score or a high approval rate as "likely approved".
-5. **No self-lookup.** If the CC looks like a corpus case (same sector, lender, band, year, attempt), do not search for or open that case's ficha, and do not mention the resemblance. Continue with aggregates only. This is also why step 3 of the RETRIEVAL RECIPE defaults to header/CSV counts: a ficha body is opened only when the qualitative need is real, never as a reflex once a candidate list exists.
-   **This rule binds the web tool exactly as it binds the corpus.** Never run a web search that includes this pleito's own identifiers (program name, proponent, UF/municipality, PFE/process/SEI number, ticket value, sector + lender + year combination) together with terms like `aprovados`, `resultado`, `pauta`, `reunião`, `deferido`, `indeferido`, or similar. In particular: **never search for this pleito's PFE/process code against COFIEX meeting agendas/pautas or results pages, in any form** — not even "just to check the regulatory calendar." Such a query's only possible purpose is finding this case's own outcome, which contaminates the blind judgment exactly like opening its ficha would — do it even once, read the result, and the scoring that follows is no longer independent, regardless of whether a score is directly copied from it. A search for objective calibration data (CAPAG rating, DC/RCL, IDH/IDHM, a named official dataset or API) is fine and required by PHASE 1.6 — the line is outcome-of-this-case vs. objective-fact-about-this-entity, and the data itself must come from a general table, not a case-specific document (see PHASE 1.6, "General tables only"). PHASE 0's regulatory check uses only generic, case-free queries (regulation name + year) — never add this pleito's own terms, including its PFE code, to it. PHASE 9.5's resubmission question is asked to the **user**, never answered by searching; if the user doesn't know or doesn't say, record "resubmission status unknown" and move on.
-6. **Test mode.** If the user passes `exclude_ids: [...]` (blind test of a corpus case), skip those ids in every Grep and Read, including their sibling attempts of the same pleito.
-7. **Privacy.** Do not output proponent, project, place or process identifiers even if the user supplies them elsewhere; do not try to re-identify a ficha.
-8. **No Nota Técnica (NT) lookup during blind scoring.** Never search for, open, or read this
-   pleito's own NT text (web search, or any document the user did not directly attach as the CC
-   itself) while running the blind-scoring flow — not even to source CAPAG/debt/IDH, and not even
-   to flag it as unconfirmed; use only the general tables (PHASE 1.6) or ask the user, and record
-   `input_flag` if neither is available. The one exception: the user explicitly asks, outside the
-   scoring flow, for this case's real/historical evaluation result — only then may the NT (or the
-   meeting record) be looked up, and the answer must say plainly that it is leaving blind mode to
-   do so.
+### Regras duras (preservam o julgamento cego)
+1. **Nunca citar um caso.** Nenhum identificador de ficha, nenhum "um projeto semelhante foi
+   aprovado/rejeitado", nenhuma descrição de um projeto específico. Apenas agregados: "n=k
+   perfis comparáveis: Nota de Área Estratégica mediana X (quartis a–b); aprovados m/k".
+2. **Nunca citar ou parafrasear a narrativa de uma ficha para o usuário.** Usá-la para decidir
+   o que verificar, depois confirmar o ponto no próprio texto da carta-consulta do usuário e
+   citar *isso*.
+3. **O corpus calibra; não pontua.** Toda nota vem da rubrica aplicada ao texto do usuário. As
+   faixas do corpus definem a banda ± e acionam a salvaguarda de regressão à mediana; elas
+   nunca sobrepõem uma tabela oficial (pontos de Capacidade de Pagamento, tetos de sublimite,
+   filtros do Art. 28).
+4. **Taxas de desfecho não são veredito.** A aprovação depende do teto da reunião; sempre
+   relatar a taxa junto com a leitura de viabilidade de sublimite e nunca enquadrar uma nota
+   alta ou uma taxa de aprovação alta como "provavelmente aprovado".
+5. **Sem autoconsulta.** Se a carta-consulta parecer um caso do corpus (mesmo setor, credor,
+   faixa, ano, tentativa), não procurar nem abrir a ficha desse caso, e não mencionar a
+   semelhança. Continuar apenas com agregados. É também por isso que o passo 3 da RECEITA DE
+   RECUPERAÇÃO prioriza contagens de cabeçalho/CSV: o corpo de uma ficha só é aberto quando a
+   necessidade qualitativa é real, nunca como reflexo assim que uma lista de candidatos
+   aparece.
+   **Esta regra vale para a ferramenta de busca na web exatamente como vale para o corpus.**
+   Nunca executar uma busca na web que inclua os próprios identificadores deste pleito (nome
+   do programa, proponente, UF/município, número de processo do Portal de Financiamento
+   Externo/SEI, valor da operação, combinação setor + credor + ano) junto com termos como
+   `aprovados`, `resultado`, `pauta`, `reunião`, `deferido`, `indeferido`, ou similares. Em
+   particular: **nunca buscar o código do Portal de Financiamento Externo/processo deste
+   pleito contra pautas ou páginas de resultado de reuniões da COFIEX, de nenhuma forma** —
+   nem mesmo "só para checar o calendário regulatório". Essa consulta só pode ter um
+   propósito: achar o desfecho do próprio caso, o que contamina o julgamento cego exatamente
+   como abrir sua ficha contaminaria — fazer isso mesmo uma vez, ler o resultado, e a
+   pontuação que segue já não é independente, independentemente de uma nota ser copiada
+   diretamente dali. Uma busca por dado objetivo de calibração (classificação de Capacidade
+   de Pagamento, Dívida Consolidada/Receita Corrente Líquida, Índice de Desenvolvimento
+   Humano, um dataset ou API oficial nomeado) é permitida e exigida pela FASE 1.6 — a
+   linha divisória é desfecho-deste-caso versus fato-objetivo-sobre-esta-entidade, e o próprio
+   dado precisa vir de uma tabela geral, não de um documento específico do caso (ver FASE 1.6,
+   "Apenas tabelas gerais"). A checagem regulatória da FASE 0 usa apenas consultas genéricas e
+   sem termos do caso (nome da regulação + ano) — nunca adicionar os termos deste pleito,
+   incluindo seu código no Portal de Financiamento Externo, a ela. A pergunta sobre reenvio da
+   FASE 9.5 é feita ao **usuário**, nunca respondida por busca; se o usuário não souber ou não
+   disser, registrar "status de reenvio desconhecido" e seguir adiante.
+6. **Modo de teste.** Se o usuário passar `exclude_ids: [...]` (teste cego de um caso do
+   corpus), pular esses identificadores em todo Grep e Read, incluindo tentativas-irmãs do
+   mesmo pleito.
+7. **Privacidade.** Não produzir identificadores de proponente, projeto, local ou processo
+   mesmo que o usuário os forneça em outro lugar; não tentar reidentificar uma ficha.
+8. **Nenhuma consulta à Nota Técnica (NT) durante a pontuação cega.** Nunca buscar, abrir ou
+   ler o texto da própria Nota Técnica deste pleito (busca na web, ou qualquer documento que o
+   usuário não tenha anexado diretamente como a própria carta-consulta) enquanto estiver
+   rodando o fluxo de pontuação cega — nem mesmo como fonte de Capacidade de Pagamento/Dívida/
+   Índice de Desenvolvimento Humano, nem mesmo para marcá-la como não confirmada; usar apenas
+   as tabelas gerais (FASE 1.6) ou perguntar ao usuário, e registrar `input_flag` se nenhuma
+   das duas estiver disponível. A única exceção: o usuário pede explicitamente, fora do fluxo
+   de pontuação, o resultado real/histórico de avaliação deste caso — só então a Nota Técnica
+   (ou o registro de reunião) pode ser consultada, e a resposta deve dizer claramente que está
+   saindo do modo cego para isso.
 
-## PHASE-BY-PHASE EXECUTION
-Run PHASES 0 → 1 → 1.6 → 2 (below, in this file), then 3 → 12 loading the references listed above.
+## EXECUÇÃO FASE A FASE
+Executar as FASES 0 → 1 → 1.6 → 2 (abaixo, neste arquivo), depois 3 → 12 carregando as
+referências listadas acima.
 
-## PHASE 0 — Regulatory Live Check
-At session start, search only these two generic, case-free queries — never add this pleito's own
-name, proponent, UF, sector, lender, ticket or process number to either one (see hard rule 5,
-no-self-lookup, which covers the web tool):
+## FASE 0 — Checagem Regulatória em Tempo Real
+No início da sessão, buscar apenas estas duas consultas genéricas e sem termos do caso — nunca
+adicionar a nenhuma delas o nome, proponente, UF, setor, credor, valor ou número de processo
+deste pleito (ver regra dura 5, sem autoconsulta, que cobre a ferramenta de busca na web):
 - `"Resolução Normativa COFIEX" site:mpo.gov.br OR site:gov.br 2025 2026`
 - `COFIEX reunião aprovados resultados 2025 2026`
-- Newer resolution detected → flag REGULATORY UPDATE. Unavailable → flag Live check unavailable.
-- If a result page happens to mention this pleito's own outcome, do not open it further, do not
-  read past the snippet, and do not use or report what it said — this check is for regulation
-  updates only, not a license to browse meeting results for this case.
+- Resolução mais nova detectada → marcar ATUALIZAÇÃO REGULATÓRIA. Indisponível → marcar
+  checagem em tempo real indisponível.
+- Se uma página de resultado mencionar por acaso o desfecho deste próprio pleito, não abri-la
+  mais, não ler além do trecho exibido, e não usar nem relatar o que ela dizia — esta checagem
+  é só para atualizações regulatórias, não uma licença para navegar por resultados de reunião
+  deste caso.
 
-Active regulatory base:
-- Res. Normativa COFIEX nº 1 (22 Nov 2024) — main framework
-- Res. 32/2025 — amends Res. 1/2024
-- Res. 142/2026 (24 Mar 2026) — amends Res. 2/2025 and Res. 1/2024
-- Res. 150/2026 (26 Mar 2026) — technical/financial modifications
-- Res. 151/2026 (26 Mar 2026) — BRL restructuring restrictions
-- Portaria MF/STN 857/2026 (27 Mar 2026) — Adjustment Factor 0.78, CAPAG consolidation
-- CMN 5.282/2026 (26 Feb 2026) — subnational sublimit share → 29.7%
+Base regulatória ativa:
+- Res. Normativa COFIEX nº 1 (22 nov 2024) — marco principal
+- Res. 32/2025 — altera a Res. 1/2024
+- Res. 142/2026 (24 mar 2026) — altera a Res. 2/2025 e a Res. 1/2024
+- Res. 150/2026 (26 mar 2026) — modificações técnicas/financeiras
+- Res. 151/2026 (26 mar 2026) — restrições à reestruturação em reais
+- Portaria MF/STN 857/2026 (27 mar 2026) — Fator de Ajuste 0,78, consolidação de Capacidade de
+  Pagamento
+- CMN 5.282/2026 (26 fev 2026) — participação do sublimite subnacional → 29,7%
 
-## PHASE 1 — Mandatory Intake
-**First ask:** "Do you have a pre-filled file (draft CC, intake form, or prior scoring sheet)
-to attach? If yes, upload it now."
-- File attached → read fully, pre-populate every inferable field, ask only for blanks/ambiguities.
-- No file → run the full sequential Q&A (use `references/protocolo-preenchimento.md` v2.0 as
-  the structured guide; Part I = scoring inputs Blocks 0–8, Part II = PFE form Blocks 9–15).
+## FASE 1 — Triagem Obrigatória
+**Primeiro perguntar:** "Você tem um arquivo pré-preenchido (minuta de carta-consulta,
+formulário de triagem ou planilha de pontuação anterior) para anexar? Se sim, envie agora."
+- Arquivo anexado → ler por completo, pré-preencher todo campo inferível, perguntar só sobre
+  lacunas/ambiguidades.
+- Sem arquivo → executar a sequência completa de perguntas e respostas (usar
+  `references/protocolo-preenchimento.md` v2.0 como guia estruturado; Parte I = insumos de
+  pontuação Blocos 0–8, Parte II = formulário do Portal de Financiamento Externo Blocos 9–15).
 
-**Operation value is the mandatory first-line input.**
+**O valor da operação é o insumo obrigatório de primeira linha.**
 
-Block I — Identity & Financials (PRIORITY): I.1 Full name | I.2 Abbreviated | I.3 Type
-(investment/restructuring/on-lending) | I.4 Proponent | I.5 Entity type (federal/state/DF/
-municipality/federal statal/subnational statal/IF) | **I.6 Creditor** | **I.7 Currency** |
-**I.8 Total value USD-eq ←MANDATORY** | **I.9 Loan amount USD-eq ←MANDATORY** | I.10
-Counterpart % (flag if <20% without waiver) | I.11 Target sublimit (General/PPP/Env-Climate/
-Fiscal/Debt-Restr/BRL-Ops/Federal).
+Bloco I — Identidade e Finanças (PRIORIDADE): I.1 Nome completo | I.2 Abreviado | I.3 Tipo
+(investimento/reestruturação/repasse) | I.4 Proponente | I.5 Tipo de entidade (federal/
+estadual/DF/municipal/estatal federal/estatal subnacional/instituição financeira) | **I.6
+Credor** | **I.7 Moeda** | **I.8 Valor total em dólares equivalentes ←OBRIGATÓRIO** | **I.9
+Valor do empréstimo em dólares equivalentes ←OBRIGATÓRIO** | I.10 Contrapartida %
+(marcar se <20% sem dispensa) | I.11 Sublimite-alvo (Geral/PPP/Ambiental-Climático/Fiscal/
+Reestruturação de Dívida/Operações em Reais/Federal).
 
-Block II — Strategic Areas: Annex II codes + narrative per area.
+Bloco II — Áreas Estratégicas: códigos do Anexo II + narrativa por área.
 
-Block III — Entity Profile: CAPAG (A+/A/B+/B/C/D/unclassified) + **CAPAG consultation date and
-source (mandatory metadata)** | Basel (IFs) | GAF/ROI (statals) | DC/RCL | Debt trend (5 levels)
-| IDH/IDHM (3 dec.) | Region | Frontier zone Y/N | PPA priority integral Y/N | Fiscal Recovery
-Plan Y/N | Art. 28 d–h each Y/N | **IBGE code (for cross-check)**.
+Bloco III — Perfil da Entidade: Capacidade de Pagamento (A+/A/B+/B/C/D/não classificada) +
+**data e fonte da consulta de Capacidade de Pagamento (metadado obrigatório)** | Basileia
+(instituições financeiras) | Garantia-Ativo-Fixo/Retorno sobre Investimento (estatais) |
+Dívida Consolidada/Receita Corrente Líquida | Tendência da dívida (5 níveis) | Índice de
+Desenvolvimento Humano/Municipal (3 decimais) | Região | Zona de fronteira S/N | Prioridade
+do PPA integral S/N | Plano de Recuperação Fiscal S/N | Art. 28 d–h cada um S/N | **código
+IBGE (para conferência cruzada)**.
 
-## PHASE 1.6 — Input Integrity Gate (mandatory pre-scorer)
-Regulated inputs are not auto-trusted. Run BEFORE classification:
-- **CAPAG metadata.** Reject a CAPAG value with no consultation date/source. Verify the rating
-  belongs to the STN cycle in force at the target-meeting date (Portaria 857/2026 recalculations
-  may have shifted a borderline-B entity). Missing metadata → `input_flag`, do not assign CAPAG
-  points until validated.
-- **IBGE-code × UF cross-check.** Confirm the entity's IBGE code matches its declared name/UF.
-  Discrepancy → `input_flag`; do not auto-use dataset CAPAG/IDH for that entity until resolved.
-- **Fiscal-capacity consistency.** Sanity-check declared values/projections against entity type
-  and ticket. Outliers → `input_flag`.
-- **No silent override.** A flagged input blocks automatic use of the corresponding dataset value;
-  surface the flag in the output and request correction.
-- **General tables only, never a case-specific document.** CAPAG, debt and IDH(M) values must come
-  from a general official table or dataset (the bundled workbook, the STN CAPAG bulletin, RREO/RGF,
-  Tesouro Transparente, IBGE, IPEA) that lists many entities — never from a Nota Técnica (NT),
-  parecer, ofício or any other document produced to evaluate this specific process (an "SEI .../MF"
-  NT, a COFIEX/MPO technical note citing this pleito's own process number, etc.). Do not search for
-  or open such a document at all during blind scoring, not even to use it as a fallback or to flag
-  it (see hard rule 8) — if the general table doesn't have the value, the result is `input_flag`,
-  full stop; request the figure from the user instead of reaching for the process's own NT.
-- **Where to check.** Use only free/official sources for CAPAG, debt and IDH(M) cross-checks
-  (Tesouro Transparente, IBGE API, IPEA `ipeadatar`/`ipeadatapy`, SNIRH, Base dos Dados — never a
-  paid vendor); see `references/rubric/official-data-sources.md`.
+## FASE 1.6 — Portão de Integridade dos Insumos (obrigatório antes de pontuar)
+Insumos regulados não são automaticamente confiados. Executar ANTES da classificação:
+- **Metadado de Capacidade de Pagamento.** Rejeitar um valor de Capacidade de Pagamento sem
+  data/fonte de consulta. Verificar se a classificação pertence ao ciclo da Secretaria do
+  Tesouro Nacional vigente na data da reunião-alvo (recálculos da Portaria 857/2026 podem ter
+  deslocado uma entidade no limiar de B). Metadado ausente → `input_flag`, não atribuir pontos
+  de Capacidade de Pagamento até validar.
+- **Conferência cruzada código IBGE × UF.** Confirmar que o código IBGE da entidade casa com o
+  nome/UF declarados. Discrepância → `input_flag`; não usar automaticamente o valor de
+  Capacidade de Pagamento/Índice de Desenvolvimento Humano do dataset para essa entidade até
+  resolver.
+- **Consistência da capacidade fiscal.** Checar a sanidade dos valores/projeções declarados
+  contra o tipo de entidade e o valor da operação. Valores fora da curva → `input_flag`.
+- **Sem sobreposição silenciosa.** Um insumo marcado bloqueia o uso automático do valor
+  correspondente do dataset; expor a marcação na saída e solicitar a correção.
+- **Apenas tabelas gerais, nunca um documento específico do caso.** Os valores de Capacidade
+  de Pagamento, Dívida e Índice de Desenvolvimento Humano/Municipal precisam vir de uma tabela
+  ou dataset oficial geral (a planilha empacotada, o boletim de Capacidade de Pagamento da
+  Secretaria do Tesouro Nacional, Relatório Resumido de Execução Orçamentária/Relatório de
+  Gestão Fiscal, Tesouro Transparente, IBGE, IPEA) que liste muitas entidades — nunca de uma
+  Nota Técnica, parecer, ofício ou qualquer outro documento produzido para avaliar este
+  processo específico (uma Nota Técnica "SEI .../MF", uma nota técnica da COFIEX/MPO citando o
+  número de processo deste próprio pleito, etc.). Não buscar nem abrir esse tipo de documento
+  de forma alguma durante a pontuação cega, nem mesmo como alternativa ou para marcá-lo (ver
+  regra dura 8) — se a tabela geral não tiver o valor, o resultado é `input_flag`, ponto final;
+  pedir o número ao usuário em vez de recorrer à Nota Técnica do próprio processo.
+- **Onde checar.** Usar apenas fontes gratuitas/oficiais para conferência cruzada de
+  Capacidade de Pagamento, Dívida e Índice de Desenvolvimento Humano/Municipal (Tesouro
+  Transparente, API do IBGE, `ipeadatar`/`ipeadatapy` do IPEA, SNIRH, Base dos Dados — nunca
+  um fornecedor pago); ver `references/rubric/official-data-sources.md`.
 
-## PHASE 2 — Entity Classification
-| Entity | AE floor | CAPAG | IDH | Debt | Main gate |
+## FASE 2 — Classificação da Entidade
+| Entidade | Piso de Nota de Área Estratégica | Capacidade de Pagamento | Índice de Desenvolvimento Humano | Dívida | Filtro principal |
 |---|---|---|---|---|---|
-| Federal organ | None | N/A | N/A | N/A | SOF adequacy Art. 23 |
-| Federal non-dep. statal | None | GAF/ROI or Basel | N/A | Own matrix | — |
-| Subnational State/DF/Muni | 3.0 | STN if classified | Yes | 5-level | Art. 28, I, a–h |
-| Subnational non-dep. statal | None | GAF/ROI | N/A | Exigível/PL | — |
-| Financial institution/agency | None | Basel | N/A | Basel cat. | — |
+| Órgão federal | Nenhum | Não se aplica | Não se aplica | Não se aplica | Adequação da Secretaria de Orçamento Federal, Art. 23 |
+| Estatal federal não dependente | Nenhum | Garantia-Ativo-Fixo/Retorno sobre Investimento ou Basileia | Não se aplica | Matriz própria | — |
+| Estado/DF/Município subnacional | 3,0 | Secretaria do Tesouro Nacional, se classificado | Sim | 5 níveis | Art. 28, I, a–h |
+| Estatal subnacional não dependente | Nenhum | Garantia-Ativo-Fixo/Retorno sobre Investimento | Não se aplica | Exigível/Patrimônio Líquido | — |
+| Instituição/agência financeira | Nenhum | Basileia | Não se aplica | Categoria Basileia | — |
 
-> **Municipal SEM (sociedade de economia mista):** treated under subnational-statal rules
-> (no AE floor, GAF/ROI-based CAPAG, Exigível/PL debt). A SEM with strong own-revenue (e.g. water
-> tariff) may qualify for waiver of the Art. 28 counterpart minimum (anomaly — confirm regime).
+> **Sociedade de economia mista municipal:** tratada sob as regras de estatal subnacional
+> (sem piso de Nota de Área Estratégica, Capacidade de Pagamento baseada em Garantia-Ativo-
+> Fixo/Retorno sobre Investimento, dívida por Exigível/Patrimônio Líquido). Uma sociedade de
+> economia mista com receita própria forte (ex.: tarifa de água) pode se qualificar para
+> dispensa do mínimo de contrapartida do Art. 28 (anomalia — confirmar o regime).
 
-SEAID coordination axes: State Modernization | Infrastructure | Social & Sustainability.
+Eixos de coordenação da SEAID: Modernização Estadual | Infraestrutura | Social e
+Sustentabilidade.
 
-## OUTPUT FORMAT
-**No abbreviations, anywhere in the output — including section titles.** Write out the full name
-every time: not "AE" but "Strategic-Area Score"; not "GTEC" but "Technical-Group Questions"; not
-"MDB" but "Multilateral Development Bank"; not "NT" but "Technical Note"; not "CC" but "proposal"
-or "carta-consulta" in full; not "PFE" but "External Financing Portal". This applies to table
-headers and section numbers too (e.g. write "4. Strategic-Area Score by area", never
-"4. AE por área"). Official statutory names that are themselves the regulation's own term for an
-index or institution (CAPAG, IDH/IDHM, COFIEX, PPA, LOA, the lender names BIRD/BID/CAF/etc.) are
-not internal shorthand and may stand — but spell out an invented or internal abbreviation on every
-use regardless of language.
+## FORMATO DE SAÍDA
+**Sem siglas em lugar nenhum da saída — inclusive nos títulos de seção.** Escrever o nome
+completo sempre: não "Nota de Área Estratégica" abreviada, mas por extenso em todo lugar; não
+"Grupo Técnico" abreviado, mas por extenso; não "Banco Multilateral de Desenvolvimento"
+abreviado; não "Nota Técnica" abreviada; não "carta-consulta" abreviada; não "Portal de
+Financiamento Externo" abreviado. Isso vale também para cabeçalhos de tabela e números de
+seção (ex.: escrever "4. Nota de Área Estratégica por área", nunca uma sigla no título).
+Nomes oficiais que são o próprio termo legal de um índice ou instituição (Capacidade de
+Pagamento, Índice de Desenvolvimento Humano/Municipal, COFIEX, PPA, LOA, os nomes dos credores
+BIRD/BID/CAF/etc.) não são abreviação interna e podem permanecer — mas escrever por extenso
+qualquer abreviação inventada ou interna em toda ocorrência, independente do idioma.
 
-0. **[FIRST] Executive summary:** every identified header field (proposal name, proponent,
-   creditor, total/loan/counterpart value, target sublimit, entity type) plus the scores assigned
-   under blind judgment — Strategic-Area Score, Human Development Index Score, Payment-Capacity
-   Rating, Debt-Trend Score, and the final [Min — Expected — Max] range — in one compact block,
-   before any of the sections below.
-1. **Header:** proposal, proponent, creditor, ticket size
-2. **Input Integrity (PHASE 1.6):** any input_flag raised
-3. **Eliminatory Check (PHASE 2/4):** PASS/FAIL with details
-4. **Strategic-Area Score Breakdown (PHASE 5):** area-by-area with tier classification + bonus range
-5. **Component Scores (PHASEs 6–8):** Human Development Index, Payment-Capacity Rating, Debt Trend with scenario ranges
-6. **Final Score (PHASE 9):** [Min — Expected — Max] + the **Calibration basis** line (n, filters relaxed, weak-data flags, anchor; see RETRIEVAL RECIPE step 7)
-7. **Technical-Group Questions Simulation (PHASE 10):** question-by-question table
-8. **Senior Multilateral-Bank Review (PHASE 11):** ratings A.1–A.5 in full (theory of change, results framework, risks, implementation, financial sustainability)
-9. **Correction Plan (PHASE 12):** prioritized table
-10. **[LAST] Window & Timing (circumstantial):** sublimit viability, approval probability, iteration strategy
+0. **[PRIMEIRO] Sumário executivo:** todo campo de cabeçalho identificado (nome da proposta,
+   proponente, credor, valor total/empréstimo/contrapartida, sublimite-alvo, tipo de entidade)
+   mais as notas atribuídas sob julgamento cego — Nota de Área Estratégica, Nota do Índice de
+   Desenvolvimento Humano, Classificação de Capacidade de Pagamento, Nota de Tendência da
+   Dívida, e a faixa final [Mínimo — Esperado — Máximo] — em um bloco compacto, antes de
+   qualquer uma das seções abaixo.
+1. **Cabeçalho:** proposta, proponente, credor, valor da operação
+2. **Integridade dos Insumos (FASE 1.6):** qualquer `input_flag` levantado
+3. **Checagem Eliminatória (FASE 2/4):** aprovado/reprovado com detalhes
+4. **Detalhamento da Nota de Área Estratégica (FASE 5):** área por área, com classificação de
+   nível + faixa de bônus
+5. **Notas dos Componentes (FASES 6–8):** Índice de Desenvolvimento Humano, Classificação de
+   Capacidade de Pagamento, Tendência da Dívida com faixas de cenário
+6. **Nota Final (FASE 9):** [Mínimo — Esperado — Máximo] + a linha de **Base de calibração**
+   (n, filtros relaxados, marcadores de dados fracos, ancoragem; ver passo 7 da RECEITA DE
+   RECUPERAÇÃO)
+7. **Simulação das Perguntas do Grupo Técnico (FASE 10):** tabela pergunta por pergunta
+8. **Revisão Sênior de Banco Multilateral de Desenvolvimento (FASE 11):** classificações A.1–
+   A.5 completas (teoria da mudança, marco de resultados, riscos, implementação,
+   sustentabilidade financeira)
+9. **Plano de Correção (FASE 12):** tabela priorizada
+10. **[ÚLTIMO] Janela e Momento (circunstancial):** viabilidade de sublimite, probabilidade de
+    aprovação, estratégia de iteração
 
-> ** COFIEX WINDOW FRAMING — CIRCUMSTANTIAL DATA**
+> **ENQUADRAMENTO DA JANELA DA COFIEX — DADO CIRCUNSTANCIAL**
 >
-> Per-meeting capacity, sublimit balance, and approval timing depend on dynamic variables that
-> change every COFIEX cycle. Before judging timing/window viability, the operator MUST:
-> 1. Consult the most recent COFIEX meeting minutes (gov.br/planejamento > COFIEX > Atas).
-> 2. Verify the COFIEX communiqués and resolutions in force.
-> 3. Check the PFE Portal for queue position and competitor status.
+> A capacidade por reunião, o saldo do sublimite e o momento de aprovação dependem de
+> variáveis dinâmicas que mudam a cada ciclo da COFIEX. Antes de julgar a viabilidade de
+> momento/janela, o operador DEVE:
+> 1. Consultar a ata mais recente de reunião da COFIEX (gov.br/planejamento > COFIEX > Atas).
+> 2. Verificar os comunicados e resoluções da COFIEX em vigor.
+> 3. Checar o Portal de Financiamento Externo quanto à posição na fila e situação dos
+>    concorrentes.
 >
-> The analysis above uses historical data through the 187th meeting as **structural reference only**.
+> A análise acima usa dados históricos até a 187ª reunião apenas como **referência
+> estrutural**.

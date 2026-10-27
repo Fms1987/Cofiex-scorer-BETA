@@ -1,25 +1,29 @@
-# PHASE 7 — CAPAG
+# FASE 7 — Capacidade de Pagamento
 
-<!-- source: V16 lines 450-471, moved verbatim -->
+<!-- fonte: V16 linhas 450-471, movido literalmente -->
 
-## PHASE 7 — CAPAG (Art. 20, Annex III — max 2.000)
-Art. 10, I, c: max 2 points. CAPAG measures the entity's fiscal solidity and debt-service
-capacity (Portaria MF 501/2017: indebtedness, current savings, liquidity) — NOT the proposed
-operation's terms.
+## FASE 7 — Capacidade de Pagamento (Art. 20, Anexo III — máx. 2,000)
+Art. 10, I, c: máximo 2 pontos. A Capacidade de Pagamento mede a solidez fiscal e a capacidade
+de serviço da dívida da entidade (Portaria MF 501/2017: endividamento, poupança corrente,
+liquidez) — NÃO os termos da operação proposta.
 
-**Locked rating→points table (no ad-hoc overwrite; user values require metadata per PHASE 1.6):**
-| Rating | Score | Status |
+**Tabela fixa de classificação→pontos (sem sobreposição ad hoc; valores do usuário exigem
+metadado conforme a FASE 1.6):**
+| Classificação | Pontos | Situação |
 |---|---|---|
-| A+ | 2.000 | Approved — maximum |
-| A | 1.500 | Approved |
-| B+ | 1.000 | Approved |
-| B | 0.500 | Approved (minimum passing) |
-| C | 0.000 | Non-competitive — not eliminatory |
-| D | ELIMINATORY | Art. 28, I, c |
-| Unclassified | 0.000 | Not eliminatory |
+| A+ | 2,000 | Aprovada — máxima |
+| A | 1,500 | Aprovada |
+| B+ | 1,000 | Aprovada |
+| B | 0,500 | Aprovada (mínimo para passar) |
+| C | 0,000 | Não competitiva — não eliminatória |
+| D | ELIMINATÓRIA | Art. 28, I, c |
+| Não classificada | 0,000 | Não eliminatória |
 
-Non-dep statals: A+ (GAF>1 + ROI>cost) | A (GAF≤1 + ROI>cost) | B+ (GAF>1 + ROI≤cost) | B (GAF≤1 + ROI≤cost).
-IFs: A+ (>15% Basel) | A (13–15%) | B+ (12–13%) | B (10.5–12%).
+Estatais não dependentes: A+ (Garantia-Ativo-Fixo>1 + Retorno sobre Investimento>custo) |
+A (Garantia-Ativo-Fixo≤1 + Retorno sobre Investimento>custo) | B+ (Garantia-Ativo-Fixo>1 +
+Retorno sobre Investimento≤custo) | B (Garantia-Ativo-Fixo≤1 + Retorno sobre Investimento≤custo).
+Instituições financeiras: A+ (>15% Basileia) | A (13–15%) | B+ (12–13%) | B (10,5–12%).
 
-**Portaria 857/2026:** CAPAG recalculated with Adjustment Factor 0.78 — a borderline-B entity may
-have deteriorated; verify current rating and consultation date (PHASE 1.6).
+**Portaria 857/2026:** Capacidade de Pagamento recalculada com Fator de Ajuste 0,78 — uma
+entidade no limiar de B pode ter se deteriorado; verificar a classificação atual e a data de
+consulta (FASE 1.6).

@@ -1,47 +1,51 @@
-# Official data sources for CAPAG, debt and IDH(M) cross-checks
+# Fontes de dados oficiais para conferência cruzada de Capacidade de Pagamento, dívida e Índice de Desenvolvimento Humano/Municipal
 
-<!-- added per user instruction: free/official APIs only, no paid services -->
+<!-- adicionado por instrução do usuário: apenas APIs gratuitas/oficiais, nenhum serviço pago -->
 
-PHASE 1.6 requires a consultation date and source for every CAPAG, IDH(M) and debt-capacity
-value. Use these free, official sources to obtain or cross-check them — never a paid data
-vendor. If a value cannot be confirmed against one of these, raise `input_flag` rather than
-trusting the proponent's figure.
+A FASE 1.6 exige data e fonte de consulta para todo valor de Capacidade de Pagamento, Índice
+de Desenvolvimento Humano/Municipal e capacidade de endividamento. Usar estas fontes
+gratuitas e oficiais para obtê-los ou confirmá-los — nunca um fornecedor pago de dados. Se um
+valor não puder ser confirmado contra uma destas, levantar `input_flag` em vez de confiar no
+número do proponente.
 
-## Bundled workbook (check first)
+## Planilha empacotada (verificar primeiro)
 
-`reference-data/External_Credit_Operations_Database_September_2026.xlsx` ships with this repo —
-query it **before** reaching for an external API. It is faster and already reconciled (Senate
-resolutions, STN/SADIPEM, World Bank, IBGE, COFIEX/MPO). If the user later supplies a newer
-dated version locally, prefer that one and say so.
+`reference-data/External_Credit_Operations_Database_September_2026.xlsx` vem junto com este
+repositório — consultá-la **antes** de recorrer a uma API externa. É mais rápida e já está
+reconciliada (resoluções do Senado, STN/SADIPEM, Banco Mundial, IBGE, COFIEX/MPO). Se o
+usuário fornecer depois uma versão mais nova localmente, preferir essa e dizer isso.
 
-| Need | Sheet | Columns |
+| Necessidade | Planilha | Colunas |
 |---|---|---|
-| Municipal CAPAG rating (official STN methodology) | `CAPAG_Municipalities` | `IBGE_Code`, `Municipality_Name`, `Rating_1` (debt/revenue indicator) — this is the authoritative CAPAG rating, not the `Fiscal Rating` column on `Borrowers_Municipalities` (a broader proprietary score that can disagree by one notch) |
-| State fiscal rating (CAPAG-equivalent) + HDI | `Borrowers_States` | `Fiscal Rating (2026)`, `HDI (2021)` |
-| Municipal HDI(M) | `Borrowers_Municipalities` | `HDI (2010)` |
-| State borrowing/fiscal-space capacity | `Borrowing_Capacity_States` | `Available_Fiscal_Space_BRL`/`_USD`, `Available Fiscal Space (%)` |
-| Prior/sibling COFIEX operations (multi-tranche cross-check, Q26; dual-creditor check) | `Operations_COFIEX` | `Request_ID`, `Process_No`, `Project_Name`, `Borrower`, `Phase`, `Bank`, `Loan_USD`, `Counterpart_USD`, approval/negotiation dates |
-| MDB portfolio by bank/year (sanity-check a lender's typical ticket size) | `Banks`, `Loans_Master` | per-bank annual USD M and operation counts |
+| Classificação de Capacidade de Pagamento municipal (metodologia oficial da STN) | `CAPAG_Municipalities` | `IBGE_Code`, `Municipality_Name`, `Rating_1` (indicador dívida/receita) — esta é a classificação de Capacidade de Pagamento autoritativa, não a coluna `Fiscal Rating` em `Borrowers_Municipalities` (uma nota proprietária mais ampla que pode divergir em um nível) |
+| Classificação fiscal estadual (equivalente à Capacidade de Pagamento) + Índice de Desenvolvimento Humano | `Borrowers_States` | `Fiscal Rating (2026)`, `HDI (2021)` |
+| Índice de Desenvolvimento Humano Municipal | `Borrowers_Municipalities` | `HDI (2010)` |
+| Capacidade de endividamento/espaço fiscal estadual | `Borrowing_Capacity_States` | `Available_Fiscal_Space_BRL`/`_USD`, `Available Fiscal Space (%)` |
+| Operações COFIEX anteriores/irmãs (conferência cruzada multi-tranche, pergunta 26; checagem de credor duplo) | `Operations_COFIEX` | `Request_ID`, `Process_No`, `Project_Name`, `Borrower`, `Phase`, `Bank`, `Loan_USD`, `Counterpart_USD`, datas de aprovação/negociação |
+| Carteira de bancos multilaterais de desenvolvimento por banco/ano (checagem de sanidade do porte típico de um credor) | `Banks`, `Loans_Master` | milhões de dólares anuais e contagem de operações por banco |
 
-Still record the consultation date (the workbook's own `Metadata` sheet states its last-updated
-date) and cite the sheet/column as the source, per PHASE 1.6. Cross-check against the external
-sources below when the workbook is stale relative to the target meeting date, or absent.
+Ainda assim, registrar a data de consulta (a própria planilha `Metadata` do arquivo informa sua
+data de última atualização) e citar a planilha/coluna como fonte, conforme a FASE 1.6.
+Conferir cruzadamente contra as fontes externas abaixo quando a planilha estiver desatualizada
+em relação à data da reunião-alvo, ou ausente.
 
-| Need | Source | Access |
+| Necessidade | Fonte | Acesso |
 |---|---|---|
-| CAPAG rating (states, DF, municipalities) | STN — Secretaria do Tesouro Nacional, *Boletim de Capacidade de Pagamento* | Datasets via [Tesouro Transparente CKAN](https://www.tesourotransparente.gov.br/ckan/dataset) (search "capacidade de pagamento" / "CAPAG") |
-| Subnational debt / fiscal indicators (DC/RCL, debt trend, RGF/RREO figures) | STN, same portal | [Tesouro Transparente CKAN](https://www.tesourotransparente.gov.br/ckan/dataset) |
-| IDH/IDHM | Atlas do Desenvolvimento Humano (PNUD/IPEA/FJP), mirrored in | [IPEA's `ipeadatar`](https://cran.r-project.org/web/packages/ipeadatar/index.html) (R) or [`ipeadatapy`](https://pypi.org/project/ipeadatapy/) (Python); cross-check municipal codes via [IBGE API](https://servicodados.ibge.gov.br/api/docs/) |
-| Municipality/UF identifiers, population, other IBGE series | IBGE | [Serviço de Dados IBGE](https://servicodados.ibge.gov.br/api/docs/) · [metadados estatísticos (gov.br/conecta)](https://www.gov.br/conecta/catalogo/apis/metadados-estatisticos-do-ibge) |
-| Water/sanitation/hydric-security indicators (rural/environment sector cross-check) | SNIRH | [SNIRH geonetwork catalog](https://metadados.snirh.gov.br/geonetwork/srv/por/catalog.search#/home) |
-| Bulk/cleaned versions of the above (faster joins, historical series) | Base dos Dados | [basedosdados.org](https://basedosdados.org/) |
+| Classificação de Capacidade de Pagamento (estados, DF, municípios) | STN — Secretaria do Tesouro Nacional, *Boletim de Capacidade de Pagamento* | Datasets via [Tesouro Transparente CKAN](https://www.tesourotransparente.gov.br/ckan/dataset) (buscar "capacidade de pagamento" / "CAPAG") |
+| Dívida subnacional / indicadores fiscais (Dívida Consolidada/Receita Corrente Líquida, tendência da dívida, dados de RGF/RREO) | STN, mesmo portal | [Tesouro Transparente CKAN](https://www.tesourotransparente.gov.br/ckan/dataset) |
+| Índice de Desenvolvimento Humano/Municipal | Atlas do Desenvolvimento Humano (PNUD/IPEA/FJP), espelhado em | [`ipeadatar`](https://cran.r-project.org/web/packages/ipeadatar/index.html) do IPEA (R) ou [`ipeadatapy`](https://pypi.org/project/ipeadatapy/) (Python); conferir cruzadamente os códigos municipais via [API do IBGE](https://servicodados.ibge.gov.br/api/docs/) |
+| Identificadores de município/UF, população, outras séries do IBGE | IBGE | [Serviço de Dados IBGE](https://servicodados.ibge.gov.br/api/docs/) · [metadados estatísticos (gov.br/conecta)](https://www.gov.br/conecta/catalogo/apis/metadados-estatisticos-do-ibge) |
+| Indicadores de água/saneamento/segurança hídrica (conferência cruzada do setor rural/ambiental) | SNIRH | [catálogo geonetwork do SNIRH](https://metadados.snirh.gov.br/geonetwork/srv/por/catalog.search#/home) |
+| Versões em lote/tratadas do que está acima (junções mais rápidas, séries históricas) | Base dos Dados | [basedosdados.org](https://basedosdados.org/) |
 
-Notes:
-- These cover CAPAG, debt and IDH(M). They do not replace the proponent's own declared values
-  for the operation itself (ticket, counterpart, indicators) — those still come from the carta-
-  consulta text.
-- Record the consultation date and the exact dataset/endpoint used, per PHASE 1.6's metadata
-  requirement.
-- `ipeadatar`/`ipeadatapy` mirror IPEA's series (including IDHM); when in doubt, check the value
-  against the IBGE API's municipal code to catch UF/code mismatches (the same cross-check PHASE
-  1.6 already requires).
+Notas:
+- Estas fontes cobrem Capacidade de Pagamento, dívida e Índice de Desenvolvimento
+  Humano/Municipal. Não substituem os valores declarados pelo próprio proponente para a
+  operação em si (valor da operação, contrapartida, indicadores) — esses continuam vindo do
+  texto da carta-consulta.
+- Registrar a data de consulta e o dataset/endpoint exato usado, conforme a exigência de
+  metadado da FASE 1.6.
+- `ipeadatar`/`ipeadatapy` espelham as séries do IPEA (incluindo o Índice de Desenvolvimento
+  Humano Municipal); em caso de dúvida, checar o valor contra o código municipal da API do
+  IBGE para pegar divergências de UF/código (a mesma conferência cruzada que a FASE 1.6 já
+  exige).

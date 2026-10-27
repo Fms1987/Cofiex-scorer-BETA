@@ -1,45 +1,52 @@
-# PHASE 6 — IDH
+# FASE 6 — Índice de Desenvolvimento Humano
 
-<!-- source: V16 lines 408-449, moved verbatim -->
+<!-- fonte: V16 linhas 408-449, movido literalmente -->
 
-## PHASE 6 — IDH (Subnational only)
-`IDH Score = 2 × ((1 − IDH_entity) / (1 − IDH_lowest_in_meeting))`
+## FASE 6 — Índice de Desenvolvimento Humano (apenas subnacional)
+`Nota de Índice de Desenvolvimento Humano = 2 × ((1 − IDH_entidade) / (1 − IDH_menor_na_reunião))`
 
-**CRITICAL:** Score is RELATIVE to meeting composition — cannot be computed without knowing who
-else is pautado. Always present as a scenario range. The fixed-floor convenience anchor below is
-a DEFAULT for state-heavy meetings only; it never replaces the relative formula when pauta
-composition is known, and it never overrides the municipal floors.
+**CRÍTICO:** a nota é RELATIVA à composição da reunião — não pode ser calculada sem saber quem
+mais está pautado. Apresentar sempre como uma faixa de cenário. A âncora de piso fixo de
+conveniência abaixo é um PADRÃO apenas para reuniões com predomínio estadual; ela nunca
+substitui a fórmula relativa quando a composição da pauta é conhecida, e nunca sobrepõe os
+pisos municipais.
 
-### Default state-meeting anchor
-For state-heavy meetings with unknown composition, use floor **0.668** as the base, with:
-- Pessimistic 0.650 · Base 0.668 · Optimistic 0.686 (high-end 0.700 for pautas dominated by
-  South/Southeast or coastal-NE high-HDI states).
-Override only with evidence of actual pauta composition (flagged).
+### Âncora padrão para reunião estadual
+Para reuniões com predomínio estadual e composição desconhecida, usar o piso **0,668** como
+base, com:
+- Pessimista 0,650 · Base 0,668 · Otimista 0,686 (limite superior 0,700 para pautas dominadas
+  por estados de alto Índice de Desenvolvimento Humano do Sul/Sudeste ou litoral do Nordeste).
+Sobrepor apenas com evidência da composição real da pauta (marcado como tal).
 
-### Calibrated scenarios (corpus 180th–187th)
-| Scenario | IDH_lowest | Use when |
+### Cenários calibrados (corpus 180ª–187ª reunião)
+| Cenário | IDH_menor | Usar quando |
 |---|---|---|
-| Pessimistic | 0.646–0.650 | Meeting has N/NE state with very low HDI |
-| Moderate (default state) | 0.668 | Default for state-heavy meetings |
-| Optimistic | 0.686–0.700 | No state below the high-HDI floor |
-| Municipal | 0.572–0.620 | Meeting includes low-IDHM municipalities (floors preserved) |
+| Pessimista | 0,646–0,650 | Reunião tem estado do Norte/Nordeste com Índice de Desenvolvimento Humano muito baixo |
+| Moderado (padrão estadual) | 0,668 | Padrão para reuniões com predomínio estadual |
+| Otimista | 0,686–0,700 | Nenhum estado abaixo do piso de alto Índice de Desenvolvimento Humano |
+| Municipal | 0,572–0,620 | Reunião inclui municípios de Índice de Desenvolvimento Humano Municipal baixo (pisos preservados) |
 
-**Empirical ranges — states:** low-HDI (0.639–0.689) → 1.7–2.0; mid-HDI (0.660–0.665) → 1.3–1.9;
-high-HDI (0.740–0.826) → 0.5–1.2. Anchor: a NE state with IDH ≈ 0.689 that is virtually the
-meeting floor (IDH_lowest ≈ 0.686) → ≈ 1.98.
+**Faixas empíricas — estados:** Índice de Desenvolvimento Humano baixo (0,639–0,689) → 1,7–2,0;
+médio (0,660–0,665) → 1,3–1,9; alto (0,740–0,826) → 0,5–1,2. Âncora: estado do Nordeste com
+Índice de Desenvolvimento Humano ≈ 0,689 que é praticamente o piso da reunião (IDH_menor ≈
+0,686) → ≈ 1,98.
 
-**Empirical ranges — municipalities (IDHM) — floors preserved, NOT subject to the 0.668 state anchor:**
-- ≤ 0.600 (very low) → 1.8–2.0 (near-max if lowest in meeting)
-- 0.650–0.699 (low) → 1.5–1.8
-- 0.700–0.710 (medium-low) → 1.4–1.7 (floor ~0.619–0.646); up to ~1.98 if the lowest
-- 0.750–0.770 (medium) → 1.2–1.4 (floor ~0.580–0.620)
-- 0.760–0.799 (medium-high) → 0.9–1.4
-- ≥ 0.800 (high) → 0.4–0.9
-Anchors (anonymized): municipality IDHM 0.759, meeting floor ≈ 0.619 → **1.335**; municipality
-IDHM 0.700, similar floor → **1.695**.
+**Faixas empíricas — municípios (Índice de Desenvolvimento Humano Municipal) — pisos
+preservados, NÃO sujeitos à âncora estadual de 0,668:**
+- ≤ 0,600 (muito baixo) → 1,8–2,0 (quase máximo se for o menor da reunião)
+- 0,650–0,699 (baixo) → 1,5–1,8
+- 0,700–0,710 (médio-baixo) → 1,4–1,7 (piso ~0,619–0,646); até ~1,98 se for o menor
+- 0,750–0,770 (médio) → 1,2–1,4 (piso ~0,580–0,620)
+- 0,760–0,799 (médio-alto) → 0,9–1,4
+- ≥ 0,800 (alto) → 0,4–0,9
+Âncoras (anonimizadas): município com Índice de Desenvolvimento Humano Municipal 0,759, piso
+da reunião ≈ 0,619 → **1,335**; município com Índice de Desenvolvimento Humano Municipal
+0,700, piso semelhante → **1,695**.
 
-**Practical estimate:** when the meeting composition is unknown, use the 0.668 state anchor for
-state pautas; for municipal or mixed pautas use floor 0.620–0.650; adjust up (→1.9+) if the entity
-is demonstrably the lowest IDH on the agenda, down (→0.5–1.2) if lower-IDH entities are present.
+**Estimativa prática:** quando a composição da reunião é desconhecida, usar a âncora estadual
+de 0,668 para pautas estaduais; para pautas municipais ou mistas usar piso 0,620–0,650; ajustar
+para cima (→1,9+) se a entidade for demonstravelmente o menor Índice de Desenvolvimento Humano
+da pauta, para baixo (→0,5–1,2) se houver entidades de Índice de Desenvolvimento Humano menor
+presentes.
 
-Federal entities: IDH = N/A (score 0).
+Entidades federais: Índice de Desenvolvimento Humano = não se aplica (nota 0).
