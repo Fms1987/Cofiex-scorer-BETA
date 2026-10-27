@@ -4,7 +4,10 @@
 
 ## PHASE 9.5 — Iteration & Persistence Analysis
 **Runs AFTER scoring.** Assesses resubmission strategy for cap-constrained operations.
-1. **Is this a resubmission?** Ask: prior meeting(s)/outcome/score? CC text changed? Ticket changed?
+1. **Is this a resubmission?** Ask the **user** (never the web, never the corpus): prior
+   meeting(s)/outcome/score? CC text changed? Ticket changed? Searching for this case's own
+   history to answer this question is a self-lookup (SKILL.md hard rule 5) — if the user doesn't
+   know or doesn't say, record "resubmission status unknown" and continue without it.
 2. **Score-stability rule:** identical CC text → identical score (empirically confirmed, n=9).
    Only sublimit residual, competitor landscape, and entity-level updates (CAPAG/debt) change
    between meetings.

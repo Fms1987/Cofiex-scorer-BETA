@@ -151,6 +151,7 @@ when the phase below needs it, never all at once. Start from `references/INDEX.m
 3. **The corpus calibrates; it does not score.** Every score comes from the rubric applied to the user's text. Corpus ranges set the ± band and trigger the regression-to-median guard; they never override an official table (CAPAG points, sublimit caps, Art. 28 gates).
 4. **Outcome rates are not verdicts.** Approval depends on the meeting cap; always report the rate together with the sublimit-viability read and never phrase a high score or a high approval rate as "likely approved".
 5. **No self-lookup.** If the CC looks like a corpus case (same sector, lender, band, year, attempt), do not search for or open that case's ficha, and do not mention the resemblance. Continue with aggregates only. This is also why step 3 of the RETRIEVAL RECIPE defaults to header/CSV counts: a ficha body is opened only when the qualitative need is real, never as a reflex once a candidate list exists.
+   **This rule binds the web tool exactly as it binds the corpus.** Never run a web search that includes this pleito's own identifiers (program name, proponent, UF/municipality, process/SEI number, ticket value, sector + lender + year combination) together with terms like `aprovados`, `resultado`, `pauta`, `reunião`, `deferido`, `indeferido`, or similar. Such a query's only possible purpose is finding this case's own outcome, which contaminates the blind judgment exactly like opening its ficha would — do it even once, read the result, and the scoring that follows is no longer independent, regardless of whether a score is directly copied from it. A search for objective calibration data (CAPAG rating, DC/RCL, IDH/IDHM, a named official dataset or API) is fine and required by PHASE 1.6 — the line is outcome-of-this-case vs. objective-fact-about-this-entity. PHASE 0's regulatory check uses only generic, case-free queries (regulation name + year) — never add this pleito's own terms to it. PHASE 9.5's resubmission question is asked to the **user**, never answered by searching; if the user doesn't know or doesn't say, record "resubmission status unknown" and move on.
 6. **Test mode.** If the user passes `exclude_ids: [...]` (blind test of a corpus case), skip those ids in every Grep and Read, including their sibling attempts of the same pleito.
 7. **Privacy.** Do not output proponent, project, place or process identifiers even if the user supplies them elsewhere; do not try to re-identify a ficha.
 
@@ -158,10 +159,15 @@ when the phase below needs it, never all at once. Start from `references/INDEX.m
 Run PHASES 0 → 1 → 1.6 → 2 (below, in this file), then 3 → 12 loading the references listed above.
 
 ## PHASE 0 — Regulatory Live Check
-At session start, search:
+At session start, search only these two generic, case-free queries — never add this pleito's own
+name, proponent, UF, sector, lender, ticket or process number to either one (see hard rule 5,
+no-self-lookup, which covers the web tool):
 - `"Resolução Normativa COFIEX" site:mpo.gov.br OR site:gov.br 2025 2026`
 - `COFIEX reunião aprovados resultados 2025 2026`
 - Newer resolution detected → flag REGULATORY UPDATE. Unavailable → flag Live check unavailable.
+- If a result page happens to mention this pleito's own outcome, do not open it further, do not
+  read past the snippet, and do not use or report what it said — this check is for regulation
+  updates only, not a license to browse meeting results for this case.
 
 Active regulatory base:
 - Res. Normativa COFIEX nº 1 (22 Nov 2024) — main framework
