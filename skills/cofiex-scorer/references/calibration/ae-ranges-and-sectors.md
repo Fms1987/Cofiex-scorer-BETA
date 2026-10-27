@@ -1,7 +1,5 @@
 # Faixas empíricas da Nota de Área Estratégica, descontos estruturais e resumo setorial
 
-<!-- fonte: V16 linhas 339-407, movido literalmente -->
-
 **Faixas empíricas da Nota de Área Estratégica (Res. 1/2024, escala 0–10) — âncoras
 anonimizadas:**
 | Faixa | Qualidade | Perfil típico | Âncora (anonimizada) |
@@ -77,6 +75,6 @@ que confirme o nível. Elevar acima de B apenas com essa evidência.
 | Conectividade digital | 5,5–8,5 | 7,5 | Forte quando física | Indicadores de inclusão social são os mais fortes; intermediação enfraquece a causalidade. Lacuna de operação e manutenção universal. |
 | Cidade inteligente (municipal) | 8,0–9,0 | 8,5 | Mais forte (ISO) | ISO 37120/22 SMART por construção. |
 | Programas sociais | 4,0–8,5 | varia | Forte quando preparado (lei + parceiro de avaliação + linhas de base) | Incremento de preparação institucional se aplica; protótipo + linhas de base medidas ancoram A/B. |
-| Fundo / intermediação financeira | 3,3–9,0 | bimodal | Fraco quando postergado; forte quando objetivos estratégicos totalmente especificados | Sem desconto automático de tipologia (v15). Pontuar pela qualidade real do indicador; ~10 objetivos estratégicos bem estruturados → ~9,0. |
+| Fundo / intermediação financeira | 3,3–9,0 | bimodal | Fraco quando postergado; forte quando objetivos estratégicos totalmente especificados | Sem desconto automático de tipologia. Pontuar pela qualidade real do indicador; ~10 objetivos estratégicos bem estruturados → ~9,0. |
 | Energia/mobilidade | n/d | n/d | Moderado | Foco municipal; KfW frequente. |
 | Segurança/defesa social | n/d | n/d | Moderado | Amostra reduzida. |

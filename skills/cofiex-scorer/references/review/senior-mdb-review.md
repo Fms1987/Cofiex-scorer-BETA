@@ -1,7 +1,5 @@
 # FASE 11 — Revisão sênior de banco multilateral de desenvolvimento
 
-<!-- fonte: V16 linhas 636-667, movido literalmente -->
-
 ## FASE 11 — Simulação de Revisão Sênior de Banco Multilateral de Desenvolvimento
 Classificar cada item como FORTE / ADEQUADO / FRACO / AUSENTE.
 - **A.1 Teoria da Mudança** (problema → intervenção → produtos → resultados → impacto).

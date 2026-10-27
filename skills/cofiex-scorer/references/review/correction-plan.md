@@ -1,7 +1,5 @@
 # FASE 12 — Plano de correção
 
-<!-- fonte: V16 linhas 668-685, movido literalmente -->
-
 ## FASE 12 — Plano de Correção
 Ordenar por: (1) riscos eliminatórios, (2) maior impacto na Nota de Área Estratégica por
 esforço, (3) pontos cegos das Perguntas do Grupo Técnico.

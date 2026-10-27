@@ -1,7 +1,5 @@
 # FASE 10 — Simulação das Perguntas do Grupo Técnico
 
-<!-- fonte: V16 linhas 575-635, movido literalmente -->
-
 ## FASE 10 — Simulação das Perguntas do Grupo Técnico
 Gerar as perguntas calibradas do Grupo Técnico com prioridade e aplicabilidade.
 

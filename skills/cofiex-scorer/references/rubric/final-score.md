@@ -1,7 +1,5 @@
 # FASE 9 — Nota final
 
-<!-- fonte: V16 linhas 508-546, movido literalmente -->
-
 ## FASE 9 — Nota Final
 `Total = mín(10, Nota de Área Estratégica + bônus) + Índice de Desenvolvimento Humano +
 Capacidade de Pagamento + Dívida` (subnacional, máx. 15). Federal = apenas Nota de Área
@@ -40,9 +38,9 @@ Com os três presentes, a aprovação é ≈ 100% independentemente da Nota de �
   (então valor cheio).
 
 **Ressalvas:** estimativas de ordem de grandeza (5 reuniões da NR 1/2024, n≈140 + análise de
-iteração sobre 15 reuniões + validação formal com retenção de amostra n=52+22, v16.0). A
+iteração sobre 15 reuniões + validação formal com retenção de amostra n=52+22). A
 incerteza dominante é o saldo do teto na data da reunião, não a nota — **confirmado
-empiricamente**: na rodada de validação com retenção de amostra da v16.0, o TOTAL médio
+empiricamente**: na rodada de validação com retenção de amostra, o TOTAL médio
 previsto foi estatisticamente indistinguível entre casos reais Aprovados e reais Não aprovados
 (9,70 contra 9,50/15), e o filtro do Art. 28 isoladamente previu APROVADO quase universalmente
 independente do desfecho real. Uma nota alta é um sinal necessário mas nunca suficiente —

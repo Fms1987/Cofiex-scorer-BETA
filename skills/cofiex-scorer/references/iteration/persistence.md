@@ -1,7 +1,5 @@
 # FASE 9.5 — Iteração e persistência
 
-<!-- fonte: V16 linhas 547-574, movido literalmente -->
-
 ## FASE 9.5 — Análise de Iteração e Persistência
 **Executa DEPOIS da pontuação.** Avalia a estratégia de reenvio para operações limitadas pelo
 teto.

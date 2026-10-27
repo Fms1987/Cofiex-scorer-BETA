@@ -100,7 +100,7 @@ elevam o total acima de 15 por padrão (ver FASE 9, teto extensível).
 - **A integridade dos insumos precede a pontuação** (ver FASE 1.6): insumos regulados não são
   automaticamente confiados.
 
-## PROTOCOLO DE RECUPERAÇÃO (v17 — RAG sobre `references/`)
+## PROTOCOLO DE RECUPERAÇÃO (RAG sobre `references/`)
 Este arquivo contém apenas o fluxo de trabalho e as regras duras. Tabelas detalhadas,
 rubricas, âncoras de calibração e fichas de casos anonimizados vivem em `references/` e são
 carregadas **sob demanda** — ler um arquivo só quando a fase abaixo precisar dele, nunca tudo
