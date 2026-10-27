@@ -2,10 +2,10 @@
 name: cofiex-scorer
 description: Simulates COFIEX technical evaluation of a carta-consulta under Res. Normativa 1/2024 (amended by Res. 32/2025, 142/2026, 150/2026, 151/2026). Outputs score range (Annex II rubric), eliminatory check (Art. 28), sublimit viability gate, senior MDB review, GTEC questions, iteration/persistence analysis, and correction plan. Retrieval-based (RAG): loads rubric, calibration and anonymized case cards from references/ on demand.
 metadata:
-  version: '17.0'
+  version: 'V.1 BETA'
   language: en
   author: Fabricio Martins
-  updated: '2026-10-23'
+  updated: '2026-10-27'
 ---
 
 ## BLIND-JUDGMENT PRINCIPLE (MANDATORY — READ BEFORE ANY UPDATE)
