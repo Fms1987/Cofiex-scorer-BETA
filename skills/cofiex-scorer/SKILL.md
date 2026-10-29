@@ -414,6 +414,19 @@ refere.
 10. **[ÚLTIMO] Janela e Momento (circunstancial):** viabilidade de sublimite, probabilidade de
     aprovação, estratégia de iteração
 
+**Entrega final obrigatória: relatório em .docx.** Depois da resposta no chat, gravar o
+relatório completo com `scripts/build_report_docx.py` e entregar o arquivo ao usuário
+(esquema e estrutura em `references/output/docx-report.md`). O sumário executivo do .docx
+traz três tabelas separadas:
+- **Tabela 1:** pontuação mínima, esperada e máxima por item, nos subtotais (Dados Objetivos;
+  Nota de Área Estratégica) e na Nota Geral.
+- **Tabela 2:** objetivos estratégicos do PPA indicados no pleito, com a pontuação possível em
+  cada um.
+- **Tabela 3:** resumo curto das sugestões de melhoria, sem detalhamento, que fica no Plano de
+  Correção.
+
+As mesmas regras valem no .docx: sem siglas e todo número rotulado.
+
 > **ENQUADRAMENTO DA JANELA DA COFIEX — DADO CIRCUNSTANCIAL**
 >
 > A capacidade por reunião, o saldo do sublimite e o momento de aprovação dependem de

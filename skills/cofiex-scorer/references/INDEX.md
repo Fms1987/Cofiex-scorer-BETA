@@ -10,6 +10,7 @@ Carregar apenas o que a fase atual precisa (ver PROTOCOLO DE RECUPERAÇÃO em `.
 | `iteration/` | Análise de persistência / reenvio | Fase 9.5 |
 | `gtec/` | Perguntas calibradas do Grupo Técnico | Fase 10 |
 | `review/` | Revisão sênior de banco multilateral de desenvolvimento, plano de correção | Fases 11–12 |
+| `output/` | Entrega final do relatório em .docx (esquema do JSON, estrutura do sumário executivo) | Após a Fase 12 |
 
 Fora de `references/`:
 - `fichas/pleitos/`, `fichas/avaliacoes/` — cabeçalho estruturado (pesquisável por grep) +
