@@ -44,7 +44,9 @@ Prontidão geral para banco multilateral de desenvolvimento: PRONTO / CONDICIONA
 
 ### A.6 — Lente de pontuação da Área Estratégica (calibrada nas Notas Técnicas da RN 1/2024)
 Base: 588 justificativas por área em todas as Notas Técnicas sob a RN 1/2024 (A=11, B=78,
-C=97, D=160, E=242) e 39 pares de reenvio com Nota Técnica nas duas versões. São padrões
+C=97, D=160, E=242) e 39 pares de reenvio com Nota Técnica nas duas versões. Para o perfil de
+cada nível (inclusive "sem nota") e o ponto forte de cada objetivo estratégico do PPA, ver
+`calibration/ae-criteria-by-level-and-ppa-area.md`. São padrões
 agregados e anonimizados de calibração. Não autorizam consultar a Nota Técnica do pleito
 avaliado (princípio de julgamento cego).
 

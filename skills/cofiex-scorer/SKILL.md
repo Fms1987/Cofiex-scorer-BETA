@@ -109,7 +109,7 @@ de uma vez. Começar por `references/INDEX.md`.
 | Fase | Carregar antes de executar |
 |---|---|
 | 3–4 Triagem, Art. 28 | `references/regulation/screening-and-eliminatory.md` |
-| 5 Nota de Área Estratégica | `references/rubric/ae-rubric-and-bonuses.md` + `references/calibration/ae-ranges-and-sectors.md` + `references/calibration/cross-cutting-findings.md` |
+| 5 Nota de Área Estratégica | `references/rubric/ae-rubric-and-bonuses.md` + `references/calibration/ae-ranges-and-sectors.md` + `references/calibration/cross-cutting-findings.md` + `references/calibration/ae-criteria-by-level-and-ppa-area.md` |
 | 5 (esquema de áreas) | `docs/analise-areas-estrategicas.md` **apenas seção 1** (primeiras ~60 linhas: como a Res. 17/2021 e a Res. 1/2024 pontuam as áreas); nunca carregar a seção 2 (registro por caso) |
 | 5 (taxas-base por área) | `references/calibration/areas-stats.md` (taxas de aceitação por objetivo, mix de níveis, taxas de pontos adicionais) |
 | 5 (consulta de calibração) | seguir a **RECEITA DE RECUPERAÇÃO** abaixo: `cases/INDEX.md` → um cartão de setor → no máximo 6 fichas de pleito + 6 fichas de avaliação |
