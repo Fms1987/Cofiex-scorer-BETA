@@ -68,6 +68,15 @@ custo (saúde).
    Contribuição Bruta antes de Financiamento, acessibilidade, tempo de espera), não entrega de
    obras; citar a resolução de sublimite de PPP aplicável (pergunta 28 do Grupo Técnico).
 
+**Não aplicar desconto adicional por ser "modalidade de garantia" em si (achado da validação
+por teste cego, n=30, 2026-10).** Pontuar garantia/PPP (itens 4 e 5 acima) pela adequação dos
+indicadores de nível de serviço/concessão ao objeto — o mesmo padrão de qualquer outra
+modalidade. Um ceticismo extra só por a operação ser garantia, ou por o setor-base (ex.: saúde
+hospitalar/PPP) ter mediana historicamente mais baixa no corpus, não é uma regra da rubrica e
+inflou subestimação em pelo menos um caso da validação (garantia a PPP hospitalar pontuada
+~4,5 pontos abaixo do resultado oficial, que foi um dos mais altos da amostra). A mediana
+setorial é uma âncora, não um teto a aplicar por desconfiança da modalidade.
+
 **Outros padrões recorrentes a marcar (não eliminatórios):**
 - **Megaprojeto multi-tranche:** um projeto físico financiado por várias cartas-
   consulta/credores. A sobreposição de indicadores é por construção — checar tranches-irmãs

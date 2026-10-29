@@ -347,6 +347,19 @@ Insumos regulados não são automaticamente confiados. Executar ANTES da classif
 > economia mista com receita própria forte (ex.: tarifa de água) pode se qualificar para
 > dispensa do mínimo de contrapartida do Art. 28 (anomalia — confirmar o regime).
 
+> **Empresa pública/estatal sem Garantia-Ativo-Fixo/Retorno sobre Investimento ou
+> Exigível/Patrimônio Líquido próprios divulgados:** usar os dados do ente mantenedor
+> (controlador) — Capacidade de Pagamento, Dívida e Índice de Desenvolvimento Humano do
+> governo (federal/estadual/municipal) que detém a empresa — em vez de marcar `input_flag` e
+> deixar o componente sem nota. Exemplos de mapeamento estatal → ente mantenedor: Caixa
+> Econômica Federal → Governo Federal; Banco de Desenvolvimento de Minas Gerais (BDMG) →
+> Estado de Minas Gerais; Companhia Pernambucana de Saneamento (Compesa) → Estado de
+> Pernambuco. Identificar o ente mantenedor pelo texto da própria carta-consulta (proponente,
+> vinculação societária) e buscar os dados desse ente na planilha empacotada/fontes oficiais
+> (mesma regra da FASE 1.6). Registrar explicitamente que o valor é do ente mantenedor, não da
+> estatal, com a fonte/data — isso substitui o `input_flag` de ausência total de dado, não a
+> exigência de citar a fonte.
+
 Eixos de coordenação da SEAID: Modernização Estadual | Infraestrutura | Social e
 Sustentabilidade.
 
