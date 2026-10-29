@@ -103,6 +103,20 @@ setorial é uma âncora, não um teto a aplicar por desconfiança da modalidade.
   serviço da dívida já na LOA/LDO). A isenção se aplica à **modalidade, não ao setor**
   (pergunta 21).
 
+**Reestruturação de dívida: Nota Geral tende a sair alta demais mesmo com a Área Estratégica
+corretamente descontada (achado da validação por teste cego, n=6, 2026-10).** Em 5 de 6 casos
+testados (83%), a Nota Geral cega sobre-estimou a nota oficial, com sobre-estimação média de
++2,1 pontos — bem acima do viés médio geral da skill (próximo de zero). O desconto estrutural à
+Nota de Área Estratégica (banda 3,0–5,5, ver item "Modalidades financeiras" acima) está sendo
+aplicado corretamente, mas o componente de Dados Objetivos (Capacidade de Pagamento/Dívida/Índice
+de Desenvolvimento Humano) não recebe desconto equivalente e acaba inflando a Nota Geral total.
+Para essa modalidade, a expectativa de Nota Geral deve ficar perto do piso da banda combinada
+(Área Estratégica descontada + componentes mínimos), não do meio/topo — não tratar uma Capacidade
+de Pagamento ou Índice de Desenvolvimento Humano favoráveis do ente como motivo para elevar a
+Nota Geral esperada acima desse piso. n=6 ainda é pequeno para fixar um desconto numérico
+específico ao componente de Dados Objetivos; tratar esta nota como orientação de calibração, não
+como fórmula fechada, até uma validação com n maior.
+
 **Perfis exemplares mais fortes (anonimizados, referência para redação):**
 - *A.1 Teoria da Mudança — FORTE:* cadeia causal quantificada explícita com um contrafactual
   (cenário "com-versus-sem a rede") monetizando várias categorias de externalidade por
