@@ -1,7 +1,5 @@
 # FASE 7 — Capacidade de Pagamento
 
-<!-- fonte: V16 linhas 450-471, movido literalmente -->
-
 ## FASE 7 — Capacidade de Pagamento (Art. 20, Anexo III — máx. 2,000)
 Art. 10, I, c: máximo 2 pontos. A Capacidade de Pagamento mede a solidez fiscal e a capacidade
 de serviço da dívida da entidade (Portaria MF 501/2017: endividamento, poupança corrente,

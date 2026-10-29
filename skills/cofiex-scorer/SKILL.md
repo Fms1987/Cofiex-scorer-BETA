@@ -100,7 +100,7 @@ elevam o total acima de 15 por padrão (ver FASE 9, teto extensível).
 - **A integridade dos insumos precede a pontuação** (ver FASE 1.6): insumos regulados não são
   automaticamente confiados.
 
-## PROTOCOLO DE RECUPERAÇÃO (v17 — RAG sobre `references/`)
+## PROTOCOLO DE RECUPERAÇÃO (RAG sobre `references/`)
 Este arquivo contém apenas o fluxo de trabalho e as regras duras. Tabelas detalhadas,
 rubricas, âncoras de calibração e fichas de casos anonimizados vivem em `references/` e são
 carregadas **sob demanda** — ler um arquivo só quando a fase abaixo precisar dele, nunca tudo
@@ -251,13 +251,16 @@ No início da sessão, buscar apenas estas duas consultas genéricas e sem termo
 adicionar a nenhuma delas o nome, proponente, UF, setor, credor, valor ou número de processo
 deste pleito (ver regra dura 5, sem autoconsulta, que cobre a ferramenta de busca na web):
 - `"Resolução Normativa COFIEX" site:mpo.gov.br OR site:gov.br 2025 2026`
-- `COFIEX reunião aprovados resultados 2025 2026`
+- `COFIEX comunicado resolução alteração 2026`
 - Resolução mais nova detectada → marcar ATUALIZAÇÃO REGULATÓRIA. Indisponível → marcar
   checagem em tempo real indisponível.
-- Se uma página de resultado mencionar por acaso o desfecho deste próprio pleito, não abri-la
-  mais, não ler além do trecho exibido, e não usar nem relatar o que ela dizia — esta checagem
-  é só para atualizações regulatórias, não uma licença para navegar por resultados de reunião
-  deste caso.
+- Nunca incluir nestas consultas termos de resultado de reunião (`aprovados`, `resultado`,
+  `pauta`, `ata`, `deferido`, `indeferido`): eles trazem páginas que podem conter o desfecho
+  do próprio pleito, e esta checagem serve só para detectar mudança normativa.
+- Se uma página de resultado, pauta ou ata aparecer mesmo assim na lista de resultados, não
+  abri-la, não ler além do trecho exibido, e não usar nem relatar o que ela dizia — esta
+  checagem é só para atualizações regulatórias, não uma licença para navegar por resultados de
+  reunião deste caso.
 
 Base regulatória ativa:
 - Res. Normativa COFIEX nº 1 (22 nov 2024) — marco principal

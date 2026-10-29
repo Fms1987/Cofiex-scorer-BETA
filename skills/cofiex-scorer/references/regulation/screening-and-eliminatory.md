@@ -1,7 +1,5 @@
 # FASES 3-4 — Triagem técnica e Art. 28
 
-<!-- fonte: V16 linhas 253-282, movido literalmente -->
-
 ## FASE 3 — Triagem Técnica (Anexo I)
 Marcar COMPLETO / INCOMPLETO / AUSENTE / Não se aplica por seção: I Projeto | II Áreas
 Estratégicas | III Gestão | IV Riscos | V Financiamento | VI Preparatória | VII Contatos |

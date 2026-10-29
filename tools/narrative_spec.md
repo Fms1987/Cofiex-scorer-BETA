@@ -1,4 +1,4 @@
-# Narrative spec v3 — cofiex-scorer v17 fichas
+# Narrative spec v3 — cofiex-scorer fichas
 
 You fill the `<!-- ... pendente -->` placeholders of fichas using ONLY the source texts listed in your batch JSON.
 Language: English (keep official Portuguese terms: CAPAG, PPA, GTEC, SEAID, STN, Art. 28, DLI, UGP, LOA…).
@@ -41,7 +41,7 @@ headings must remain exactly once, in the original order. ≤10 bullet lines per
   **A.3 Risk Assessment** (matrix? sector risks? licensing?), counterpart secured (LOA/PPA/law) or "to be secured",
   **A.4 Implementation** (UGP quality).
 - `## Perguntas GTEC provaveis`: only questions that truly apply, `Qn short name: ANSWERED|PARTIAL|ABSENT (reason)`.
-  List: `cofiex-scorer-v17/skills/cofiex-scorer/references/gtec/questions.md`.
+  List: `skills/cofiex-scorer/references/gtec/questions.md`.
   If no listed question fits an issue, add one line `NO-MATCH: <issue type>` (useful for extending the list).
 - **Front matter — you MAY edit only these keys** (add the two new keys right after `baseline_defined_share`):
   `n_indicators` (verified integer), `n_indicators_parse` (set to `verified`),

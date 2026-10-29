@@ -1,4 +1,4 @@
-"""Build anonymized calibration cases for cofiex-scorer v17.
+"""Build anonymized calibration cases.
 
 Inputs (local only, never committed):
   --xlsx   COFIEX_Avaliacoes_165_185.xlsx  (PROJECTS_ALL, SCORING_ALL)

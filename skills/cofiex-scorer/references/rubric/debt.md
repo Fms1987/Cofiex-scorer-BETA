@@ -1,7 +1,5 @@
 # FASE 8 — Trajetória da dívida
 
-<!-- fonte: V16 linhas 472-507, movido literalmente -->
-
 ## FASE 8 — Trajetória da Dívida (Art. 21, Anexo III — máx. 1,000)
 Art. 10, I, d: máximo 1 ponto. **Mede o nível/trajetória de dívida ACUMULADA da entidade**
 (Dívida Consolidada/Receita Corrente Líquida, tendência, limites do Senado), analisada pela
@@ -28,7 +26,7 @@ empiricamente):**
 | 55–65% | fortemente crescente | 0,250–0,500 |
 | > 65% ou violação do limite do Senado | qualquer | 0,000–0,250 |
 
-**Piso condicional (âncora v15):** primeira operação com banco multilateral de desenvolvimento
+**Piso condicional (âncora empírica):** primeira operação com banco multilateral de desenvolvimento
 E Capacidade de Pagamento C → esperado **0,50** (era 0,75). A SEAID tende a aplicar um piso
 conservador quando não há histórico com banco multilateral e a Capacidade de Pagamento é mais
 fraca.

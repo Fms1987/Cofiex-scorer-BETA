@@ -28,34 +28,10 @@ Reforço do julgamento cego, encontrado e corrigido em duas rodadas de teste ceg
   Humano, COFIEX, PPA, LOA, nomes de credores) são mantidos pois não são abreviação interna.
 - Versionamento resetado para **V.1 BETA** para marcar a primeira versão construída e
   calibrada com o corpus RAG anonimizado (`fichas/` + `data/cases_anonymized.csv`) como fonte
-  primária de recuperação, em vez de uma continuação numerada da linha V16 pré-RAG.
+  primária de recuperação.
 - Todo o texto de `SKILL.md` e de `references/` traduzido para o português — vocábulos
   estrangeiros mantidos apenas quando fazem parte do contexto (nomes de credores, siglas
   técnicas de padrão internacional como SMART/DLI/ISO, termos de ferramentas como `grep`).
   Dados literais (identificadores de ficha, códigos de setor/regime, valores de coluna do CSV)
   não foram traduzidos — são vocabulário controlado lido pelo protocolo de recuperação, não
   prosa.
-
-## 17.0.0
-- Arquitetura: SKILL.md monolítico (49 KB) → SKILL.md leve (~12 KB) + `references/` carregado
-  sob demanda (RAG por divulgação progressiva). Regras e tabelas da V16 movidas literalmente.
-- Adicionados cartões de caso anonimizados por setor e `data/cases_anonymized.csv` (n=390
-  submissões, reuniões 165–185 + Portais de Financiamento Externo posteriores).
-- Adicionado o pipeline `tools/` (texto de carta-consulta + planilha de pontuação → cartões) e
-  um validador de anonimidade.
-- Nenhum parâmetro de pontuação alterado em relação à V16.1.
-
-## 17.0.1 (rascunho)
-- Fichas: cabeçalho estruturado + narrativa anonimizada para 173 pleitos/avaliações (toda a
-  NR 1/2024, mais um piloto da R17); limpeza de cabeçalho: credor e contrapartida verificados
-  contra o texto da carta-consulta (8 divergências de credor e 5 de contrapartida na
-  planilha), marcadores normalizados para um vocabulário controlado, `nt_docs` recalculado
-  após deduplicar cópias de Nota Técnica, faixa de valor `BRL-nominal` para operações cuja
-  coluna de valor estava em reais.
-- CSV de casos e cartões de setor regerados a partir das fichas (setor verificado onde existe
-  narrativa).
-- `docs/analise-areas-estrategicas.md`: esquema da análise de área estratégica para a Res.
-  17/2021 e a Res. 1/2024, notas de área por avaliação, áreas não aceitas e pontos adicionais,
-  e uma reconciliação com a planilha de resultados.
-- Fontes: Notas Técnicas convertidas para Markdown (776/776); cabeçalhos/rodapés de página
-  repetidos removidos antes da leitura pelo agente.

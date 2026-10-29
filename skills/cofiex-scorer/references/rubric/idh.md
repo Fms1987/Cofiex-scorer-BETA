@@ -1,7 +1,5 @@
 # FASE 6 — Índice de Desenvolvimento Humano
 
-<!-- fonte: V16 linhas 408-449, movido literalmente -->
-
 ## FASE 6 — Índice de Desenvolvimento Humano (apenas subnacional)
 `Nota de Índice de Desenvolvimento Humano = 2 × ((1 − IDH_entidade) / (1 − IDH_menor_na_reunião))`
 

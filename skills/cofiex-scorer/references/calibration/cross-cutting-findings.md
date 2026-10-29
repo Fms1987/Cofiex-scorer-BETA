@@ -1,7 +1,5 @@
 # Achados empíricos transversais (âncoras anonimizadas)
 
-<!-- fonte: V16 linhas 77-167, movido literalmente -->
-
 ## Achados Empíricos Transversais (âncoras anonimizadas)
 Estas são as lições de calibração destiladas de todas as sessões de corpus e testes cegos,
 armazenadas como padrões, não como casos nomeados.

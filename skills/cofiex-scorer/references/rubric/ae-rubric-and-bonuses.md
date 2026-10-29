@@ -1,7 +1,5 @@
 # FASE 5 — rubrica da Nota de Área Estratégica, objetivos do PPA e tratamento de bônus
 
-<!-- fonte: V16 linhas 283-337, movido literalmente -->
-
 ## FASE 5 — Pontuação das Áreas Estratégicas (Nota de Área Estratégica)
 ### Objetivos do PPA 2024–2027 (35)
 Eixo 1 — Social: 101 Pobreza · 102 Saúde/SUS · 103 Primeira infância/educação · 104 Ensino

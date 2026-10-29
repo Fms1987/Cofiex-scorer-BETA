@@ -1,6 +1,6 @@
 {
   "name": "cofiex-scorer",
-  "version": "17.0.0",
+  "version": "V.1 BETA",
   "description": "Simulates COFIEX technical evaluation of a carta-consulta under Res. Normativa 1/2024 (as amended). Retrieval-based: rubric, calibration and anonymized case cards in references/.",
   "author": { "name": "Fabricio Martins" }
 }
