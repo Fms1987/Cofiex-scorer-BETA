@@ -48,3 +48,15 @@ da pauta, para baixo (→0,5–1,2) se houver entidades de Índice de Desenvolvi
 presentes.
 
 Entidades federais: Índice de Desenvolvimento Humano = não se aplica (nota 0).
+
+**Viés sistemático de subestimação (achado da validação por teste cego, n=15, 2026-10).** A Nota
+de Índice de Desenvolvimento Humano cega saiu, em média, 0,29 ponto (escala 0–2) abaixo da nota
+oficial — o único componente objetivo com viés direcional consistente (CAPAG e Dívida saíram
+quase sem viés no mesmo teste). Como a fórmula é relativa ao IDH_menor da reunião real (não
+conhecido às cegas), a hipótese mais provável é que os pisos-âncora acima (0,668 estadual;
+0,572–0,620 municipal) estão, em média, ligeiramente **altos demais** — mais perto do IDH da
+própria entidade do que o IDH_menor real costuma ser, o que comprime a nota calculada para baixo.
+**Ajuste recomendado:** na ausência de evidência da composição real da pauta, preferir o extremo
+**pessimista** de cada faixa de cenário (não o moderado) como ponto de partida — ex.: usar
+0,650–0,660 em vez de 0,668 para pautas estaduais, e o piso inferior das faixas municipais. n=15
+é pequeno; tratar como ajuste preliminar e revisar com mais casos de validação.

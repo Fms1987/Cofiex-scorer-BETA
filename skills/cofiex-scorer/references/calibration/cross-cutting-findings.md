@@ -4,6 +4,18 @@
 Estas são as lições de calibração destiladas de todas as sessões de corpus e testes cegos,
 armazenadas como padrões, não como casos nomeados.
 
+**A Área Estratégica é o principal motor do erro da Nota Geral — não os Dados Objetivos (achado
+da validação por teste cego, n=30, 2026-10).** Decompondo o erro por componente: Área Estratégica
+teve MAE=1,29 (escala 0–10/0–8, conforme teto do ente), contra MAE≈0,18 para CAPAG e Dívida
+(escala 0–2, praticamente sem erro — vêm direto da planilha oficial empacotada, componente
+objetivo e fácil de ler certo). A Área Estratégica é responsável pela grande maioria do erro
+agregado da Nota Geral porque é o único componente genuinamente qualitativo/interpretativo da
+rubrica. **Implicação para onde investir esforço de calibração:** ganhos futuros de precisão
+vêm principalmente de mais fichas de calibração por setor/modalidade (âncoras de nota por tipo
+de indicador, como as desta página), não de ajustar fórmulas de CAPAG/Dívida/Índice de
+Desenvolvimento Humano, que já estão bem calibradas. Índice de Desenvolvimento Humano é a
+exceção pontual com viés sistemático (ver `rubric/idh.md`).
+
 **O modelo de entrega domina o rótulo setorial.** Operações de repasse/intermediação (bancos
 de desenvolvimento repassando a subnacionais/subprojetos) pontuam baixo na Nota de Área
 Estratégica (≈3,3–5,5) **apenas quando os indicadores são genuinamente postergados** para
