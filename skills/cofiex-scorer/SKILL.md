@@ -359,22 +359,35 @@ Pagamento, Índice de Desenvolvimento Humano/Municipal, COFIEX, PPA, LOA, os nom
 BIRD/BID/CAF/etc.) não são abreviação interna e podem permanecer — mas escrever por extenso
 qualquer abreviação inventada ou interna em toda ocorrência, independente do idioma.
 
+**Todo número de nota deve vir rotulado — nunca um número solto.** Em qualquer seção da saída
+(sumário executivo, detalhamento por área, componentes, nota final), identificar explicitamente
+se o número é a **Nota de Área Estratégica** (componente isolado, teto 10, bônus incluído) ou a
+**Nota Geral** (Dados Objetivos + Área Estratégica — Índice de Desenvolvimento Humano +
+Capacidade de Pagamento + Tendência da Dívida + Nota de Área Estratégica, teto 15; para ente
+federal, Nota Geral = Nota de Área Estratégica, pois não há componentes de Dados Objetivos).
+Mesma regra para a faixa [Mínimo — Esperado — Máximo]: dizer sempre a qual das duas ela se
+refere.
+
 0. **[PRIMEIRO] Sumário executivo:** todo campo de cabeçalho identificado (nome da proposta,
    proponente, credor, valor total/empréstimo/contrapartida, sublimite-alvo, tipo de entidade)
-   mais as notas atribuídas sob julgamento cego — Nota de Área Estratégica, Nota do Índice de
-   Desenvolvimento Humano, Classificação de Capacidade de Pagamento, Nota de Tendência da
-   Dívida, e a faixa final [Mínimo — Esperado — Máximo] — em um bloco compacto, antes de
-   qualquer uma das seções abaixo.
+   mais as notas atribuídas sob julgamento cego — identificando cada uma como Nota de Área
+   Estratégica (componente) ou como item de Dados Objetivos (Nota do Índice de Desenvolvimento
+   Humano, Classificação de Capacidade de Pagamento, Nota de Tendência da Dívida) — e, por fim,
+   a **Nota Geral** com a faixa [Mínimo — Esperado — Máximo] rotulada como tal — em um bloco
+   compacto, antes de qualquer uma das seções abaixo.
 1. **Cabeçalho:** proposta, proponente, credor, valor da operação
 2. **Integridade dos Insumos (FASE 1.6):** qualquer `input_flag` levantado
 3. **Checagem Eliminatória (FASE 2/4):** aprovado/reprovado com detalhes
 4. **Detalhamento da Nota de Área Estratégica (FASE 5):** área por área, com classificação de
-   nível + faixa de bônus
+   nível + faixa de bônus — todo número aqui é Nota de Área Estratégica (componente), nunca
+   Nota Geral; identificar assim mesmo quando o total da área já incluir o bônus
 5. **Notas dos Componentes (FASES 6–8):** Índice de Desenvolvimento Humano, Classificação de
-   Capacidade de Pagamento, Tendência da Dívida com faixas de cenário
-6. **Nota Final (FASE 9):** [Mínimo — Esperado — Máximo] + a linha de **Base de calibração**
-   (n, filtros relaxados, marcadores de dados fracos, ancoragem; ver passo 7 da RECEITA DE
-   RECUPERAÇÃO)
+   Capacidade de Pagamento, Tendência da Dívida com faixas de cenário — estes são itens de
+   Dados Objetivos, distintos da Nota de Área Estratégica; rotular cada um como tal
+6. **Nota Final (FASE 9):** a **Nota Geral** — [Mínimo — Esperado — Máximo] explicitando a soma
+   Dados Objetivos + Nota de Área Estratégica (ou só Nota de Área Estratégica, se ente federal)
+   — + a linha de **Base de calibração** (n, filtros relaxados, marcadores de dados fracos,
+   ancoragem; ver passo 7 da RECEITA DE RECUPERAÇÃO)
 7. **Simulação das Perguntas do Grupo Técnico (FASE 10):** tabela pergunta por pergunta
 8. **Revisão Sênior de Banco Multilateral de Desenvolvimento (FASE 11):** classificações A.1–
    A.5 completas (teoria da mudança, marco de resultados, riscos, implementação,
