@@ -49,4 +49,14 @@ teto.
 | 1ª, nota < 8 no sublimite Geral | Considerar sublimite PPP/Ambiental-Climático/Fiscal se elegível |
 | 2ª, mesmo texto de carta-consulta | Visar o 4º trimestre; nota inalterada, só importa o saldo do teto |
 | 2ª, carta-consulta revisada | Quantificar a variação esperada da Nota de Área Estratégica; se < +1,0, a compressão tem mais impacto |
+
+6. **Evolução da Área Estratégica em reenvios (39 pares com Nota Técnica nas duas versões, RN
+   1/2024).** Em 79% dos pares a Área Estratégica ficou idêntica (31/39). A variação média foi
+   de +0,31, e só 7 subiram. Os ganhos vieram de: (a) áreas secundárias novas em D/E, cada uma
+   com objetivo específico, produto, indicador e custo próprios; (b) correção de
+   inconsistências entre texto e anexos, que destravou várias áreas de E para D; (c) ano-meta nos
+   indicadores, que fechou o SMART; (d) a área principal passando de 30% do orçamento (C→B);
+   (e) poda de áreas que pontuavam zero, com realocação dos recursos. Uma revisão de foco também
+   já rebaixou uma área (C→D). Usar `review/correction-plan.md` ("Rota para Área Estratégica
+   máxima") para estimar o Δ de uma carta revisada, em vez de supor ganho só por reenviar.
 | 3ª+ | Redesenho fundamental: redução de escopo, troca de credor, ou migração de sublimite |

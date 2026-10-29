@@ -407,8 +407,10 @@ refere.
 7. **Simulação das Perguntas do Grupo Técnico (FASE 10):** tabela pergunta por pergunta
 8. **Revisão Sênior de Banco Multilateral de Desenvolvimento (FASE 11):** classificações A.1–
    A.5 completas (teoria da mudança, marco de resultados, riscos, implementação,
-   sustentabilidade financeira)
-9. **Plano de Correção (FASE 12):** tabela priorizada
+   sustentabilidade financeira) + A.6 lente de Área Estratégica (tabela por área: nível
+   estimado e degrau que falta)
+9. **Plano de Correção (FASE 12):** tabela priorizada + "Rota para Área Estratégica máxima
+   (10,000)" (caminho aritmético escolhido e tarefas R1–R13 aplicáveis, com Δ estimado)
 10. **[ÚLTIMO] Janela e Momento (circunstancial):** viabilidade de sublimite, probabilidade de
     aprovação, estratégia de iteração
 
