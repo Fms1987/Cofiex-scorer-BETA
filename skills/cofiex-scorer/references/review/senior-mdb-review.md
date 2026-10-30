@@ -84,6 +84,8 @@ necessários, mas não bastam. "Excepcional" aparece em 36% dos blocos A e em ~1
 - **Repartição linear.** Um produto declarado para várias áreas tem o custo dividido igualmente
   entre elas ("US$ 480 milhões divididos por três"), o que derruba a fatia de cada área.
 - **Área declarada sem objetivo específico, produto, indicador e custo próprios** recebe zero.
+  Nas áreas secundárias, o ponto de partida é 0 (regra da seção 4 de
+  `calibration/ae-criteria-by-level-and-ppa-area.md`).
   Não há dupla contagem: o mesmo indicador não sustenta duas áreas.
 - **Indicadores de execução ou contagem** ("% de elaboração do modelo", "nº de acordos") caem
   para D/E. Indicadores de resultado setoriais nomeados sobem.

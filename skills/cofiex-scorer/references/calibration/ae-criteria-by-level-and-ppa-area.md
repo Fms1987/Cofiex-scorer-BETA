@@ -136,3 +136,45 @@ poucos casos, eles reproduzem a Nota Técnica de um pleito identificável.
 - **Áreas sociais transversais (106–109):** costumam ser pleiteadas juntas e sofrer repartição
   linear. Concentrar recursos e indicadores numa delas rende mais do que espalhar entre as
   quatro.
+
+## 4. Áreas secundárias: o ponto de partida é 0
+
+Base: 582 áreas secundárias declaradas na seção de áreas estratégicas de 81 cartas-consulta
+sob a RN 1/2024, cruzadas com o nível da Nota Técnica. "Secundária" é toda área declarada
+que não é a de maior nível no pleito. Os pleitos do banco de teste ficaram fora da conta.
+
+| Resultado da área secundária | 0 | E | D | C ou acima | Pontos médios |
+|---|---|---|---|---|---|
+| Todas | 54% | 24% | 16% | 7% | 0,41 |
+| Pleito com 10 ou mais áreas declaradas | 58% | 22% | 16% | 4% | 0,35 |
+| Área citada só na seção de áreas estratégicas, sem objetivo específico, indicador, componente ou valor | 64% | 18% | 11% | 6% | 0,33 |
+| Área com objetivo específico, indicador, componente ou valor e texto próprio, os quatro | 18% | 53% | 18% | 12% | 0,68 |
+
+Na rodada cega após os pacotes 1 e 2, 55% das áreas que a skill classificou em E tinham nota 0
+na Nota Técnica. Esse foi o maior erro da Nota de Área Estratégica.
+
+**Por objetivo, como área secundária** (n ≥ 5; % com nota 0):
+- **Quase sempre 0 (70% ou mais):** 101 (7 de 7), 203 (7 de 7), 305 (6 de 6), 214 (95%, n=38),
+  206 (83%, n=12), 108 (80%, n=5), 109 (75%, n=8), 107 (74%, n=27), 212 (74%, n=19).
+- **Metade ou mais 0 (45–69%):** 103, 104, 105, 111, 112, 113, 204, 205, 207, 208, 301, 302.
+- **Costumam pontuar (40% ou menos de 0):** 303 (12%; D ou acima em 61%), 110 (20%; quase sempre
+  E), 306 (22%; C ou acima em 67%), 213 (28%), 102 (30%), 202 (32%), 201 (33%), 106 (38%),
+  210 (38%), 209 (40%).
+
+**Regra (aplicar a cada área que não é a principal, depois do Passo 0 e da lente A.6):**
+1. **Começar em 0.** Subir para E só com pelo menos um vínculo próprio, verificável no texto da
+   carta fora da seção de áreas estratégicas: (a) objetivo específico que trata da área;
+   (b) indicador que mede a área; (c) produto ou componente com valor atribuído à área. Um
+   argumento de alinhamento escrito só na seção de áreas estratégicas não basta.
+2. **Objetivos do grupo "quase sempre 0":** exigir dois vínculos para E e os três, com pelo
+   menos 4% do orçamento, para D.
+3. **Objetivos do grupo "costumam pontuar":** um vínculo basta para E. Os três vínculos com pelo
+   menos 4% do orçamento sustentam D.
+4. **Teste da soma.** Somar os pontos das secundárias. A referência é cerca de 0,4 ponto por
+   área secundária declarada (0,35 com 10 ou mais declaradas), e menos da metade delas com
+   nível. Se a estimativa passar disso em mais de 1 ponto, rebaixar para 0 as de vínculo mais
+   fraco e dizer quais.
+5. **Na dúvida entre 0 e E, escolher 0.** Na dúvida entre E e D, escolher E.
+
+A regra não se aplica à área principal, nem a áreas secundárias com 15% ou mais do orçamento.
+Nesses casos vale a lente A.6.
