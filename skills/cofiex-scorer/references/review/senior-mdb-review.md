@@ -47,6 +47,13 @@ base de 211 Notas Técnicas, a SEAID separou as cartas sobretudo em A.5 (49% FRA
 Prontidão geral para banco multilateral de desenvolvimento: PRONTO / CONDICIONALMENTE PRONTO
 / NÃO PRONTO.
 
+### Lente Banco Mundial e justificativa do credor (sempre)
+Depois de A.1–A.5, aplicar `review/world-bank-lens.md` (instrumento, indicadores vinculados a
+desembolso, Padrões Ambientais e Sociais, Quadro de Parceria, objetivo de desenvolvimento do
+projeto, ponte para a Nota Conceitual), qualquer que seja o credor declarado. Classificar a
+justificativa do financiamento externo e do credor com `review/creditor-justification.md`. A
+lente não pontua de novo e remete às lacunas de A.1–A.5 em vez de reexplicá-las.
+
 ### A.6 — Lente de pontuação da Área Estratégica (calibrada nas Notas Técnicas da RN 1/2024)
 Base: 588 justificativas por área em todas as Notas Técnicas sob a RN 1/2024 (A=11, B=78,
 C=97, D=160, E=242) e 39 pares de reenvio com Nota Técnica nas duas versões. O arquivo de critérios conta

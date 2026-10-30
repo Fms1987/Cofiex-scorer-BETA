@@ -1,6 +1,11 @@
 """Orçamento por área do PPA (FASE 5, passo 0): fatia de cada área e teto de nível que o orçamento permite.
 
-uso: python -X utf8 budget_by_area.py <produtos.json> [saida.md]
+uso: python -X utf8 budget_by_area.py <produtos.json> [saida.md] [--xlsx planilha.xlsx]
+     python -X utf8 budget_by_area.py --modelo planilha.xlsx      (planilha em branco para o cliente)
+
+--xlsx grava a planilha de custo por área e produto que acompanha o relatório: uma linha por
+produto e área, com fração, valor atribuído e % do total em fórmulas, e um resumo por área com o
+teto de nível. O cliente pode corrigir valores e áreas direto nela.
 
 produtos.json:
 {
@@ -82,14 +87,81 @@ def markdown(r):
     return "\n".join(L) + "\n"
 
 
+def planilha(d, caminho, linhas_vazias=0):
+    """Planilha de custo por área e produto. Fórmulas, para que o cliente possa editar."""
+    from openpyxl import Workbook
+    from openpyxl.styles import Font, PatternFill
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Custo por produto"
+    cab = ["Produto", "Componente", "Valor do produto", "Área do PPA", "Fração do produto nesta área",
+           "Valor atribuído à área", "% do total da operação"]
+    ws.append(cab)
+    linhas = []
+    for p in d.get("produtos", []):
+        areas = [str(a) for a in p.get("areas", [])] or [""]
+        aloc = p.get("alocacao") or {a: 1 / len(areas) for a in areas}
+        s = sum(aloc.values()) or 1
+        for a in areas:
+            linhas.append([p["nome"], p.get("componente", ""), float(p["valor"]), a, aloc.get(a, 0) / s])
+    linhas += [["", "", None, "", None] for _ in range(linhas_vazias)]
+    fim = len(linhas) + 1
+    for i, (nome, comp, valor, area, frac) in enumerate(linhas, start=2):
+        ws.append([nome, comp, valor, area, frac, f'=IF(C{i}="","",C{i}*E{i})',
+                   f'=IF(C{i}="","",F{i}/$I$2)'])
+        ws[f"E{i}"].number_format = "0%"
+        ws[f"G{i}"].number_format = "0.0%"
+        ws[f"C{i}"].number_format = ws[f"F{i}"].number_format = "#,##0"
+    # Total depois das linhas: gravar I1/I2 antes deslocaria o append para a linha 3.
+    ws["I1"] = "Total da operação"
+    ws["I2"] = float(d["total"]) if d.get("total") else f"=SUM(F2:F{max(fim, 2)})"
+    ws["I2"].number_format = "#,##0"
+
+    res = wb.create_sheet("Resumo por área")
+    res.append(["Área do PPA", "Declarada na carta", "Valor atribuído", "% do total",
+                "Teto de nível pelo orçamento"])
+    declaradas = [str(a) for a in d.get("areas_declaradas", [])]
+    areas = sorted(set(declaradas) | {l[3] for l in linhas if l[3]})
+    for j, a in enumerate(areas + [""] * max(5, linhas_vazias // 4), start=2):
+        res.append([a, ("sim" if a in declaradas else "não") if a else "",
+                    f"=IF(A{j}=\"\",\"\",SUMIF('Custo por produto'!D:D,A{j},'Custo por produto'!F:F))",
+                    f"=IF(A{j}=\"\",\"\",C{j}/'Custo por produto'!$I$2)",
+                    f'=IF(A{j}="","",IF(D{j}>0.5,"A",IF(D{j}>0.3,"B",IF(D{j}>0.15,"C",'
+                    f'IF(D{j}>0.04,"D",IF(D{j}>0,"E","0"))))))'])
+        res[f"C{j}"].number_format = "#,##0"
+        res[f"D{j}"].number_format = "0.0%"
+    res.append([])
+    res.append(["O teto é o nível mais alto que a fatia do orçamento permite. O nível final depende de objetivo "
+                "direto, indicador de resultado com ano-meta e impacto. Produto em várias áreas sem fração "
+                "declarada na carta é repartido em partes iguais, como faz a Nota Técnica."])
+    for w in (wb.worksheets):
+        for c in w[1]:
+            c.font = Font(bold=True, color="FFFFFF")
+            c.fill = PatternFill("solid", fgColor="1F3864")
+        for col, larg in zip("ABCDEFGHI", (40, 22, 16, 12, 14, 16, 14, 4, 18)):
+            w.column_dimensions[col].width = larg
+    wb.save(caminho)
+    print(f"Planilha salva em {caminho}")
+
+
 def main():
-    with open(sys.argv[1], encoding="utf-8") as fh:
-        r = calcular(json.load(fh))
+    a = sys.argv[1:]
+    if a and a[0] == "--modelo":
+        planilha({"produtos": []}, a[1], linhas_vazias=40)
+        return
+    xlsx = a.pop(a.index("--xlsx") + 1) if "--xlsx" in a else None
+    if xlsx:
+        a.remove("--xlsx")
+    with open(a[0], encoding="utf-8") as fh:
+        d = json.load(fh)
+    r = calcular(d)
     out = markdown(r)
-    if len(sys.argv) > 2:
-        with open(sys.argv[2], "w", encoding="utf-8") as fh:
+    if len(a) > 1:
+        with open(a[1], "w", encoding="utf-8") as fh:
             fh.write(out)
     print(out)
+    if xlsx:
+        planilha(d, xlsx)
 
 
 if __name__ == "__main__":

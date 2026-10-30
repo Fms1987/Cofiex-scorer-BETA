@@ -9,8 +9,8 @@ Carregar apenas o que a fase atual precisa (ver PROTOCOLO DE RECUPERAÇÃO em `.
 | `calibration/` | Achados transversais, faixas de Nota de Área Estratégica por setor, **taxas-base por área** (`areas-stats.md`), **cartões de caso** (`cases/`), régua de qualidade técnica do regime anterior (`technical-quality-r17.md`), biblioteca de indicadores (`indicator-library.md`), ponte com o regime anterior (`old-regime-bridge.md`) | Fases 5, 9, 11–12 |
 | `iteration/` | Análise de persistência / reenvio | Fase 9.5 |
 | `gtec/` | Perguntas calibradas do Grupo Técnico | Fase 10 |
-| `review/` | Revisão sênior de banco multilateral de desenvolvimento, plano de correção, textos-modelo (`model-texts.md`) | Fases 11–12 |
-| `output/` | Entrega final do relatório em .docx (esquema do JSON, estrutura do sumário executivo) | Após a Fase 12 |
+| `review/` | Revisão sênior de banco multilateral de desenvolvimento, lente Banco Mundial (`world-bank-lens.md`, sempre), justificativa do credor (`creditor-justification.md`), plano de correção, textos-modelo (`model-texts.md`) | Fases 11–12 |
+| `output/` | Entrega final do relatório em .docx: regras de redação, resumo para o líder de equipe, carta ao cliente, planilha de custo por área, esquema do JSON | Após a Fase 12 |
 
 Fora de `references/`:
 - `fichas/pleitos/`, `fichas/avaliacoes/` — cabeçalho estruturado (pesquisável por grep) +

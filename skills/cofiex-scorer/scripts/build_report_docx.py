@@ -1,11 +1,16 @@
 """Gera o relatório final da simulação COFIEX em .docx a partir de um JSON.
 
-Uso: python build_report_docx.py relatorio.json saida.docx
+Uso: python build_report_docx.py relatorio.json saida.docx [--carta-cliente carta.docx]
 
 O JSON segue o esquema descrito em references/output/docx-report.md. Os subtotais e a Nota
 Geral são recalculados aqui a partir dos itens (com o teto da Nota de Área Estratégica), para
 que as tabelas do sumário executivo nunca fiquem inconsistentes com os itens.
+
+Com --carta-cliente, grava também a carta de comentários ao mutuário (bloco "carta_cliente"),
+sem notas. Antes de salvar, avisa quando dois parágrafos de seções diferentes são quase iguais
+(regra "um achado, uma seção").
 """
+import difflib
 import json
 import sys
 from datetime import date
@@ -92,6 +97,21 @@ def soma(itens, chave):
     return sum((it.get(chave) or 0) for it in itens)
 
 
+def subtotal_ae(d):
+    """Nota de Área Estratégica por cenário: áreas declaradas + bônus, limitada ao teto."""
+    ae, teto_ae = d["area_estrategica"], d.get("teto_area_estrategica", 10.0)
+    areas = declaradas(ae["areas"])
+    return {k: min(teto_ae, sum(pts(a, k) for a in areas) + soma(ae.get("bonus", []), k))
+            for k in ("min", "esp", "max")}
+
+
+def totais(d):
+    sub_do = {k: 0 for k in ("min", "esp", "max")} if d.get("ente_federal", False) else \
+        {k: soma(d["dados_objetivos"], k) for k in ("min", "esp", "max")}
+    sub_ae = subtotal_ae(d)
+    return {k: sub_do[k] + sub_ae[k] for k in sub_ae}, sub_ae
+
+
 def tabela_pontuacao(doc, d):
     """Tabela 1: mínimo/esperado/máximo por item, subtotais e Nota Geral."""
     federal = d.get("ente_federal", False)
@@ -116,10 +136,7 @@ def tabela_pontuacao(doc, d):
         situacao = f" ({b['situacao']})" if b.get("situacao") else ""
         rows.append(["Área Estratégica", f"Bônus — {b['item']}{situacao}", fmt(b["min"]), fmt(b["esp"]), fmt(b["max"])])
         styles.append(None)
-    sub_ae = {}
-    for k in ("min", "esp", "max"):
-        bruto = sum(pts(a, k) for a in areas) + soma(ae.get("bonus", []), k)
-        sub_ae[k] = min(teto_ae, bruto)
+    sub_ae = subtotal_ae(d)
     rows.append(["Subtotal", f"Nota de Área Estratégica (teto {fmt(teto_ae)}, bônus incluído)",
                  fmt(sub_ae["min"]), fmt(sub_ae["esp"]), fmt(sub_ae["max"])])
     styles.append("subtotal")
@@ -180,8 +197,7 @@ def bloco(doc, b):
         run.font.size = Pt(9)
 
 
-def main(src, out):
-    d = json.loads(open(src, encoding="utf-8").read())
+def novo_documento():
     doc = Document()
     st = doc.styles["Normal"]
     st.font.name = "Calibri"
@@ -189,6 +205,92 @@ def main(src, out):
     for s in doc.sections:
         s.left_margin = s.right_margin = Cm(2.0)
         s.top_margin = s.bottom_margin = Cm(2.0)
+    return doc
+
+
+def nota_destaque(doc, rotulo, valor, tamanho, idioma="pt"):
+    p = doc.add_paragraph()
+    texto = fmt(valor) if idioma == "pt" else f"{valor:.2f}"
+    r = p.add_run(f"{rotulo}: {texto}")
+    r.bold = True
+    r.font.size = Pt(tamanho)
+
+
+ROTULOS_TTL = {
+    "pt": {"titulo": "Resumo para o líder de equipe", "veredito": "Veredito",
+           "geral": "Nota Geral esperada", "ae": "Nota de Área Estratégica esperada",
+           "sublimite": "Sublimite recomendado", "lacunas": "As três lacunas que mais custam nota",
+           "acoes": "As três ações de maior ganho", "ganho": "ganho"},
+    "en": {"titulo": "Summary for the task team leader", "veredito": "Verdict",
+           "geral": "Expected Overall Score", "ae": "Expected Strategic Area Score",
+           "sublimite": "Recommended sublimit", "lacunas": "The three gaps that cost the most points",
+           "acoes": "The three highest-gain actions", "ganho": "gain"},
+}
+
+
+def resumo_ttl(doc, d, total, sub_ae, idioma):
+    """Resumo do líder de equipe (1–2 páginas): um número em destaque, o resto em segundo plano."""
+    r = d["resumo_ttl"] if idioma == "pt" else d["resumo_ttl"]["en"]
+    L = ROTULOS_TTL[idioma]
+    doc.add_heading(L["titulo"], level=1)
+    p = doc.add_paragraph()
+    p.add_run(f"{L['veredito']}: ").bold = True
+    p.add_run(r["veredito"])
+    nota_destaque(doc, L["geral"], total["esp"], 16, idioma)
+    nota_destaque(doc, L["ae"], sub_ae["esp"], 12, idioma)
+    if r.get("frase_faixa"):
+        bloco(doc, {"tipo": "nota", "texto": r["frase_faixa"]})
+    p = doc.add_paragraph()
+    p.add_run(f"{L['sublimite']}: ").bold = True
+    p.add_run(r["sublimite_recomendado"])
+    doc.add_paragraph().add_run(L["lacunas"]).bold = True
+    # Numeração manual: a lista numerada do Word continuaria a contagem entre as duas listas.
+    for i, t in enumerate(r["lacunas"][:3], start=1):
+        doc.add_paragraph(f"{i}. {t}")
+    doc.add_paragraph().add_run(L["acoes"]).bold = True
+    for i, a in enumerate(r["acoes"][:3], start=1):
+        doc.add_paragraph(f"{i}. {a['acao']} ({L['ganho']}: {a['ganho']})")
+
+
+def carta_cliente(d, out):
+    """Carta de comentários ao mutuário, por seção do Anexo I. Sem notas nem leitura de sublimite."""
+    c = d["carta_cliente"]
+    doc = novo_documento()
+    doc.add_heading("Comentários à carta-consulta", level=0)
+    doc.add_paragraph(f"{d['cabecalho']['proposta']} — {d['cabecalho']['proponente']}").runs[0].bold = True
+    if c.get("introducao"):
+        doc.add_paragraph(c["introducao"])
+    rows = [[it["secao_anexo"], it["problema"], it["redacao_sugerida"]] for it in c["itens"]]
+    table(doc, ["Seção do formulário (Anexo I)", "Problema", "Redação sugerida"], rows, widths=[3.5, 5.5, 8.0])
+    if c.get("fechamento"):
+        doc.add_paragraph(c["fechamento"])
+    doc.save(out)
+    print(f"Carta ao cliente salva em {out} — {len(rows)} comentários")
+
+
+def checar_repeticao(d, limite=0.85, minimo=80):
+    """Alerta parágrafos quase iguais em seções diferentes (cada achado deve aparecer uma vez)."""
+    textos = []
+    for sec in d.get("secoes", []):
+        for b in sec.get("blocos", []):
+            for t in ([b.get("texto")] if b.get("texto") else b.get("itens", [])):
+                if t and len(t) >= minimo:
+                    textos.append((sec["titulo"], t))
+    alertas = []
+    for i, (s1, t1) in enumerate(textos):
+        for s2, t2 in textos[i + 1:]:
+            if s1 != s2 and difflib.SequenceMatcher(None, t1, t2).ratio() >= limite:
+                alertas.append(f"- \"{s1}\" e \"{s2}\": \"{t1[:70]}…\"")
+    if alertas:
+        print("AVISO: parágrafos quase iguais em seções diferentes. Manter na seção dona e "
+              "trocar o outro por uma remissão:", *alertas, sep="\n", file=sys.stderr)
+    return alertas
+
+
+def main(src, out, out_cliente=None):
+    d = json.loads(open(src, encoding="utf-8").read())
+    checar_repeticao(d)
+    doc = novo_documento()
 
     cab = d["cabecalho"]
     doc.add_heading("Simulação da Avaliação Técnica COFIEX", level=0)
@@ -198,6 +300,13 @@ def main(src, out):
                       "Simulação sob julgamento cego, sem consulta à Nota Técnica do pleito. "
                       "Resultado estimativo; não substitui a avaliação oficial.").runs[0].italic = True
 
+    total_calc, sub_ae_calc = totais(d)
+    if d.get("resumo_ttl"):
+        resumo_ttl(doc, d, total_calc, sub_ae_calc, "pt")
+        if d["resumo_ttl"].get("en"):
+            resumo_ttl(doc, d, total_calc, sub_ae_calc, "en")
+        doc.add_page_break()
+
     doc.add_heading("Sumário executivo", level=1)
     table(doc, ["Campo", "Valor"], [["Proposta", cab["proposta"]], ["Proponente", cab["proponente"]]] +
           [list(c) for c in cab.get("campos", [])], widths=[5.0, 12.0])
@@ -206,8 +315,12 @@ def main(src, out):
 
     doc.add_heading("Tabela 1 — Pontuação por item: mínima, esperada e máxima", level=2)
     total = tabela_pontuacao(doc, d)
-    doc.add_paragraph(f"Nota Geral estimada: [Mínimo {fmt(total['min'])} — Esperado {fmt(total['esp'])} "
-                      f"— Máximo {fmt(total['max'])}].").runs[0].bold = True
+    doc.add_paragraph(f"Nota Geral esperada: {fmt(total['esp'])}.").runs[0].bold = True
+    fe = d.get("faixa_empirica")
+    if fe:
+        bloco(doc, {"tipo": "nota", "texto": f"Faixa calibrada pelos erros do banco de teste (cobre cerca de 80% "
+                                             f"dos casos): Nota Geral de {fmt(fe['min'])} a {fmt(fe['max'])}. "
+                                             "As colunas Mínimo e Máximo acima são cenários da rubrica."})
     if d.get("base_calibracao"):
         bloco(doc, {"tipo": "nota", "texto": "Base de calibração: " + d["base_calibracao"]})
 
@@ -226,7 +339,14 @@ def main(src, out):
 
     doc.save(out)
     print(f"Relatório salvo em {out} — Nota Geral esperada {fmt(total['esp'])}")
+    if out_cliente:
+        if d.get("carta_cliente"):
+            carta_cliente(d, out_cliente)
+        else:
+            print("AVISO: --carta-cliente pedido, mas o JSON não tem o bloco carta_cliente.", file=sys.stderr)
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    a = sys.argv[1:]
+    cliente = a[a.index("--carta-cliente") + 1] if "--carta-cliente" in a else None
+    main(a[0], a[1], cliente)

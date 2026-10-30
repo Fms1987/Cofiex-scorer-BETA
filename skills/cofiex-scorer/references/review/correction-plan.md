@@ -20,7 +20,14 @@ esforço, (3) pontos cegos das Perguntas do Grupo Técnico.
 
 Para cada lacuna de A.4, A.5 ou da justificativa do credor, a ação cita o texto-modelo de
 `review/model-texts.md` (tabela plurianual de custo operacional, matriz RACI, comparativo de
-condições financeiras) e o subitem que ele fecha.
+condições financeiras) e o subitem que ele fecha. O comparativo de credores vem preenchido com
+as linhas de `review/creditor-justification.md` (prazos e comissões típicos); o ganho dessa
+ação é evitar pergunta do Grupo Técnico, não pontos.
+
+Cada linha descreve a ação e remete à lacuna ("ver A.5"), sem reexplicá-la: o diagnóstico já
+está na revisão sênior. Quando o usuário for devolver a carta ao mutuário, as ações viram a
+carta de comentários ao cliente (bloco `carta_cliente`, `output/docx-report.md`): seção do
+Anexo I, problema e redação sugerida, sem notas.
 
 | # | Item | Fase | Prioridade | Atual | Meta | Δ Nota de Área Estratégica | Ação | Responsável | Prazo |
 |---|---|---|---|---|---|---|---|---|---|

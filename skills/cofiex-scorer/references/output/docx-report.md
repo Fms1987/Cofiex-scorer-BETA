@@ -7,7 +7,8 @@ assim as tabelas do sumário executivo nunca contradizem os itens.
 
 ## Passos
 1. Montar um JSON com o esquema abaixo, com os mesmos números da resposta no chat.
-2. Rodar `python -X utf8 scripts/build_report_docx.py relatorio.json "Simulacao_COFIEX_<proposta>.docx"`.
+2. Rodar `python -X utf8 scripts/build_report_docx.py relatorio.json "Simulacao_COFIEX_<proposta>.docx"`
+   (acrescentar `--carta-cliente "Comentarios_<proposta>.docx"` quando houver carta ao cliente).
    (`-X utf8` evita erro de codificação no Windows.)
    Precisa de `python-docx`; se faltar, instalar com `pip install python-docx`. Em ambiente
    sem Python, montar o mesmo documento com a skill de `.docx` disponível, seguindo a mesma
@@ -15,7 +16,58 @@ assim as tabelas do sumário executivo nunca contradizem os itens.
 3. Entregar o arquivo: anexá-lo na resposta ou informar o caminho. A saída deve ficar na
    pasta de trabalho do usuário, não em pasta temporária.
 
+## Regras de redação (valem para o chat e para o .docx)
+**Um número em destaque.** O relatório tem um só número principal: a **Nota Geral esperada**,
+com a Nota de Área Estratégica esperada logo abaixo. Todo outro número fica em segundo plano e
+vem com uma frase que diz quando ele importa:
+- faixa: "a nota cai para X se a área principal for lida como C";
+- teto de sublimite: "a nota só decide se houver disputa no sublimite Geral";
+- dados objetivos: "valor oficial, não muda com a redação da carta".
+
+**Sem previsões paralelas.** Nada de probabilidade de aprovação em percentual, multiplicador
+ou taxa de desfecho em primeiro plano. A chance de aprovação aparece como leitura do sublimite,
+em texto curto: acima da linha de corte recente, perto dela ou abaixo.
+
+**Cada seção tem um papel só.** Um achado aparece uma vez, na seção dona dele; as outras
+remetem a ele ("ver A.5").
+
+| Seção | Papel único | O que não repete |
+|---|---|---|
+| Resumo para o líder de equipe | Nota esperada, sublimite recomendado, 3 lacunas, 3 ações | Não detalha justificativas |
+| Pontuação pela rubrica (seções 4–6) | Por que cada item recebeu a nota | Não propõe correções |
+| Revisão sênior e lente Banco Mundial (seção 8) | Qualidade do projeto do ponto de vista de um banco | Não volta a pontuar áreas |
+| Plano de Correção (seção 9) | O que mudar, onde e quanto vale | Cita a lacuna por remissão, sem reexplicar |
+| Janela e Momento (seção 10) | Onde e quando submeter | Não repete a nota, só a posição frente à linha de corte |
+
+O gerador avisa quando dois parágrafos de seções diferentes são quase iguais (85% ou mais de
+semelhança, com 80 caracteres ou mais). Corrigir antes de entregar: manter o texto na seção
+dona e trocar o outro por uma remissão.
+
+## Anexos do relatório
+- **Carta de comentários ao cliente** (opcional, quando o usuário vai devolver a carta ao
+  mutuário). Bloco `carta_cliente` do JSON e opção `--carta-cliente carta.docx`. É uma tabela
+  "seção do formulário (Anexo I) → problema → redação sugerida". Não traz nota, sublimite nem
+  leitura interna. A redação sugerida sai dos textos-modelo (`review/model-texts.md`) e da
+  biblioteca de indicadores. Na versão para o cliente, ela substitui o Plano de Correção; no
+  relatório interno o Plano de Correção continua, e a carta não é copiada para ele.
+- **Planilha de custo por área e produto** (sempre que a carta tiver valores por componente ou
+  produto). Gerada por
+  `python -X utf8 scripts/budget_by_area.py produtos.json orcamento.md --xlsx Custo_por_area_<proposta>.xlsx`,
+  com o mesmo JSON do passo 0 da FASE 5. Para o cliente preencher do zero:
+  `scripts/budget_by_area.py --modelo modelo.xlsx`. Entregar junto com o .docx.
+
 ## Estrutura obrigatória do documento
+**Resumo para o líder de equipe** (primeira página, bloco `resumo_ttl`):
+- veredito em uma linha;
+- Nota Geral esperada em destaque e Nota de Área Estratégica esperada logo abaixo, as duas
+  calculadas pelo gerador;
+- uma frase de faixa em segundo plano;
+- sublimite recomendado;
+- as 3 lacunas que mais custam nota;
+- as 3 ações de maior ganho, com o ganho rotulado.
+
+Com `resumo_ttl.en`, o resumo sai também em inglês, para circular na equipe do banco.
+
 **Sumário executivo**, com três tabelas separadas:
 - **Tabela 1 — Pontuação por item: mínima, esperada e máxima.** Contém:
   - cada item de Dados Objetivos (Nota do Índice de Desenvolvimento Humano até 2,00;
@@ -69,6 +121,21 @@ mesmos títulos por extenso e sem siglas.
     ]
   },
   "base_calibracao": "n=…, filtros…, ancoragem…",
+  "faixa_empirica": {"min": 7.4, "max": 11.6},
+  "resumo_ttl": {
+    "veredito": "Uma linha.",
+    "frase_faixa": "A Nota Geral cai para 8,9 se a área principal for lida como C.",
+    "sublimite_recomendado": "Ambiental e Climático, se o componente de gestão sair da operação.",
+    "lacunas": ["…", "…", "…"],
+    "acoes": [{"acao": "…", "ganho": "+1,0 na Nota de Área Estratégica"}],
+    "en": {"veredito": "…", "frase_faixa": "…", "sublimite_recomendado": "…",
+           "lacunas": ["…"], "acoes": [{"acao": "…", "ganho": "+1.0 Strategic Area Score"}]}
+  },
+  "carta_cliente": {
+    "introducao": "…",
+    "itens": [{"secao_anexo": "III. Gestão", "problema": "…", "redacao_sugerida": "…"}],
+    "fechamento": "…"
+  },
   "sugestoes": [
     {"sugestao": "Tabela de custo por área, produto a produto", "item_afetado": "Área 202",
      "prioridade": "P1", "ganho_estimado": "+0,5 a +1,0"}
@@ -90,6 +157,10 @@ Regras de soma:
 - Para um esperado entre dois níveis, informar `pontos_min`, `pontos_esp` ou `pontos_max`
   numéricos na área (ex.: `"pontos_esp": 1.5`). Esses valores prevalecem sobre o nível na
   soma, e o nível continua sendo exibido.
+
+- `faixa_empirica` é a faixa de 80% da FASE 9 (Nota Geral esperada ± o valor calibrado). Ela
+  aparece como nota abaixo da Tabela 1; as colunas Mínimo e Máximo da tabela são cenários da
+  rubrica.
 
 Níveis aceitos: `A` (5), `B` (3), `C` (2), `D` (1), `E` (0,5), `0` (sem nota). Os valores do
 JSON usam ponto decimal; o documento sai com vírgula.

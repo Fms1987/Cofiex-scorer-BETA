@@ -37,7 +37,11 @@ financeira documentada (anexos comparativos obrigatórios); (2) Capacidade de Pa
 aprovada (A+/A/B+/B); (3) a dívida original já garantida pela União (sub-rogação da garantia).
 Com os três presentes, a aprovação é ≈ 100% independentemente da Nota de Área Estratégica.
 
-**Modificadores (projetos de investimento):**
+**Modificadores (projetos de investimento) — uso interno, nunca como número no relatório.**
+Pela regra de redação (`output/docx-report.md`), estes fatores só orientam a leitura em texto
+da seção Janela e Momento: acima da linha de corte recente, perto dela ou abaixo. Não mostrar
+percentual de aprovação nem o multiplicador. O módulo de sublimite (saldo e linha de corte por
+reunião) vai substituí-los.
 - valor da operação > 0,15 × teto → ×0,7; valor da operação > 0,25 × teto → ×0,3
 - Primeiro trimestre após virada de ciclo → probabilidade geral = máx(5%, base × 0,1)
 - Banco Mundial no sublimite Geral → ×0,9 (padrão de porte do valor da operação)

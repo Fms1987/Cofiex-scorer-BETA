@@ -90,8 +90,9 @@ elevam o total acima de 15 por padrão (ver FASE 9, teto extensível).
 - Entidades federais: Capacidade de Pagamento/Índice de Desenvolvimento Humano/Dívida NÃO se
   aplicam; apenas Nota de Área Estratégica (máx. 10); sem piso de Nota de Área Estratégica.
 - Piso de Nota de Área Estratégica subnacional: 3,0 pts (Art. 28, I, b).
-- Pontuar como uma FAIXA (mínimo/esperado/máximo), com incerteza de ±1 nível. A faixa
-  mostrada em primeiro plano é a **faixa empírica** (FASE 9, `rubric/final-score.md`); a faixa
+- Pontuar como uma FAIXA (mínimo/esperado/máximo), com incerteza de ±1 nível. Em primeiro
+  plano fica só a **Nota Geral esperada**, com a Nota de Área Estratégica esperada abaixo. A
+  **faixa empírica** (FASE 9, `rubric/final-score.md`) vem logo depois, como frase; a faixa
   pela rubrica (soma dos extremos de cada item) fica como cenário.
 - **Posicionamento no sublimite ≥ maximização da nota em um mercado com oferta restrita.**
 - **O valor da operação ser menor ou igual ao teto estimado da reunião é condição necessária
@@ -126,8 +127,9 @@ de uma vez. Começar por `references/INDEX.md`.
 | 9 Nota final | `references/rubric/final-score.md` |
 | 9.5 Iteração | `references/iteration/persistence.md` (apenas se houver reenvio) |
 | 10 Perguntas do Grupo Técnico | `references/gtec/questions.md` |
-| 11 Revisão de banco multilateral | `references/review/senior-mdb-review.md` + régua de subitens `references/calibration/technical-quality-r17.md` |
-| 12 Plano de correção | `references/review/correction-plan.md` + `references/review/model-texts.md` (textos-modelo) + `references/calibration/indicator-library.md` (indicadores por setor) |
+| 11 Revisão de banco multilateral | `references/review/senior-mdb-review.md` + régua de subitens `references/calibration/technical-quality-r17.md` + **lente Banco Mundial, sempre** `references/review/world-bank-lens.md` + checklist do credor `references/review/creditor-justification.md` |
+| 12 Plano de correção | `references/review/correction-plan.md` + `references/review/model-texts.md` (textos-modelo) + `references/calibration/indicator-library.md` (indicadores por setor); comparativo de credores por `scripts/creditor_terms.py` |
+| Entrega | `references/output/docx-report.md` (regras de redação, resumo para o líder de equipe, carta ao cliente, planilha de custo por área) |
 
 ### O que é recuperável (camadas, mais baratas primeiro)
 | Camada | Onde | Contém | Usar para |
@@ -413,7 +415,14 @@ federal, Nota Geral = Nota de Área Estratégica, pois não há componentes de D
 Mesma regra para a faixa [Mínimo — Esperado — Máximo]: dizer sempre a qual das duas ela se
 refere.
 
-0. **[PRIMEIRO] Sumário executivo:** todo campo de cabeçalho identificado (nome da proposta,
+**Regras de redação** (detalhe em `references/output/docx-report.md`): um só número em
+destaque, a **Nota Geral esperada**, com a Nota de Área Estratégica esperada logo abaixo; todo
+outro número em segundo plano, com uma frase que diz quando ele importa; nenhuma probabilidade
+de aprovação em percentual; cada achado numa seção só, as demais remetem a ele.
+
+0. **[PRIMEIRO] Resumo para o líder de equipe** (veredito em uma linha, Nota Geral esperada,
+   sublimite recomendado, 3 lacunas que mais custam nota, 3 ações de maior ganho) **e
+   Sumário executivo:** todo campo de cabeçalho identificado (nome da proposta,
    proponente, credor, valor total/empréstimo/contrapartida, sublimite-alvo, tipo de entidade)
    mais as notas atribuídas sob julgamento cego — identificando cada uma como Nota de Área
    Estratégica (componente) ou como item de Dados Objetivos (Nota do Índice de Desenvolvimento
@@ -429,7 +438,8 @@ refere.
 5. **Notas dos Componentes (FASES 6–8):** Índice de Desenvolvimento Humano, Classificação de
    Capacidade de Pagamento, Tendência da Dívida com faixas de cenário — estes são itens de
    Dados Objetivos, distintos da Nota de Área Estratégica; rotular cada um como tal
-6. **Nota Final (FASE 9):** a **Nota Geral** — [Mínimo — Esperado — Máximo] explicitando a soma
+6. **Nota Final (FASE 9):** a **Nota Geral esperada** em destaque e a faixa [Mínimo — Esperado
+   — Máximo] em segundo plano, explicitando a soma
    Dados Objetivos + Nota de Área Estratégica (ou só Nota de Área Estratégica, se ente federal)
    — + a linha de **Base de calibração** (n, filtros relaxados, marcadores de dados fracos,
    ancoragem; ver passo 7 da RECEITA DE RECUPERAÇÃO)
@@ -437,16 +447,22 @@ refere.
 8. **Revisão Sênior de Banco Multilateral de Desenvolvimento (FASE 11):** classificações A.1–
    A.5 completas (teoria da mudança, marco de resultados, riscos, implementação,
    sustentabilidade financeira) + A.6 lente de Área Estratégica (tabela por área: nível
-   estimado e degrau que falta)
+   estimado e degrau que falta) + **Lente Banco Mundial, sempre** (instrumento sugerido,
+   indicadores vinculados a desembolso se couber, Padrões Ambientais e Sociais e classe de
+   risco, encaixe no Quadro de Parceria, objetivo de desenvolvimento do projeto, ponte para a
+   Nota Conceitual) + justificativa do credor (nível e subitem que falta)
 9. **Plano de Correção (FASE 12):** tabela priorizada + "Rota para Área Estratégica máxima
    (10,000)" (caminho aritmético escolhido e tarefas R1–R13 aplicáveis, com Δ estimado)
-10. **[ÚLTIMO] Janela e Momento (circunstancial):** viabilidade de sublimite, probabilidade de
-    aprovação, estratégia de iteração
+10. **[ÚLTIMO] Janela e Momento (circunstancial):** viabilidade de sublimite, posição frente à
+    linha de corte recente (acima, perto ou abaixo, em texto, sem probabilidade em percentual),
+    estratégia de iteração
 
 **Entrega final obrigatória: relatório em .docx.** Depois da resposta no chat, gravar o
 relatório completo com `scripts/build_report_docx.py` e entregar o arquivo ao usuário
-(esquema e estrutura em `references/output/docx-report.md`). O sumário executivo do .docx
-traz três tabelas separadas:
+(esquema e estrutura em `references/output/docx-report.md`), com a planilha de custo por área
+e produto quando a carta tiver valores por componente, e a carta de comentários ao cliente
+quando o usuário for devolver a carta ao mutuário. O sumário executivo do .docx traz três
+tabelas separadas:
 - **Tabela 1:** pontuação mínima, esperada e máxima por item, nos subtotais (Dados Objetivos;
   Nota de Área Estratégica) e na Nota Geral.
 - **Tabela 2:** objetivos estratégicos do PPA indicados no pleito, com a pontuação possível em
