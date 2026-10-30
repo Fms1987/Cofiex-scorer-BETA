@@ -203,7 +203,8 @@ superior, nunca a contradiz:
    O teto pelo orçamento nunca é ultrapassado por nenhuma âncora abaixo.
 3. **Critérios por objetivo do PPA** (`calibration/ae-criteria-by-level-and-ppa-area.md`):
    decidem entre dois níveis permitidos pelo item 2. Nas áreas secundárias, a seção 4 desse
-   arquivo manda começar em 0 e, na dúvida entre 0 e E, ficar em 0.
+   arquivo define o ponto de partida pelo grupo do objetivo: 0 nos que quase sempre ficam em 0
+   e no grupo intermediário, E nos que costumam pontuar.
 4. **Cartão de setor** (apenas n ≥ 5, apenas como faixa): empurra a estimativa um pequeno
    passo (passo 5 da receita), sem tirá-la do intervalo dado pelos itens 2 e 3.
 5. **Achados transversais e âncoras de exemplo** (`cross-cutting-findings.md`, exemplos da

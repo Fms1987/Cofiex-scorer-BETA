@@ -18,12 +18,13 @@ fonte de erro da Nota de Área Estratégica. Calcular sempre:
    com ano-meta, impacto, inovação) e pode ficar abaixo do teto, nunca acima.
 4. Os alertas do script entram no plano de correção: área declarada sem produto próprio
    (tende a zero), produto sem área, repartição linear que derruba a área principal.
-5. **Áreas secundárias começam em 0.** Para cada área que não é a principal e tem menos de 15%
-   do orçamento, aplicar a regra da seção 4 de `calibration/ae-criteria-by-level-and-ppa-area.md`:
-   E só com um vínculo próprio fora da seção de áreas estratégicas (dois nos objetivos que
-   quase sempre ficam em 0), teste da soma de cerca de 0,4 ponto por área secundária declarada
-   e, na dúvida entre 0 e E, 0. Dar E a áreas que receberam 0 foi o maior erro da Nota de Área
-   Estratégica na validação cega.
+5. **Áreas secundárias: nível pelo grupo do objetivo.** Para cada área que não é a principal e
+   tem menos de 15% do orçamento, aplicar a regra da seção 4 de
+   `calibration/ae-criteria-by-level-and-ppa-area.md`. Objetivos que quase sempre ficam em 0:
+   nota 0. Grupo intermediário: 0, ou E com dois vínculos próprios fora da seção de áreas
+   estratégicas. Objetivos que costumam pontuar: começar em E. Depois, fazer o teste da soma.
+   Dar E a áreas que receberam 0 foi o maior erro da Nota de Área Estratégica na validação
+   cega. Zerar todas por padrão errou na direção oposta.
 ### Objetivos do PPA 2024–2027 (35)
 Eixo 1 — Social: 101 Pobreza · 102 Saúde/SUS · 103 Primeira infância/educação · 104 Ensino
 médio/técnico · 105 Economia criativa · 106 Direitos humanos · 107 Mulheres · 108 Indígenas/

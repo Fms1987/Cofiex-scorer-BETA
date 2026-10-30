@@ -137,7 +137,7 @@ poucos casos, eles reproduzem a Nota Técnica de um pleito identificável.
   linear. Concentrar recursos e indicadores numa delas rende mais do que espalhar entre as
   quatro.
 
-## 4. Áreas secundárias: o ponto de partida é 0
+## 4. Áreas secundárias: o ponto de partida depende do grupo do objetivo
 
 Base: 582 áreas secundárias declaradas na seção de áreas estratégicas de 81 cartas-consulta
 sob a RN 1/2024, cruzadas com o nível da Nota Técnica. "Secundária" é toda área declarada
@@ -151,7 +151,10 @@ que não é a de maior nível no pleito. Os pleitos do banco de teste ficaram fo
 | Área com objetivo específico, indicador, componente ou valor e texto próprio, os quatro | 18% | 53% | 18% | 12% | 0,68 |
 
 Na rodada cega após os pacotes 1 e 2, 55% das áreas que a skill classificou em E tinham nota 0
-na Nota Técnica. Esse foi o maior erro da Nota de Área Estratégica.
+na Nota Técnica. Esse foi o maior erro da Nota de Área Estratégica. A primeira versão desta
+regra ("começar em 0" para todas) corrigiu parte desse erro. Ela também zerou áreas que tinham
+E, a maioria de objetivos que costumam pontuar ou do grupo intermediário. Por isso a regra
+abaixo depende do grupo do objetivo.
 
 **Por objetivo, como área secundária** (n ≥ 5; % com nota 0):
 - **Quase sempre 0 (70% ou mais):** 101 (7 de 7), 203 (7 de 7), 305 (6 de 6), 214 (95%, n=38),
@@ -161,20 +164,38 @@ na Nota Técnica. Esse foi o maior erro da Nota de Área Estratégica.
   E), 306 (22%; C ou acima em 67%), 213 (28%), 102 (30%), 202 (32%), 201 (33%), 106 (38%),
   210 (38%), 209 (40%).
 
+**O grupo do objetivo pesa mais do que contar vínculos.** Nas mesmas 582 áreas (vínculos
+detectados por busca no texto da carta, portanto aproximados):
+
+| Grupo do objetivo | n | 0 | E | Pontos médios | Com 2 ou mais vínculos próprios |
+|---|---|---|---|---|---|
+| Quase sempre 0 | 129 | 85% | 10% | 0,10 | ainda cerca de 80% em 0 |
+| Metade ou mais 0 | 254 | 57% | 23% | 0,36 | 43% em 0 e 41% em E |
+| Costumam pontuar | 199 | 29% | 33% | 0,69 | 19% em 0, D ou acima em 48% |
+
+Vínculo próprio é um destes três, verificável no texto da carta fora da seção de áreas
+estratégicas: (a) objetivo específico que trata da área; (b) indicador que mede a área;
+(c) produto ou componente com valor atribuído à área. Um argumento de alinhamento escrito só na
+seção de áreas estratégicas não conta.
+
 **Regra (aplicar a cada área que não é a principal, depois do Passo 0 e da lente A.6):**
-1. **Começar em 0.** Subir para E só com pelo menos um vínculo próprio, verificável no texto da
-   carta fora da seção de áreas estratégicas: (a) objetivo específico que trata da área;
-   (b) indicador que mede a área; (c) produto ou componente com valor atribuído à área. Um
-   argumento de alinhamento escrito só na seção de áreas estratégicas não basta.
-2. **Objetivos do grupo "quase sempre 0":** exigir dois vínculos para E e os três, com pelo
-   menos 4% do orçamento, para D.
-3. **Objetivos do grupo "costumam pontuar":** um vínculo basta para E. Os três vínculos com pelo
-   menos 4% do orçamento sustentam D.
-4. **Teste da soma.** Somar os pontos das secundárias. A referência é cerca de 0,4 ponto por
-   área secundária declarada (0,35 com 10 ou mais declaradas), e menos da metade delas com
-   nível. Se a estimativa passar disso em mais de 1 ponto, rebaixar para 0 as de vínculo mais
-   fraco e dizer quais.
-5. **Na dúvida entre 0 e E, escolher 0.** Na dúvida entre E e D, escolher E.
+1. **Grupo "quase sempre 0": nota 0.** Só sobe para E com os três vínculos e pelo menos 4% do
+   orçamento.
+2. **Grupo "metade ou mais 0": começar em 0.** Sobe para E com dois vínculos. Com os três e pelo
+   menos 4% do orçamento, D.
+3. **Grupo "costumam pontuar": começar em E.** Fica em 0 só se a carta não tiver nenhum vínculo
+   ou se o produto da área já sustenta outra área (sem dupla contagem). Com dois vínculos e
+   pelo menos 4% do orçamento, D.
+4. **Teste da soma.** A referência de pontos por área secundária declarada é 0,10 no primeiro
+   grupo, 0,35 no segundo e 0,70 no terceiro. Se a soma estimada das secundárias passar da
+   referência em mais de 1 ponto, rebaixar as de vínculo mais fraco e dizer quais. Se ficar
+   abaixo em mais de 1 ponto, rever as do terceiro grupo que ficaram em 0.
+5. **Componente sem valor financiado** (por exemplo, agenda de políticas numa reestruturação de
+   dívida) conta como vínculo de objetivo, não de produto com valor.
+
+Em testes mecânicos com os pleitos do banco de teste, esta versão errou menos do que contar
+vínculos sem olhar o grupo. O erro da soma das secundárias por pleito caiu de 1,59 para 1,26
+ponto, e o erro por área de 0,38 para 0,37.
 
 A regra não se aplica à área principal, nem a áreas secundárias com 15% ou mais do orçamento.
 Nesses casos vale a lente A.6.
