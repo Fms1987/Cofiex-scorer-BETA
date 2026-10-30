@@ -1,6 +1,10 @@
 """Gera references/strategy/sublimit-table.md a partir da base consolidada da COFIEX.
 
-uso: python -I -X utf8 tools/build_sublimit_table.py <COFIEX_Base_Consolidada.xlsx> <skill_dir>
+uso: python -I -X utf8 tools/build_sublimit_table.py <COFIEX_Base_Consolidada.xlsx> <skill_dir> [--ate N] [--excluir-pfe X,Y]
+
+--ate N: usa só as reuniões anteriores à N-ésima e trata a N-ésima como a próxima (para
+simulações cegas de um pleito julgado na reunião N).
+--excluir-pfe: tira da agregação as linhas desses números PFE (o próprio pleito simulado).
 
 Dados agregados por reunião e sublimite: limite previsto, valor aprovado, uso do limite,
 contagem de aprovados, não aprovados e retirados, menor nota aprovada e maior nota não aprovada.
@@ -54,7 +58,7 @@ def nota(v):
     return "—" if v is None else f"{v:.2f}".replace(".", ",")
 
 
-def main(base, skill):
+def main(base, skill, ate=None, excluir=()):
     wb = openpyxl.load_workbook(base, read_only=True, data_only=True)
     lim = list(wb["LIMITES_POR_REUNIAO"].iter_rows(values_only=True))
     hl = {k: i for i, k in enumerate(lim[0])}
@@ -67,15 +71,18 @@ def main(base, skill):
         valores = {cat: num(r[hl[col]]) for col, cat in LIMITE_COL.items()}
         if any(v is not None for v in valores.values()):
             limites[n] = valores
-            if "prevista" in str(r[hl["Data da reunião"]]).lower() or str(r[hl["Formato"]]) == "Prevista":
+            if ate is None and "prevista" in str(r[hl["Data da reunião"]]).lower() or str(r[hl["Formato"]]) == "Prevista":
                 proxima = n
 
+    if ate is not None:
+        proxima = ate
     proj = list(wb["PROJETOS"].iter_rows(values_only=True))
     hp = {k: i for i, k in enumerate(proj[0])}
     agg = defaultdict(lambda: {"aprov_val": 0.0, "aprov": 0, "nao": 0, "ret": 0, "notas_ap": [], "notas_nao": []})
     for r in proj[1:]:
         n, cat, res = nreuniao(r[hp["Reunião"]]), r[hp["Categoria / Limite"]], r[hp["Resultado"]]
-        if n is None or not cat:
+        if (n is None or not cat or (ate is not None and n >= ate)
+                or str(r[hp["Nº PFE"]]) in excluir):
             continue
         a = agg[(n, cat)]
         pt = num(r[hp["Pontuação Total"]])
@@ -148,4 +155,6 @@ def main(base, skill):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    a = sys.argv[1:]
+    main(a[0], a[1], int(a[a.index("--ate") + 1]) if "--ate" in a else None,
+         a[a.index("--excluir-pfe") + 1].split(",") if "--excluir-pfe" in a else ())
