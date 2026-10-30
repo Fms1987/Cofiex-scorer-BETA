@@ -114,6 +114,28 @@ Gerar as perguntas calibradas do Grupo Técnico com prioridade e aplicabilidade.
   habilitante promulgada, parceiro de avaliação de impacto nomeado, linhas de base medidas,
   protótipo/piloto. A presença sustenta o incremento A/B.
 
+### Motivos registrados de retirada de pauta e não aprovação
+Base: 264 pleitos retirados ou não aprovados nas reuniões 165ª–189ª (texto do resultado oficial).
+O corpus não registra as perguntas do Grupo Técnico pleito a pleito; registra o motivo final. Usar
+para dizer ao usuário qual risco é de fato decisivo.
+
+| Motivo | Res. 17/2021 (n=190) | RN 1/2024 (n=74) |
+|---|---|---|
+| Limite ou sublimite da reunião excedido | 69% | 61% |
+| Eliminatória do Art. 28, I: (g) violação de contrato de renegociação de dívida com a União ou do programa de ajuste fiscal associado; (c) Capacidade de Pagamento D; (e), (f); e Art. 44 | — | 19% |
+| Requisitos do Anexo I não cumpridos | — | 12% |
+| Critério de elegibilidade da Res. 17 (art. 6º, I) | 11% | — |
+| Inadequação orçamentária (federal, Secretaria de Orçamento Federal) | 7% | 3% |
+| Regime de Recuperação Fiscal: projeto fora do plano ou contragarante em recuperação | 6% | 4% |
+| Análise técnica não concluída por falta de informação ou documentação | 4% | — |
+| Sobreposição com programa fiscal já financiado | 2% | — |
+
+Leitura: o risco dominante é o limite da reunião, não a qualidade da carta (ver o módulo de
+sublimite). Entre os motivos de mérito na RN 1/2024, a alínea (g) é a mais citada: verificar
+sempre a situação do ente nos contratos de renegociação com a União e no programa de ajuste
+fiscal. Para entes federais, a pergunta decisiva é a adequação orçamentária (despesa primária,
+regra de ouro em empréstimos de política).
+
 ### Formato de saída das Perguntas do Grupo Técnico
 | # | Pergunta | Prioridade | Aplica? | Resposta na carta-consulta | Situação | Lacuna / Ação |
 |---|---|---|---|---|---|---|

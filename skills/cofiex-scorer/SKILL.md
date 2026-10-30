@@ -117,7 +117,7 @@ de uma vez. Começar por `references/INDEX.md`.
 | 3–4 Triagem, Art. 28 | `references/regulation/screening-and-eliminatory.md` |
 | 5 Nota de Área Estratégica | `references/rubric/ae-rubric-and-bonuses.md` + `references/calibration/ae-ranges-and-sectors.md` + `references/calibration/cross-cutting-findings.md` + `references/calibration/ae-criteria-by-level-and-ppa-area.md` |
 | 5 (esquema de áreas) | `docs/analise-areas-estrategicas.md` **apenas seção 1** (primeiras ~60 linhas: como a Res. 17/2021 e a Res. 1/2024 pontuam as áreas); nunca carregar a seção 2 (registro por caso) |
-| 5 (taxas-base por área) | `references/calibration/areas-stats.md` (taxas de aceitação por objetivo, mix de níveis, taxas de pontos adicionais) |
+| 5 (taxas-base por área) | `references/calibration/areas-stats.md` (taxas de aceitação por objetivo, mix de níveis, taxas de pontos adicionais); para n < 30 ou pleito vindo do regime anterior, `references/calibration/old-regime-bridge.md` |
 | 5 (consulta de calibração) | seguir a **RECEITA DE RECUPERAÇÃO** abaixo: `cases/INDEX.md` → um cartão de setor → no máximo 6 fichas de pleito + 6 fichas de avaliação |
 | 6–8 Dados Objetivos (subnacional) | rodar primeiro `scripts/objective_lookup.py --uf <UF> --reuniao <data> [--municipio "<nome>"]`: devolve Capacidade de Pagamento do ciclo em vigor, Tendência da Dívida pela regra calibrada e Índice de Desenvolvimento Humano com o piso calibrado, com fonte e ciclo (vale como metadado da FASE 1.6) |
 | 6 Índice de Desenvolvimento Humano | `references/rubric/idh.md` |

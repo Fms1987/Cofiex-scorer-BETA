@@ -30,7 +30,8 @@ Fragilidades comuns do Anexo I (padrões do corpus anonimizado):
 Subnacional Art. 28, I: (a) Anexo I rejeitado · (b) Nota de Área Estratégica < 3,0 ·
 (c) Capacidade de Pagamento D [C = 0 pts, NÃO eliminatório] · (d) bloqueio judicial ·
 (e) sem parecer da Secretaria do Tesouro Nacional · (f) atrasos/honra de garantia ·
-(g) violação contratual · (h) revisão sem resposta.
+(g) violação contratual (contratos de renegociação de dívida com a União e programa de ajuste
+fiscal associado; a alínea mais citada nas não aprovações da RN 1/2024) · (h) revisão sem resposta.
 Federal: inadequação da Secretaria de Orçamento Federal (Art. 23).
 Checar também: incompatibilidade com Plano de Recuperação Fiscal/Regime de Recuperação Fiscal
 | contrapartida <20% sem dispensa | documentos incompletos | lacuna de licenciamento

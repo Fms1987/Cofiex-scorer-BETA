@@ -60,3 +60,32 @@ teto.
    já rebaixou uma área (C→D). Usar `review/correction-plan.md` ("Rota para Área Estratégica
    máxima") para estimar o Δ de uma carta revisada, em vez de supor ganho só por reenviar.
 | 3ª+ | Redesenho fundamental: redução de escopo, troca de credor, ou migração de sublimite |
+
+## O que muda entre versões da mesma carta-consulta (RN 1/2024)
+Base: 98 pleitos de 2025–2026 com duas ou mais versões no Portal (mediana de 3 versões),
+comparando a primeira com a última. As versões incluem ajustes pedidos pela SEAID antes da pauta
+e reenvios depois de uma reunião; os dois casos não se separam no Portal.
+
+| Seção do Anexo I | Cresceu (>20%) | Encolheu | Leitura |
+|---|---|---|---|
+| 1.4 Indicadores | 44% | 21% | a seção mais retrabalhada; 52% dos pleitos ganharam indicadores, 7% perderam |
+| 2.1 Áreas estratégicas | 36% | 11% | 27% passaram a declarar mais objetivos do PPA, 7% menos |
+| 4.x Riscos | ~30% | ~15% | riscos detalhados ou acrescentados |
+| 3.1 Arranjo institucional | 31% | 6% | equipe e matriz de responsabilidades |
+| 3.2 Operação e manutenção | 30% | 5% | sustentabilidade pós-projeto |
+| 1.3 Objetivo | 30% | 13% | objetivos específicos reescritos para casar com as áreas |
+| 1.5 Componentes | 31% | 26% | reestruturação (22% ganharam componentes) |
+| 6.1 Etapas realizadas | 22% | 2% | preparação comprovada |
+| 1.2 Justificativa; 5.2 Cronograma | 16% | 4% | ajustes pontuais |
+| 5.1 Condições financeiras; 5.3 Contragarantias | 7–8% | 0–8% | quase nunca mudam |
+
+Uso: num reenvio, a revisão deve começar por indicadores, áreas estratégicas, riscos, arranjo e
+operação e manutenção, que é onde a SEAID e os proponentes concentram as mudanças. Mexer em
+justificativa e condições financeiras raramente é o que falta. Combinar com a evidência dos 39
+pares de reenvio em `review/correction-plan.md`: 79% dos reenvios mantiveram a mesma Área
+Estratégica, e os que subiram acrescentaram áreas secundárias com produto, indicador e custo
+próprios.
+
+Para um pleito que volta do regime anterior (Res. 17/2021), ver
+`calibration/old-regime-bridge.md`: a amplitude de itens estratégicos antes creditados indica a
+Área Estratégica nova melhor do que a nota técnica antiga.

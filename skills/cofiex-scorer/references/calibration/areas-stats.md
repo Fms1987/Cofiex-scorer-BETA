@@ -7,6 +7,9 @@ precedentes. n = número de avaliações. Nota Técnica = análise preliminar da
 `ae-ranges-and-sectors.md` e a reconciliação em `docs/analise-areas-estrategicas.md`,
 seção 3).
 
+Para objetivos com n < 30, a taxa do item estratégico equivalente do regime anterior está em
+`old-regime-bridge.md` (sinal fraco, só como extremo da faixa).
+
 ## Res. Normativa 1/2024 (objetivos do Anexo II, 0–5 cada, Nota de Área Estratégica máx. 10)
 
 - n = 112 avaliações. Objetivos pontuados (>0) por avaliação: mediana 4, faixa 1–10.
