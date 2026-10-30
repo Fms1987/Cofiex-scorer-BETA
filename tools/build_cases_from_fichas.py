@@ -1,12 +1,18 @@
 """Regenerate data/cases_anonymized.csv and the per-sector case cards from the (verified) fichas.
 
 usage: build_cases_from_fichas.py <repo_root>
+Reads fichas from <repo_root>/skills/cofiex-scorer/fichas and writes the CSV and cards inside the skill.
+Sectors with n < MIN_N_ROWS get a card with counts only (no per-case rows, no medians): with so few
+cases a row or a median is the score of an identifiable pleito.
 One row per avaliacao ficha, joined with its pleito ficha. Uses verified fields when present
 (lender_verified, counterpart_pct_verified, sector_verified) and says where each value came from.
 """
 import csv, re, statistics, sys
 from collections import Counter, defaultdict
 from pathlib import Path
+
+
+MIN_N_ROWS = 5
 
 
 def header(p):
@@ -24,12 +30,13 @@ def f(x):
 
 def main():
     root = Path(sys.argv[1])
+    sk = root / "skills/cofiex-scorer"
     ph, pb = {}, {}
-    for p in (root / "fichas/pleitos").glob("*.md"):
+    for p in (sk / "fichas/pleitos").glob("*.md"):
         h, b = header(p)
         ph[h["id"]], pb[h["id"]] = h, b
     rows = []
-    for p in sorted((root / "fichas/avaliacoes").glob("*.md")):
+    for p in sorted((sk / "fichas/avaliacoes").glob("*.md")):
         a, _ = header(p)
         pl = ph[a["pleito"]]
         body = pb[a["pleito"]]
@@ -54,13 +61,13 @@ def main():
             "mentions_gender_race": pl.get("mentions_gender_race", ""), "mentions_iso_benchmark": pl.get("mentions_iso_benchmark", ""),
             "mentions_ppp_guarantee": pl.get("mentions_ppp_guarantee", ""), "tags": pl.get("tags", ""), "narrative": status,
         })
-    (root / "data").mkdir(exist_ok=True)
-    with open(root / "data/cases_anonymized.csv", "w", newline="", encoding="utf-8") as fh:
+    (sk / "data").mkdir(exist_ok=True)
+    with open(sk / "data/cases_anonymized.csv", "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=list(rows[0]))
         w.writeheader()
         w.writerows(rows)
 
-    cdir = root / "skills/cofiex-scorer/references/calibration/cases"
+    cdir = sk / "references/calibration/cases"
     cdir.mkdir(parents=True, exist_ok=True)
     for old in cdir.glob("*.md"):
         old.unlink()
@@ -79,6 +86,14 @@ def main():
         tot = [f(r["total"]) if f(r["total"]) is not None else f(r["total_published"]) for r in rs]
         tot = [t for t in tot if t is not None]
         filled = sum(1 for r in rs if r["narrative"] == "filled")
+        if len(rs) < MIN_N_ROWS:
+            idx.append(f"| [{sec}]({sec}.md) | {len(rs)} | {cnt['approved']} | {cnt['not_approved']} | {cnt['withdrawn']} | hidden (n < {MIN_N_ROWS}) | hidden (n < {MIN_N_ROWS}) | {filled}/{len(rs)} |")
+            (cdir / f"{sec}.md").write_text(
+                f"# Sector card — {sec}\n\nn = {len(rs)} avaliações: {cnt['approved']} approved, "
+                f"{cnt['not_approved']} not approved, {cnt['withdrawn']} withdrawn.\n\n"
+                f"Per-case rows and scores hidden (n < {MIN_N_ROWS}): score from the rubric, the A.6 lens and "
+                f"neighbouring sector cards with n >= {MIN_N_ROWS}, as ranges only.\n", encoding="utf-8")
+            continue
         idx.append(f"| [{sec}]({sec}.md) | {len(rs)} | {cnt['approved']} | {cnt['not_approved']} | {cnt['withdrawn']} | {med(ae)} | {med(tot)} | {filled}/{len(rs)} |")
         L = [f"# Sector card — {sec}", "", f"n = {len(rs)} avaliações (meetings 165-185). AE median (NR 1/2024) = {med(ae)}; total median = {med(tot)}.", "",
              "| case | pleito | regime | yr-Q | att | subtype | lender | ticket | CP% | outcome | reason | AE | CAPAG | Debt | IDH | TOTAL | #ind | base% | yr% | narr |",

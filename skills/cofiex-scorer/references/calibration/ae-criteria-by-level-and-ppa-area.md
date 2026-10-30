@@ -112,13 +112,17 @@ As colunas são:
 | 212 | Segurança hídrica | 34 | 44% | 0,82 | 2 | Metas quantificadas (ex.: −35% de perdas) concentrando a maior parte dos recursos; índices institucionais de referência nacional | Impacto limitado |
 | 213 | Serviços (valor agregado) | 21 | 29% | 0,70 | 0 | — (nunca passou de D) | Relação indireta |
 | 214 | Desigualdades regionais | 43 | 88% | 0,80 | 0 | — (88% rejeitada) | Sem indicador próprio |
-| 215 | Setor mineral | 4 | 75% | 2,00 | 1 | — (n pequeno) | — |
+| 215 | Setor mineral | 4 | oculto | oculto | oculto | oculto (n < 5) | oculto (n < 5) |
 | 301 | Democracia participativa e transparência | 33 | 61% | 0,62 | 0 | — (nunca passou de D) | Relação indireta |
 | 302 | Capacidades estatais | 58 | 52% | 1,32 | 13 | Recursos relevantes e metodologia SMART em objetivos e metas | Sem indicador próprio |
 | 303 | Transformação digital do governo | 49 | 24% | 1,34 | 13 | Objetivo geral diretamente alinhado; maioria dos componentes na área | Impacto limitado |
+| 304 | Defesa e soberania | 1 | oculto | oculto | oculto | oculto (n < 5) | oculto (n < 5) |
 | 305 | Cooperação internacional | 9 | 100% | 0,00 | 0 | — (sempre rejeitada) | Recursos não identificados |
 | 306 | Regime fiscal e tributário | 38 | 24% | 2,59 | 28 | Área de maior centralidade; indicador SMART consistente; modelo inovador (ex.: garantia estruturada de PPP) | Impacto limitado |
-| 307 | Sistema de justiça | 3 | 67% | 2,00 | 1 | Aderência clara do objetivo geral e matriz SMART | — |
+| 307 | Sistema de justiça | 3 | oculto | oculto | oculto | oculto (n < 5) | oculto (n < 5) |
+
+Objetivos com menos de 5 áreas avaliadas têm desempenho e fundamentos ocultados: com tão
+poucos casos, eles reproduzem a Nota Técnica de um pleito identificável.
 
 **Leituras práticas:**
 - **Objetivos que mais rendem como área principal:** 306 (fiscal), 111 (cidades), 101, 209,

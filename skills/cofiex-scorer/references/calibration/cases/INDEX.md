@@ -6,6 +6,10 @@ nomeados (PRINCÍPIO DE JULGAMENTO CEGO). Setor = `sector_verified` (lido a part
 indicadores e componentes) quando a ficha tem narrativa; caso contrário, uma heurística por
 palavra-chave (`sector_source` no CSV).
 
+**Setores com n < 5:** o cartão não lista linhas por caso nem medianas, porque com tão poucos
+casos elas revelam a nota de um pleito identificável. Também não filtrar as linhas desses
+setores em `data/cases_anonymized.csv` para ancorar a nota.
+
 (Os nomes de setor abaixo são códigos de vocabulário controlado — não traduzidos — que casam
 com o campo `sector_verified` das fichas e com os nomes dos arquivos.)
 
@@ -27,4 +31,4 @@ com o campo `sector_verified` das fichas e com os nomes dos arquivos.)
 | [regional_development](regional_development.md) | 7 | 7 | 0 | 0 | 6,50 | 7,01 | 7/7 |
 | [digital_connectivity](digital_connectivity.md) | 6 | 3 | 0 | 3 | 6,75 | 6,14 | 6/6 |
 | [security](security.md) | 6 | 2 | 2 | 2 | 9,00 | 8,62 | 6/6 |
-| [justice](justice.md) | 3 | 3 | 0 | 0 | 8,00 | 7,15 | 3/3 |
+| [justice](justice.md) | 3 | 3 | 0 | 0 | oculta (n < 5) | oculta (n < 5) | 3/3 |

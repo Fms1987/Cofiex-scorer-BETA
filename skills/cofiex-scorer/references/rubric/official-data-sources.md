@@ -21,8 +21,17 @@ usuário fornecer depois uma versão mais nova localmente, preferir essa e dizer
 | Classificação fiscal estadual (equivalente à Capacidade de Pagamento) + Índice de Desenvolvimento Humano | `Borrowers_States` | `Fiscal Rating (2026)`, `HDI (2021)` |
 | Índice de Desenvolvimento Humano Municipal | `Borrowers_Municipalities` | `HDI (2010)` |
 | Capacidade de endividamento/espaço fiscal estadual | `Borrowing_Capacity_States` | `Available_Fiscal_Space_BRL`/`_USD`, `Available Fiscal Space (%)` |
-| Operações COFIEX anteriores/irmãs (conferência cruzada multi-tranche, pergunta 26; checagem de credor duplo) | `Operations_COFIEX` | `Request_ID`, `Process_No`, `Project_Name`, `Borrower`, `Phase`, `Bank`, `Loan_USD`, `Counterpart_USD`, datas de aprovação/negociação |
+| Operações COFIEX anteriores/irmãs (conferência cruzada multi-tranche, pergunta 26; checagem de credor duplo) | `Operations_COFIEX` | `Request_ID`, `Process_No`, `Project_Name`, `Borrower`, `Phase`, `Bank`, `Loan_USD`, `Counterpart_USD`, datas de aprovação/negociação — **ver alerta abaixo** |
 | Carteira de bancos multilaterais de desenvolvimento por banco/ano (checagem de sanidade do porte típico de um credor) | `Banks`, `Loans_Master` | milhões de dólares anuais e contagem de operações por banco |
+
+> **ALERTA — `Operations_COFIEX` contém desfechos.** A planilha traz fase e datas de aprovação
+> e negociação de pleitos reais, possivelmente incluindo o próprio pleito avaliado ou uma
+> versão anterior dele. Usar só para localizar operações **de outros** pleitos (tranches-irmãs,
+> credor duplo, pergunta 26 do Grupo Técnico). Nunca procurar nela o proponente, o projeto ou
+> o processo do pleito avaliado, nem usar fase ou data de aprovação para inferir ou ajustar a
+> nota ou a probabilidade de aprovação (princípio de julgamento cego). Se a busca por uma
+> operação-irmã trouxer por acaso a linha do próprio pleito, ignorar a fase e as datas e
+> registrar o fato na FASE 1.6.
 
 Ainda assim, registrar a data de consulta (a própria planilha `Metadata` do arquivo informa sua
 data de última atualização) e citar a planilha/coluna como fonte, conforme a FASE 1.6.

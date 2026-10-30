@@ -139,7 +139,9 @@ de uma vez. Começar por `references/INDEX.md`.
    marcadores de modalidade (`dli`, `pbl`, `ppp`, `on_lending`, …), número da tentativa.
 2. **Cartões.** Ler `cases/INDEX.md` (tamanhos e medianas por setor), depois ler
    `cases/<setor>.md` e manter as linhas que casam com o perfil. O CSV pode ser filtrado da
-   mesma forma.
+   mesma forma. **Setor com n < 5:** o cartão traz só contagens. Não ler as linhas desse setor
+   no CSV para ancorar a nota; usar a rubrica, os critérios por objetivo do PPA e os cartões
+   vizinhos com n ≥ 5, apenas como faixa.
 3. **Cabeçalhos primeiro, fichas só se necessário.** Contar e filtrar apenas pelo cabeçalho
    antes de abrir qualquer corpo de ficha: Grep com `output_mode: files_with_matches` (ou
    `count`), caminho `fichas/pleitos`:
@@ -228,7 +230,10 @@ de uma vez. Começar por `references/INDEX.md`.
    disser, registrar "status de reenvio desconhecido" e seguir adiante.
 6. **Modo de teste.** Se o usuário passar `exclude_ids: [...]` (teste cego de um caso do
    corpus), pular esses identificadores em todo Grep e Read, incluindo tentativas-irmãs do
-   mesmo pleito.
+   mesmo pleito. Os identificadores são opacos, então o modelo não reconhece sozinho o pleito
+   testado nos cartões e no CSV. Um teste cego de validação deve rodar sobre uma cópia da skill
+   sem as fichas e as linhas do pleito (ferramenta `tools/make_blind_sandbox.py`), não sobre a
+   skill instalada.
 7. **Privacidade.** Não produzir identificadores de proponente, projeto, local ou processo
    mesmo que o usuário os forneça em outro lugar; não tentar reidentificar uma ficha.
 8. **Nenhuma consulta à Nota Técnica (NT) durante a pontuação cega.** Nunca buscar, abrir ou
