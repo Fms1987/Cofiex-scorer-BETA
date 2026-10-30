@@ -18,6 +18,10 @@ esforço, (3) pontos cegos das Perguntas do Grupo Técnico.
   Latina e Caribe, linhas de base adicionais (SNIS, Conselho Nacional de Justiça, fontes
   setoriais).
 
+Para cada lacuna de A.4, A.5 ou da justificativa do credor, a ação cita o texto-modelo de
+`review/model-texts.md` (tabela plurianual de custo operacional, matriz RACI, comparativo de
+condições financeiras) e o subitem que ele fecha.
+
 | # | Item | Fase | Prioridade | Atual | Meta | Δ Nota de Área Estratégica | Ação | Responsável | Prazo |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | … | FASE X | P0/P1/P2/P3 | … | … | +X,X | … | Proponente/SEAID/Credor | … |
@@ -66,7 +70,7 @@ a repartição linear divide os produtos compartilhados.
 | R3 | **Podar áreas sem sustentação:** retirar áreas declaradas sem objetivo específico, produto, indicador e custo próprios, e realocar os recursos para a área principal. | evita zeros; aumenta a fatia da principal | até +2,0 |
 | R4 | **Concentrar o orçamento:** ≥~67% na área central (disputa A) e >30% na secundária mais forte (disputa B). Cruzar o limiar de 30% já levou C→B. | C→B, B→A | +1,0 a +2,0 |
 | R5 | **Redigir o objetivo geral** para que a área principal seja "diretamente relacionada" e "central/principal entrega", não só "relevante". Ligar todos ou quase todos os componentes a ela. | D→C, C→B, B→A | +1,0 |
-| R6 | **Indicadores de resultado SMART com ano de linha de base, ano-meta e meta numérica**, de preferência indicadores setoriais de referência (ver `calibration/cross-cutting-findings.md`). Trocar indicadores de execução ou contagem. | D→B quando o resto já é forte | +1,0 a +2,0 |
+| R6 | **Indicadores de resultado SMART com ano de linha de base, ano-meta e meta numérica**, de preferência indicadores setoriais de referência (ver `calibration/cross-cutting-findings.md`). Trocar indicadores de execução ou contagem. Fórmulas aprovadas por setor e trocas para indicadores criticados: `calibration/indicator-library.md`. | D→B quando o resto já é forte | +1,0 a +2,0 |
 | R7 | **Acrescentar áreas secundárias que o projeto atende de verdade**, cada uma com objetivo específico, produto, indicador de resultado e custo próprios, mesmo com 4–7% do orçamento. É o mecanismo dominante nos reenvios que subiram. | 0→D | +1,0 por área |
 | R8 | **Unificar texto, componentes e anexos:** mesmas quantidades, mesma natureza (construção nova ou requalificação), mesmos valores. | E→D em bloco | +0,5 a +3,0 |
 | R9 | **Provar impacto "excepcional"** na área central: quantificar em relação ao público-alvo total ("X de Y famílias", "% da demanda") e mostrar replicabilidade ou escala regional/nacional. Ampliar escala onde ela limita o impacto. | B→A | +2,0 |

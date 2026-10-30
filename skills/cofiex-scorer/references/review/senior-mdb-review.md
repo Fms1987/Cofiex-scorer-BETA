@@ -2,6 +2,11 @@
 
 ## FASE 11 — Simulação de Revisão Sênior de Banco Multilateral de Desenvolvimento
 Classificar cada item como FORTE / ADEQUADO / FRACO / AUSENTE.
+**Régua (A.1, A.2, A.4, A.5):** percorrer os subitens que a SEAID conferia no regime anterior, em
+`calibration/technical-quality-r17.md`. Todos atendidos com evidência forte = FORTE; todos
+atendidos de forma genérica = ADEQUADO; falta 1 subitem = FRACO; faltam 2 ou mais = AUSENTE. Na
+base de 211 Notas Técnicas, a SEAID separou as cartas sobretudo em A.5 (49% FRACO/AUSENTE), A.2
+(40%) e no arranjo de A.4 (21%); A.1 raramente caiu (5%). Não rebaixar A.1 sem defeito concreto.
 - **A.1 Teoria da Mudança** (problema → intervenção → produtos → resultados → impacto).
   FORTE = cadeia causal explícita com evidência por elo + premissas testáveis; os melhores
   exemplares usam um contrafactual explícito com-versus-sem monetizando externalidades, ou

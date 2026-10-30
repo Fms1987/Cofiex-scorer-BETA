@@ -126,8 +126,8 @@ de uma vez. Começar por `references/INDEX.md`.
 | 9 Nota final | `references/rubric/final-score.md` |
 | 9.5 Iteração | `references/iteration/persistence.md` (apenas se houver reenvio) |
 | 10 Perguntas do Grupo Técnico | `references/gtec/questions.md` |
-| 11 Revisão de banco multilateral | `references/review/senior-mdb-review.md` |
-| 12 Plano de correção | `references/review/correction-plan.md` |
+| 11 Revisão de banco multilateral | `references/review/senior-mdb-review.md` + régua de subitens `references/calibration/technical-quality-r17.md` |
+| 12 Plano de correção | `references/review/correction-plan.md` + `references/review/model-texts.md` (textos-modelo) + `references/calibration/indicator-library.md` (indicadores por setor) |
 
 ### O que é recuperável (camadas, mais baratas primeiro)
 | Camada | Onde | Contém | Usar para |

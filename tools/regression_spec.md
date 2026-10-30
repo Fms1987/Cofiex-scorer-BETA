@@ -66,3 +66,4 @@ so v1 is an indicative baseline. It has no AREA lines: level accuracy starts at 
 | Change | Bank | Measure | Before → after |
 |---|---|---|---|
 | Package 2: official tables + `objective_lookup.py` (CAPAG by cycle, calibrated debt rule, IDH floors 0.680 / 0.643) | v1, 29 subnational pleitos | Component MAE, script vs official (no new blind run) | CAPAG 0.188 → 0.000; Debt 0.166 → 0.060; IDH 0.255 → 0.047. Debt rule and IDH floors were fitted on the same meetings: in-sample, re-check on the next bank. |
+| Packages 1–2, first new blind round (sandbox without the 40 bank pleitos) | v1, 20 of 40 (stratified) | Full blind run with AREA lines | Same 20 pleitos: MAE Nota Geral 1.23 → 1.14; coverage 0.70 → 0.85. Components: CAPAG 0.00, Debt 0.04, IDH 0.04. AE MAE 1.18 with bias +0.83: secondary areas the official score left at 0 were given E (26 cases) or D (6). Main-area level 75% exact, 90% within one step; all areas 52%. Faixa p80 not updated (n=20). |
