@@ -1,0 +1,63 @@
+{
+ "gerado_de": "COFIEX_Base_Consolidada_165_189_PT.xlsx",
+ "ultima_reuniao": 189,
+ "proxima_reuniao": {
+  "numero": 191,
+  "data": "03/12/2026 (prevista, sujeita a alteração)",
+  "limites": {
+   "Subnacional – Geral": 272300000.0,
+   "Subnacional – PPP": 0.0,
+   "Subnacional – Ambiental e Climático": 0.0,
+   "Subnacional – Fiscal": 234685.0,
+   "Subnacional – Operações em R$": 0.0,
+   "Federal – Administração Direta": 1657500000.0
+  }
+ },
+ "linha_de_corte_recente": {
+  "Subnacional – Geral": {
+   "reuniao": 189,
+   "menor_nota_aprovada": 10.339,
+   "maior_nota_nao_aprovada": 10.287
+  },
+  "Subnacional – Ambiental e Climático": {
+   "reuniao": 185,
+   "menor_nota_aprovada": 10.636,
+   "maior_nota_nao_aprovada": 9.092
+  },
+  "Subnacional – PPP": {
+   "reuniao": 187,
+   "menor_nota_aprovada": 7.216,
+   "maior_nota_nao_aprovada": null
+  },
+  "Subnacional – Fiscal": {
+   "reuniao": 189,
+   "menor_nota_aprovada": 11.393,
+   "maior_nota_nao_aprovada": null
+  },
+  "Subnacional – Operações em R$": {
+   "reuniao": 185,
+   "menor_nota_aprovada": 7.406,
+   "maior_nota_nao_aprovada": null
+  },
+  "Subnacional – RRF": {
+   "reuniao": 189,
+   "menor_nota_aprovada": null,
+   "maior_nota_nao_aprovada": 4.435
+  },
+  "Subnacional – Reestruturação de Dívidas": {
+   "reuniao": 189,
+   "menor_nota_aprovada": null,
+   "maior_nota_nao_aprovada": 6.35
+  },
+  "Federal – Administração Direta": {
+   "reuniao": 187,
+   "menor_nota_aprovada": 7.5,
+   "maior_nota_nao_aprovada": null
+  },
+  "Federal – Empresa Estatal": {
+   "reuniao": 189,
+   "menor_nota_aprovada": 4.0,
+   "maior_nota_nao_aprovada": null
+  }
+ }
+}

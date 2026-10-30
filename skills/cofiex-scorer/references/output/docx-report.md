@@ -56,6 +56,19 @@ dona e trocar o outro por uma remissão.
   com o mesmo JSON do passo 0 da FASE 5. Para o cliente preencher do zero:
   `scripts/budget_by_area.py --modelo modelo.xlsx`. Entregar junto com o .docx.
 
+## Painel de carteira
+Se o usuário acompanha vários pleitos, registrar cada simulação com
+`python -X utf8 scripts/portfolio.py registrar --proposta … --proponente … --nota-geral … --nota-ae … --sublimite … --valor-usd …`
+e gerar o painel com `portfolio.py mostrar --html Carteira_COFIEX.html`. O painel mostra, por
+pleito:
+- nota esperada;
+- sublimite recomendado;
+- limite da próxima reunião;
+- linha de corte recente;
+- posição: acima, perto ou abaixo.
+
+O arquivo da carteira fica na pasta de trabalho do usuário.
+
 ## Estrutura obrigatória do documento
 **Resumo para o líder de equipe** (primeira página, bloco `resumo_ttl`):
 - veredito em uma linha;

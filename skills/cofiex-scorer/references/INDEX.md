@@ -10,7 +10,8 @@ Carregar apenas o que a fase atual precisa (ver PROTOCOLO DE RECUPERAÇÃO em `.
 | `iteration/` | Análise de persistência / reenvio | Fase 9.5 |
 | `gtec/` | Perguntas calibradas do Grupo Técnico | Fase 10 |
 | `review/` | Revisão sênior de banco multilateral de desenvolvimento, lente Banco Mundial (`world-bank-lens.md`, sempre), justificativa do credor (`creditor-justification.md`), plano de correção, textos-modelo (`model-texts.md`) | Fases 11–12 |
-| `output/` | Entrega final do relatório em .docx: regras de redação, resumo para o líder de equipe, carta ao cliente, planilha de custo por área, esquema do JSON | Após a Fase 12 |
+| `strategy/` | Módulo de sublimite: regras de elegibilidade, saldo e linha de corte (`sublimit-targeting.md`), tabela agregada por reunião (`sublimit-table.md`) | Seção 10 (Janela e Momento) |
+| `output/` | Entrega final do relatório em .docx: regras de redação, resumo para o líder de equipe, carta ao cliente, planilha de custo por área, esquema do JSON; modo pré-carta (`pre-carta-mode.md`) | Após a Fase 12 |
 
 Fora de `references/`:
 - `fichas/pleitos/`, `fichas/avaliacoes/` — cabeçalho estruturado (pesquisável por grep) +

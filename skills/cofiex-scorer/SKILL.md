@@ -126,6 +126,8 @@ de uma vez. Começar por `references/INDEX.md`.
 | 8 Dívida | `references/rubric/debt.md` |
 | 9 Nota final | `references/rubric/final-score.md` |
 | 9.5 Iteração | `references/iteration/persistence.md` (apenas se houver reenvio) |
+| Seção 10 Janela e Momento | `references/strategy/sublimit-targeting.md` + `reference-data/sublimit_status.json` (limites da próxima reunião e linha de corte recente; tabela completa em `references/strategy/sublimit-table.md`) |
+| Carteira | `scripts/portfolio.py registrar …` depois de cada simulação, se o usuário mantiver uma carteira; `portfolio.py mostrar --html painel.html` para o painel |
 | 10 Perguntas do Grupo Técnico | `references/gtec/questions.md` |
 | 11 Revisão de banco multilateral | `references/review/senior-mdb-review.md` + régua de subitens `references/calibration/technical-quality-r17.md` + **lente Banco Mundial, sempre** `references/review/world-bank-lens.md` + checklist do credor `references/review/creditor-justification.md` |
 | 12 Plano de correção | `references/review/correction-plan.md` + `references/review/model-texts.md` (textos-modelo) + `references/calibration/indicator-library.md` (indicadores por setor); comparativo de credores por `scripts/creditor_terms.py` |
@@ -308,6 +310,11 @@ Base regulatória ativa:
 formulário de triagem ou planilha de pontuação anterior) para anexar? Se sim, envie agora."
 - Arquivo anexado → ler por completo, pré-preencher todo campo inferível, perguntar só sobre
   lacunas/ambiguidades.
+- **Modo pré-carta:** se o insumo for nota conceitual ou rascunho (faltam 2 ou mais seções do
+  Anexo I, ou não há valor por componente, ou não há objetivos), seguir
+  `references/output/pre-carta-mode.md`. A saída mostra as lacunas que impedem pontuar e uma
+  faixa provisória só do que já é pontuável, e encaminha a redação para a skill
+  cofiex-pleito-builder.
 - Sem arquivo → executar a sequência completa de perguntas e respostas (usar
   `references/protocolo-preenchimento.md` v2.0 como guia estruturado; Parte I = insumos de
   pontuação Blocos 0–8, Parte II = formulário do Portal de Financiamento Externo Blocos 9–15).
@@ -454,8 +461,10 @@ de aprovação em percentual; cada achado numa seção só, as demais remetem a 
    argumento para a aprovação interna no Banco) + justificativa do credor (nível e subitem que falta)
 9. **Plano de Correção (FASE 12):** tabela priorizada + "Rota para Área Estratégica máxima
    (10,000)" (caminho aritmético escolhido e tarefas R1–R13 aplicáveis, com Δ estimado)
-10. **[ÚLTIMO] Janela e Momento (circunstancial):** viabilidade de sublimite, posição frente à
-    linha de corte recente (acima, perto ou abaixo, em texto, sem probabilidade em percentual),
+10. **[ÚLTIMO] Janela e Momento (circunstancial):** módulo de sublimite
+    (`references/strategy/sublimit-targeting.md`): elegibilidade por sublimite, saldo da
+    próxima reunião, posição frente à linha de corte recente (acima, perto ou abaixo, em texto,
+    sem probabilidade em percentual), recomendação de sublimite, reunião e mudança de desenho,
     estratégia de iteração
 
 **Entrega final obrigatória: relatório em .docx.** Depois da resposta no chat, gravar o
@@ -483,5 +492,6 @@ As mesmas regras valem no .docx: sem siglas e todo número rotulado.
 > 3. Checar o Portal de Financiamento Externo quanto à posição na fila e situação dos
 >    concorrentes.
 >
-> A análise acima usa dados históricos até a 187ª reunião apenas como **referência
-> estrutural**.
+> A tabela de sublimites (`reference-data/sublimit_status.json`) traz a data de geração e a
+> última reunião da base; se houver reunião mais recente, dizer isso. Atualizar com
+> `tools/build_sublimit_table.py` a cada reunião.

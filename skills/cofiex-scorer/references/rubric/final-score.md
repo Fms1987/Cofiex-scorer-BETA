@@ -35,20 +35,16 @@ independente da nota para a modalidade de reestruturação).
 nota.** A nota é irrelevante para o desfecho; o que determina a aprovação é: (1) vantagem
 financeira documentada (anexos comparativos obrigatórios); (2) Capacidade de Pagamento
 aprovada (A+/A/B+/B); (3) a dívida original já garantida pela União (sub-rogação da garantia).
-Com os três presentes, a aprovação é ≈ 100% independentemente da Nota de Área Estratégica.
+Com os três presentes, a aprovação foi a regra (13 de 15 pleitos na base 165ª–189ª), qualquer
+que fosse a Nota de Área Estratégica.
 
-**Modificadores (projetos de investimento) — uso interno, nunca como número no relatório.**
-Pela regra de redação (`output/docx-report.md`), estes fatores só orientam a leitura em texto
-da seção Janela e Momento: acima da linha de corte recente, perto dela ou abaixo. Não mostrar
-percentual de aprovação nem o multiplicador. O módulo de sublimite (saldo e linha de corte por
-reunião) vai substituí-los.
-- valor da operação > 0,15 × teto → ×0,7; valor da operação > 0,25 × teto → ×0,3
-- Primeiro trimestre após virada de ciclo → probabilidade geral = máx(5%, base × 0,1)
-- Banco Mundial no sublimite Geral → ×0,9 (padrão de porte do valor da operação)
-- 2º reenvio visando o quarto trimestre → ×1,15 (teto 95%); 3º+ reenvio → ×0,6
-- Valor da operação comprimido em mais de 50% entre reenvios → ×1,2
-- Mesmo texto de carta-consulta reenviado → nota inalterada; a probabilidade depende
-  inteiramente do saldo do teto + concorrentes.
+**Leitura de aprovação: módulo de sublimite.** Os multiplicadores de probabilidade foram
+removidos (×0,9, ×1,15, ×0,3 etc.). A chance de aprovação é lida em
+`strategy/sublimit-targeting.md` em três passos: elegibilidade, saldo e linha de corte. O
+resultado sai em texto (acima, perto ou abaixo da linha), sem percentual. Seguem valendo como
+sinais em texto:
+- Mesmo texto de carta-consulta reenviado → nota inalterada; o desfecho depende do saldo e dos
+  concorrentes.
 - Bônus aplicado com peso esperado 0,5, salvo quando houver enquadramento documental anexado
   (então valor cheio).
 
