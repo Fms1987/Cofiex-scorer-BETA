@@ -32,7 +32,7 @@ deliberadamente removidos para que a avaliadora não consiga reconstruir um vere
 
 Violar essas regras destrói o caráter cego da habilidade e tendencia a pontuação.
 
-### Disciplina de atualização (4 sub-regras de atualização do julgamento cego)
+### Disciplina de atualização (5 sub-regras de atualização do julgamento cego)
 Sempre que nova evidência/calibração for incorporada, aplique TODAS as seguintes:
 1. **Âncora empírica obrigatória.** Toda mudança de parâmetro vem com uma âncora (número de
    testes cegos / data) e uma justificativa de uma linha. Nenhuma mudança sem âncora.
@@ -43,6 +43,10 @@ Sempre que nova evidência/calibração for incorporada, aplique TODAS as seguin
    verificável.
 4. **Changelog apenas anônimo.** Registrar somente: parâmetro alterado, novo valor/faixa,
    razão empírica (ex.: "n testes cegos = k"). Nunca citar uma carta-consulta identificável.
+5. **Regressão no banco de teste fixo.** Toda mudança que possa mover uma nota é medida no
+   banco de teste fixo, em ambiente cego, antes de entrar (procedimento em
+   `tools/regression_spec.md` do repositório). Piora de métrica principal além da tolerância
+   não entra sem justificativa escrita.
 
 ## Sobre esta habilidade
 Simula a avaliação técnica da COFIEX para uma carta-consulta (proposta de financiamento
@@ -86,7 +90,9 @@ elevam o total acima de 15 por padrão (ver FASE 9, teto extensível).
 - Entidades federais: Capacidade de Pagamento/Índice de Desenvolvimento Humano/Dívida NÃO se
   aplicam; apenas Nota de Área Estratégica (máx. 10); sem piso de Nota de Área Estratégica.
 - Piso de Nota de Área Estratégica subnacional: 3,0 pts (Art. 28, I, b).
-- Pontuar como uma FAIXA (mínimo/esperado/máximo), com incerteza de ±1 nível.
+- Pontuar como uma FAIXA (mínimo/esperado/máximo), com incerteza de ±1 nível. A faixa
+  mostrada em primeiro plano é a **faixa empírica** (FASE 9, `rubric/final-score.md`); a faixa
+  pela rubrica (soma dos extremos de cada item) fica como cenário.
 - **Posicionamento no sublimite ≥ maximização da nota em um mercado com oferta restrita.**
 - **O valor da operação ser menor ou igual ao teto estimado da reunião é condição necessária
   para a aprovação, independente da nota.**
@@ -186,6 +192,21 @@ de uma vez. Começar por `references/INDEX.md`.
 7. **Linha de base de calibração (obrigatória na saída):** `Base de calibração: n=<k> perfis
    comparáveis (regime, setor, subtipo[, credor][, faixa]); relaxado: <filtros>; dados fracos:
    <marcadores>; ancoragem: <nenhuma|empurrada em direção à mediana>`.
+
+### Precedência entre âncoras (quando duas fontes apontam valores diferentes)
+Aplicar nesta ordem; uma fonte de nível inferior só ajusta dentro do espaço deixado pela
+superior, nunca a contradiz:
+1. **Tabelas oficiais** (Capacidade de Pagamento, Dívida, Índice de Desenvolvimento Humano,
+   tetos de sublimite, filtros do Art. 28).
+2. **Rubrica aplicada aos números da carta:** orçamento por área (FASE 5, passo 0) e lente A.6.
+   O teto pelo orçamento nunca é ultrapassado por nenhuma âncora abaixo.
+3. **Critérios por objetivo do PPA** (`calibration/ae-criteria-by-level-and-ppa-area.md`):
+   decidem entre dois níveis permitidos pelo item 2.
+4. **Cartão de setor** (apenas n ≥ 5, apenas como faixa): empurra a estimativa um pequeno
+   passo (passo 5 da receita), sem tirá-la do intervalo dado pelos itens 2 e 3.
+5. **Achados transversais e âncoras de exemplo** (`cross-cutting-findings.md`, exemplos da
+   rubrica): só explicam ou sinalizam; não movem nota sozinhos.
+Quando houver conflito, registrar numa linha qual âncora prevaleceu e por quê.
 
 ### Regras duras (preservam o julgamento cego)
 1. **Nunca citar um caso.** Nenhum identificador de ficha, nenhum "um projeto semelhante foi

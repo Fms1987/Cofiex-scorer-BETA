@@ -1,8 +1,9 @@
-"""Create an isolated copy of the skill for a blind test of one pleito.
+"""Create an isolated copy of the skill for a blind test of one pleito or a whole test bank.
 
-usage: make_blind_sandbox.py <repo_root> <pleito_id> <arm A|B> <areas_final_dir> <out_dir>
-<pleito_id> is the OPAQUE ficha id (P + 6 hex, as in `fichas/pleitos/<id>.md`), not the portal number;
-map it with the private id map kept outside the repository.
+usage: make_blind_sandbox.py <repo_root> <pleito_ids> <arm A|B> <areas_final_dir> <out_dir>
+<pleito_ids> are OPAQUE ficha ids (P + 6 hex, as in `fichas/pleitos/<id>.md`), not portal numbers:
+one id, a comma-separated list, or @file (one id per line, e.g. the test bank's ids.txt).
+Map them with the private id map kept outside the repository.
 Arm A: full RAG, but with the pleito's fichas (every attempt), its rows in the CSV/cards, its area records and docs section 2 REMOVED.
 Arm B (control): rubric and regulation only; no fichas, no cards, no area base rates, no docs.
 """
@@ -11,7 +12,9 @@ from pathlib import Path
 
 
 def main():
-    repo, pid, arm, areas, out = Path(sys.argv[1]), sys.argv[2], sys.argv[3], Path(sys.argv[4]), Path(sys.argv[5])
+    repo, arg, arm, areas, out = Path(sys.argv[1]), sys.argv[2], sys.argv[3], Path(sys.argv[4]), Path(sys.argv[5])
+    raw = Path(arg[1:]).read_text(encoding="utf-8").split() if arg.startswith("@") else arg.split(",")
+    pids = {x.strip() for x in raw if x.strip()}
     if out.exists():
         shutil.rmtree(out)
     shutil.copytree(repo / "skills", out / "skills")
@@ -28,12 +31,13 @@ def main():
     drop_a = set()
     for p in (fch / "avaliacoes").glob("*.md"):
         h = dict(re.findall(r"^(\w+): ?(.*)$", p.read_text(encoding="utf-8").split("---", 2)[1], re.M))
-        if h["pleito"] == pid:
+        if h["pleito"] in pids:
             drop_a.add(h["id"])
             p.unlink()
     if not drop_a:
-        sys.exit(f"no avaliação fichas found for {pid}: pass the opaque ficha id")
-    (fch / "pleitos" / f"{pid}.md").unlink(missing_ok=True)
+        sys.exit(f"no avaliação fichas found for {sorted(pids)}: pass opaque ficha ids")
+    for pid in pids:
+        (fch / "pleitos" / f"{pid}.md").unlink(missing_ok=True)
     # CSV + cards rebuilt from the remaining fichas
     subprocess.run([sys.executable, "-I", "-X", "utf8", str(repo / "tools/build_cases_from_fichas.py"), str(out)], check=True, capture_output=True)
     # area base rates without the case
@@ -48,7 +52,7 @@ def main():
     dpath = out / "skills/cofiex-scorer/docs/analise-areas-estrategicas.md"
     dpath.write_text(dpath.read_text(encoding="utf-8").split("## 2. ")[0], encoding="utf-8")
     left = len(list((fch / "avaliacoes").glob("*.md")))
-    print(f"arm A ready: {out} | removed avaliações {sorted(drop_a)} | avaliações left {left}")
+    print(f"arm A ready: {out} | pleitos removed {len(pids)} | avaliações removed {len(drop_a)} | avaliações left {left}")
 
 
 if __name__ == "__main__":

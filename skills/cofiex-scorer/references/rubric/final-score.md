@@ -6,6 +6,17 @@ Capacidade de Pagamento + Dívida` (subnacional, máx. 15). Federal = apenas Not
 Estratégica.
 Apresentar como **[Mínimo — Esperado — Máximo]**.
 
+**Faixa empírica (padrão de apresentação).** A faixa pela rubrica (soma do pior e do melhor
+caso de cada item) cobriu a nota oficial em só 65% dos 89 pleitos do teste cego, com largura
+mediana de 3,0. A faixa calibrada pelos erros observados é mais honesta:
+- **Nota Geral:** esperada ± 2,1 cobre ~80% dos casos (± 1,7 cobre ~70%; erro mediano 1,1).
+- **Nota de Área Estratégica:** esperada ± 2,2 cobre ~80% (n=30, ainda fraco).
+- Cortar nos limites da escala (0 a 15; 0 a 10).
+Mostrar a faixa empírica de 80% como [Mínimo — Esperado — Máximo]. A faixa pela rubrica vai
+para segundo plano, com uma frase dizendo o cenário que leva a cada extremo (ex.: "a nota cai
+para X se a área principal for lida como C"). Os valores ± são atualizados por
+`tools/run_regression.py` a cada rodada do banco de teste fixo (campo `faixa_empirica`).
+
 **Teto prático = 15,0.** Manter o teto total em 15,0 por padrão. Os bônus são absorvidos
 dentro do teto de 10 da Nota de Área Estratégica. Se evidência documental de acúmulo de bônus
 implicar um valor acima de 15, marcar como **teto extensível** com probabilidade BAIXA,

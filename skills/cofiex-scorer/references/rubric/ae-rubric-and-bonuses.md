@@ -1,6 +1,23 @@
 # FASE 5 — rubrica da Nota de Área Estratégica, objetivos do PPA e tratamento de bônus
 
 ## FASE 5 — Pontuação das Áreas Estratégicas (Nota de Área Estratégica)
+
+### Passo 0 (obrigatório, antes de classificar qualquer nível) — orçamento por área
+A fatia do orçamento é a variável que mais separa os níveis, e estimá-la "de olho" foi a maior
+fonte de erro da Nota de Área Estratégica. Calcular sempre:
+1. Listar cada produto (ou componente, se a carta não detalhar produtos) com seu valor e as
+   áreas do PPA a que a carta o vincula. Usar o quadro de usos e fontes da carta; se houver
+   divergência entre texto e anexo, usar o anexo e marcar a inconsistência (ela custa nível).
+2. Gravar num JSON e rodar `python -X utf8 scripts/budget_by_area.py <produtos.json>`.
+   - Produto com uma área vai inteiro para ela.
+   - Produto com várias áreas e sem custo atribuído pela carta é repartido em partes iguais,
+     como faz a Nota Técnica. Usar `alocacao` só quando a própria carta atribuir o custo.
+3. Colar a tabela do script no detalhamento por área. O **teto pelo orçamento** limita o nível:
+   A só acima de 50%, B acima de 30%, C a partir de 15%, D a partir de 4%; abaixo disso, E.
+   Teto não é nível. O nível final vem da lente A.6 (objetivo direto, indicador de resultado
+   com ano-meta, impacto, inovação) e pode ficar abaixo do teto, nunca acima.
+4. Os alertas do script entram no plano de correção: área declarada sem produto próprio
+   (tende a zero), produto sem área, repartição linear que derruba a área principal.
 ### Objetivos do PPA 2024–2027 (35)
 Eixo 1 — Social: 101 Pobreza · 102 Saúde/SUS · 103 Primeira infância/educação · 104 Ensino
 médio/técnico · 105 Economia criativa · 106 Direitos humanos · 107 Mulheres · 108 Indígenas/
