@@ -239,7 +239,63 @@ Pautas de discussão com o cliente:
 - "O que muda na regulação para que empresas invistam no território?"
 - "Que dados de emprego o ente já tem e pode compartilhar?"
 
-### 7.5 Relação com a nota COFIEX
+### 7.5 Regras do jogo: o componente que multiplica o investimento
+A liderança do Grupo Banco Mundial tratou o tema em artigo de 14/04/2026: "To turn demographic
+growth into jobs, get the rules right", do presidente do Grupo Banco Mundial e da presidente do
+Comitê de Desenvolvimento. Fonte: blogs.worldbank.org, seção Voices.
+
+A tese do artigo:
+- **Multiplicador.** O ambiente favorável aos negócios é o que transforma infraestrutura,
+  qualificação e capital privado em empregos. "Investment follows predictability."
+- **Investimento privado.** A incerteza regulatória é tratada como um fator que inviabiliza o
+  investimento.
+- **Recursos públicos.** Como são escassos, devem servir para reduzir risco e atrair capital
+  privado.
+- **Medida de sucesso.** O sucesso se mede por empregos criados, não por compromissos
+  assinados.
+
+O artigo é texto de posicionamento institucional: usar como enquadramento, não como evidência.
+
+**Por que isso importa para um pleito subnacional.** Boa parte das regras que o artigo cita é
+administrada por estado ou município, então o ente tem alavancas próprias. Tabela de apoio
+(listar só as que o ente controla e que caibam no projeto):
+
+| Regra citada pelo Banco | Alavanca do ente subnacional no Brasil | Indicador possível |
+|---|---|---|
+| Licenças emitidas no prazo | Alvará de funcionamento e licença de obra municipais; licenciamento ambiental estadual; dispensa para atividades de baixo risco (Lei de Liberdade Econômica) | Tempo médio para emitir licença; % de atividades com licença automática |
+| Registro simples para microempresas | Integração do município e da junta comercial à rede nacional de registro de empresas; balcão único | Tempo para abrir empresa; empresas formalizadas por ano |
+| Tributação compreensível e previsível | ISS e ICMS: simplificação, nota fiscal eletrônica de serviço, contencioso administrativo mais rápido | Prazo de julgamento administrativo; custo de conformidade |
+| Direitos claros sobre a terra | Regularização fundiária urbana e rural, cadastro territorial multifinalitário, georreferenciamento | Imóveis com título registrado; área cadastrada |
+| Compras públicas transparentes | Portal de compras com acesso de micro e pequenas empresas, pagamento em dia a fornecedores | % das compras com micro e pequenas empresas; prazo médio de pagamento |
+| Contratos cumpridos | Procuradoria e câmaras de mediação para contratos com o ente; estabilidade de concessões e parcerias público-privadas | Prazo de resolução de disputas contratuais |
+| Barreiras à participação econômica das mulheres | Creches e transporte em horários de trabalho; crédito e compras para empreendedoras | Participação de mulheres nos postos e nas empresas apoiadas |
+
+Os diagnósticos de referência do Banco são **Business Ready**, que sucede o Doing Business, e
+**Women, Business and the Law**. Ambos medem o país, não o ente. Citar como moldura e propor a
+medição local com os indicadores acima.
+
+**Uso na reconcepção (complementa 7.2).** Num projeto de obra ou de serviço, sugerir um
+componente pequeno de "regras do jogo" no território do projeto, por exemplo licença rápida
+para os negócios da área requalificada ou regularização fundiária junto com a urbanização. Esse
+componente:
+- custa pouco;
+- dá ao projeto a linha de visão até o emprego privado;
+- é o que mais se aproxima do discurso da liderança.
+
+Se o projeto já é de gestão fiscal ou governo digital, deslocar o objetivo de "sistemas
+implantados" para "regras mais previsíveis e rápidas para quem investe e contrata". Os
+indicadores que entram como resultado são tempo de licença, tempo de abertura de empresa e
+prazo de pagamento a fornecedores.
+
+**Ênfase para a Diretoria (complementa 7.4).** "O investimento público reduz o risco e a regra
+local destrava o investimento privado; medimos o resultado em empregos, não em obras
+entregues." Usar só se o projeto tiver de fato uma alavanca regulatória com indicador. Sem
+ela, a frase soa como retórica e enfraquece o argumento.
+
+Pauta de discussão com o cliente: "Que licença, cadastro ou procedimento do ente mais atrasa
+quem quer investir ou contratar neste território, e quanto tempo leva hoje?"
+
+### 7.6 Relação com a nota COFIEX
 O emprego não é critério da rubrica da RN 1/2024. A reconcepção só mexe na nota se criar
 **produto, indicador e custo próprios** em uma área do PPA, por exemplo:
 - objetivos de trabalho e renda;
@@ -253,11 +309,12 @@ emprego. Na carta COFIEX, o emprego entra como resultado na justificativa e nos 
 usuário.
 
 ### Saída no relatório
-Subseção "Empregos" dentro da lente Banco Mundial, com quatro partes:
+Subseção "Empregos" dentro da lente Banco Mundial, com cinco partes:
 - a tabela de canais (7.1) com o grau de evidência;
 - de 2 a 4 opções de reconcepção (7.2);
 - de 3 a 5 indicadores (7.3);
-- de 3 a 5 ênfases de argumento e pautas (7.4).
+- de 3 a 5 ênfases de argumento e pautas (7.4);
+- as alavancas de regras do jogo que o ente controla, quando houver (7.5).
 
 Tudo em texto de concepção, sem número de nota e sem estimar quantidade de empregos que a
 carta não sustente: quando a carta não traz número, dizer que falta e como obtê-lo.
