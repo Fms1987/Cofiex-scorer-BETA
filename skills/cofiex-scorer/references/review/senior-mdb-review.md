@@ -50,7 +50,7 @@ Prontidão geral para banco multilateral de desenvolvimento: PRONTO / CONDICIONA
 ### Lente Banco Mundial e justificativa do credor (sempre)
 Depois de A.1–A.5, aplicar `review/world-bank-lens.md` (instrumento, indicadores vinculados a
 desembolso, Padrões Ambientais e Sociais, Quadro de Parceria, objetivo de desenvolvimento do
-projeto, ponte para a Nota Conceitual), qualquer que seja o credor declarado. Classificar a
+projeto, ponte para a Nota Conceitual, empregos), qualquer que seja o credor declarado. Classificar a
 justificativa do financiamento externo e do credor com `review/creditor-justification.md`. A
 lente não pontua de novo e remete às lacunas de A.1–A.5 em vez de reexplicá-las.
 

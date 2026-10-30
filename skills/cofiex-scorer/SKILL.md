@@ -450,7 +450,8 @@ de aprovação em percentual; cada achado numa seção só, as demais remetem a 
    estimado e degrau que falta) + **Lente Banco Mundial, sempre** (instrumento sugerido,
    indicadores vinculados a desembolso se couber, Padrões Ambientais e Sociais e classe de
    risco, encaixe no Quadro de Parceria, objetivo de desenvolvimento do projeto, ponte para a
-   Nota Conceitual) + justificativa do credor (nível e subitem que falta)
+   Nota Conceitual, e a subseção de empregos: canais, reconcepção, indicadores e ênfases de
+   argumento para a aprovação interna no Banco) + justificativa do credor (nível e subitem que falta)
 9. **Plano de Correção (FASE 12):** tabela priorizada + "Rota para Área Estratégica máxima
    (10,000)" (caminho aritmético escolhido e tarefas R1–R13 aplicáveis, com Δ estimado)
 10. **[ÚLTIMO] Janela e Momento (circunstancial):** viabilidade de sublimite, posição frente à

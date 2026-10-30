@@ -126,9 +126,148 @@ objetivo. Se faltar indicador para algum elemento, apontar a lacuna e a troca su
 | Sustentabilidade | III. Gestão | Custo de operação e manutenção não estimado (item A.5) |
 | Análise econômica e financeira | ausente na carta | Sempre lacuna: anotar o tipo de análise esperada (custo-benefício ou custo-efetividade) |
 
+## 7. Empregos: como o pleito pode incorporar e destacar a criação de empregos
+**Por que esta subseção existe.** No ciclo atual de liderança, o Grupo Banco Mundial pôs a
+criação de empregos como objetivo explícito de todo projeto.
+
+O que mudou no Banco:
+- **Indicador de empregos no Scorecard corporativo**, previsto para as Reuniões de Primavera de
+  2026. Mede três coisas: empregos diretos do projeto, efeitos na cadeia de fornecedores e
+  trabalhadores que passam a empregos mais bem pagos.
+- **A pergunta interna mudou.** O líder de equipe que leva o projeto ao Diretor do País e à
+  Diretoria em Washington precisa responder "quantos e quais empregos, e como sabemos", não só
+  "que obra".
+- **Fonte:** página "Jobs" do Grupo Banco Mundial (worldbank.org/ext/en/jobs), lida em
+  30/10/2026. A metodologia do indicador ainda estava em consulta: conferir a versão vigente
+  antes de citar números.
+
+O enquadramento do Banco é o **ecossistema de empregos**, com três pilares:
+1. **Construir a base:** infraestrutura (estradas, energia, digital), capital natural e capital
+   humano (saúde, educação, qualificação).
+2. **Ambiente favorável aos negócios:** regulação de terra, trabalho, tributos, falências e
+   segurança jurídica. O Banco afirma que governos não criam empregos em escala; o papel do
+   setor público é destravar o setor privado.
+3. **Mobilizar capital privado:** IFC, MIGA, plataforma de garantias, crédito a micro,
+   pequenas e médias empresas.
+
+Os setores priorizados são energia e infraestrutura, saúde, agronegócio, indústria e turismo.
+Os focos transversais são mulheres, jovens e micro, pequenas e médias empresas, que geram 7 de
+cada 10 empregos formais nos países emergentes. A expressão-chave é "mais e melhores empregos".
+
+Esta subseção é **de concepção**. Ela serve ao líder de equipe para defender o pleito
+internamente e não altera a nota COFIEX. Pode ir da reconcepção do projeto a pautas de discussão
+e ênfases de argumento.
+
+### 7.1 Diagnóstico: por qual canal o projeto gera emprego
+Ler a carta e marcar os canais presentes, com o grau de evidência (explícito, implícito ou
+ausente):
+
+| Canal | Pergunta para a carta | Sinal forte | Sinal fraco |
+|---|---|---|---|
+| Emprego direto na execução | Quantos postos na obra ou na implantação, e por quanto tempo? | Estimativa em pessoas-mês por componente | "Gerará empregos" sem número |
+| Emprego direto permanente | Que postos ficam depois do projeto (operação, manutenção, serviço)? | Quadro de pessoal da operação com custeio (liga ao item A.5) | Só obra, nenhum posto permanente |
+| Cadeia de fornecedores | O gasto fica na economia local? | Compras de micro e pequenas empresas, insumos regionais | Contratos grandes com fornecedor de fora |
+| Efeito habilitador | O projeto destrava emprego privado (acesso, energia, conectividade, licença, crédito)? | Linha direta até o emprego: quem contrata e por quê | Benefício difuso "para a economia" |
+| Qualidade do emprego | Formaliza, aumenta renda, inclui mulheres e jovens, reduz desigualdade regional? | Meta de formalização ou de renda com fonte administrativa | Nenhuma menção |
+
+O Banco chama de "linha de visão até o emprego" (line of sight to employment) a cadeia causal
+explícita entre o produto financiado e o emprego. **A ausência dessa cadeia é a lacuna
+central.** Ela é a mesma lacuna da teoria da mudança (A.1), vista pelo ângulo do emprego.
+
+### 7.2 Reconcepção: opções por tipo de projeto
+Propor de 2 a 4 opções que caibam no desenho e no valor do pleito, sem trocar o objeto
+principal. Exemplos de nível de concepção:
+
+| Tipo de projeto | Reconcepção que coloca o emprego no centro |
+|---|---|
+| Obras urbanas, drenagem, mobilidade | Cláusulas de contratação local e de qualificação dos trabalhadores da obra, com metas para mulheres e jovens; manutenção contínua por contratos de desempenho com micro e pequenas empresas; requalificação de áreas para atividade econômica (comércio, feiras, logística de última milha); emprego permanente medido, não só o da obra |
+| Água, saneamento, resíduos | Desenho regulatório que atraia operador privado (concessão ou parceria público-privada), o que liga o projeto ao pilar de capital privado; cooperativas de catadores formalizadas na cadeia de resíduos; redução de perdas como fonte de receita que sustenta postos na operação |
+| Educação e qualificação profissional | Oferta ligada à demanda: cursos desenhados com empregadores do território, estágio e colocação; medir colocação e renda dos egressos, não matrículas; transição escola-trabalho dos jovens que não estudam nem trabalham |
+| Saúde | Enquadrar no programa do Banco para o setor (Health Works): o Banco cita que cada emprego na saúde pode gerar até 3,5 outros; agentes comunitários, atenção primária, cadeia de insumos; formação e fixação de profissionais em regiões carentes |
+| Desenvolvimento rural e agricultura familiar | Inserção em cadeias de valor e mercados (compras públicas, cooperativas, agroindústria), alinhada ao programa do Banco para pequenos produtores (AgriConnect); assistência técnica com meta de renda; crédito e seguro rural |
+| Gestão fiscal, governo digital, ambiente de negócios | Reenquadrar como pilar 2: tempo para abrir empresa e obter licença, simplificação tributária para micro e pequenas empresas, compras públicas acessíveis a pequenos fornecedores, segurança jurídica; medir empresas abertas e formalizadas, não sistemas entregues |
+| Energia, conectividade, logística | Acesso que destrava produção (polos, distritos industriais, turismo, agroindústria); identificar os setores que passam a contratar |
+| Turismo e patrimônio | Cadeia do turismo (hospedagem, alimentação, guias, artesanato) com qualificação e formalização; o Banco atribui ao turismo cerca de 1 em cada 10 empregos no mundo |
+| Linha de crédito por banco de desenvolvimento | Foco em micro, pequenas e médias empresas e em empreendedoras; medir empregos mantidos e criados nas empresas financiadas |
+
+Uma reconcepção maior também é possível, como separar um componente de emprego, combinar com
+uma operação da IFC ou usar a plataforma de garantias. Nesse caso, dizer o que muda no valor,
+no prazo e no instrumento (seção 1) e se o pleito COFIEX precisaria ser reapresentado.
+
+### 7.3 Como medir (o que o Banco vai perguntar)
+Indicadores sugeridos, a reconciliar com a metodologia vigente do Scorecard:
+
+| Dimensão | Indicador | Fonte no Brasil |
+|---|---|---|
+| Emprego direto na execução | Pessoas-mês contratadas por componente, por sexo e faixa etária | Relatórios das contratadas, eSocial |
+| Emprego direto permanente | Postos de operação e manutenção ocupados no ano após a conclusão | Folha do operador, eSocial |
+| Cadeia de fornecedores | Empregos estimados na cadeia (matriz insumo-produto) e participação de micro e pequenas empresas nas compras | Tabelas de recursos e usos do IBGE, sistema de compras |
+| Melhores empregos | Variação de renda e de formalização dos beneficiários (trabalhadores qualificados, produtores, empresas apoiadas) | Novo CAGED, RAIS, PNAD Contínua, Cadastro Único |
+| Inclusão | Participação de mulheres e de jovens de 15 a 29 anos nos postos criados | Mesmas fontes |
+
+Cuidados:
+- Separar emprego temporário de obra e emprego permanente; o temporário não é o resultado
+  principal.
+- Não contar duas vezes o direto e o da cadeia.
+- Não apresentar emprego público novo como resultado de emprego.
+- Declarar o contrafactual: o que aconteceria sem o projeto.
+- Números inflados prejudicam a credibilidade na Diretoria mais do que números modestos e
+  verificáveis.
+
+### 7.4 Ênfases de argumento e pautas de discussão
+Para o Diretor do País e para a Diretoria, escolher de 3 a 5 ênfases que a carta sustente:
+- **Mandato.** O projeto contribui para o objetivo institucional de mais e melhores empregos e
+  para o indicador de empregos do Scorecard. Dizer por qual canal (7.1) e com que ordem de
+  grandeza.
+- **Encaixe no país.** Empregos ligam o projeto aos eixos de produtividade e inclusão do Quadro
+  de Parceria com o Brasil (seção 4). Informalidade, desemprego de jovens e desigualdade
+  regional são os problemas do mercado de trabalho brasileiro a citar, com dados da PNAD
+  Contínua e o recorte do território.
+- **Setor privado como motor.** Mostrar o que o projeto destrava para empresas privadas e se há
+  espaço para IFC, MIGA ou garantias. A tese "governos não criam empregos em escala" pede que o
+  argumento não dependa de contratação pública.
+- **Qualidade e inclusão.** Formalização, renda, mulheres e jovens, com metas e fontes
+  administrativas.
+- **Sustentação depois do projeto.** Os postos permanentes têm custeio (item A.5), e o emprego
+  não acaba com a obra.
+- **Evidência.** Avaliação de impacto ou monitoramento com dados administrativos (CAGED, RAIS,
+  eSocial). Isso responde à pergunta "como sabemos" e é um ponto forte na Diretoria.
+
+Pautas de discussão com o cliente:
+- "Quem contrata, quantos e onde, por causa deste projeto?"
+- "Que parte das compras pode ir a fornecedores locais e a micro e pequenas empresas?"
+- "O que muda na regulação para que empresas invistam no território?"
+- "Que dados de emprego o ente já tem e pode compartilhar?"
+
+### 7.5 Relação com a nota COFIEX
+O emprego não é critério da rubrica da RN 1/2024. A reconcepção só mexe na nota se criar
+**produto, indicador e custo próprios** em uma área do PPA, por exemplo:
+- objetivos de trabalho e renda;
+- ambiente de negócios e micro e pequenas empresas;
+- qualificação.
+
+Aplicar a regra das áreas secundárias (`calibration/ae-criteria-by-level-and-ppa-area.md` §4).
+Declarar uma área nova sem esse lastro tende a zero e não deve ser sugerido só para destacar
+emprego. Na carta COFIEX, o emprego entra como resultado na justificativa e nos indicadores.
+Ênfases voltadas ao Banco ficam fora da carta de comentários ao cliente, salvo pedido do
+usuário.
+
+### Saída no relatório
+Subseção "Empregos" dentro da lente Banco Mundial, com quatro partes:
+- a tabela de canais (7.1) com o grau de evidência;
+- de 2 a 4 opções de reconcepção (7.2);
+- de 3 a 5 indicadores (7.3);
+- de 3 a 5 ênfases de argumento e pautas (7.4).
+
+Tudo em texto de concepção, sem número de nota e sem estimar quantidade de empregos que a
+carta não sustente: quando a carta não traz número, dizer que falta e como obtê-lo.
+
 ## Lugar no relatório
 Subseção "Lente Banco Mundial" dentro da Revisão Sênior de Banco Multilateral de
 Desenvolvimento. Seu papel é dizer o que o Banco cobraria e em que documento. Ela:
 - não repete a nota de cada item;
 - não propõe correção com ganho em pontos (isso é do Plano de Correção);
 - remete às lacunas já descritas: "ver A.4".
+
+A subseção de empregos (seção 7) é a exceção que propõe mudanças. Ela é de concepção, voltada
+à aprovação interna no Banco, e não estima ganho de nota.
