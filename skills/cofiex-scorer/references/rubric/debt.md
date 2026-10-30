@@ -16,6 +16,26 @@ Tesouro Nacional avalia o estoque no momento da análise.
 | Excedendo o limite prudencial | 0,250 |
 | Excedendo significativamente | 0,000 |
 
+### Regra calibrada (usar primeiro): `scripts/objective_lookup.py`
+O script lê a série oficial empacotada e aplica a regra abaixo. Ela foi calibrada em 63 notas
+oficiais da RN 1/2024 (31 estaduais, 32 municipais). Acertou o valor exato em ~85% dos casos,
+com erro médio de 0,05 (contra 0,12 de "sempre 0,750").
+- **Série usada:**
+  - Estados: Dívida Consolidada Líquida/Receita Corrente Líquida (Siconfi, RGF Anexo 2) nos
+    fins de ano até o ano anterior à reunião.
+  - Municípios: Dívida Consolidada/Receita Corrente Líquida dos anos-base da Capacidade de
+    Pagamento em vigor.
+- **Regra**, aplicada nesta ordem:
+  1. Nível ≥ 80%: 0,500; 0,250 se subiu mais de 8 pontos percentuais no último ano.
+  2. Subiu mais de 8 pontos percentuais no último ano: 0,500; 0,250 se o nível for ≥ 60%.
+  3. Caiu 10 pontos percentuais ou mais no período: 1,000.
+  4. Caso contrário (estável ou pequena variação): 0,750.
+- A nota 0,000 apareceu uma vez, numa estatal pontuada pelo ente mantenedor. A regra não a prevê.
+- Ressalva: a regra foi ajustada nas mesmas reuniões em que foi medida. Rever com o banco de
+  teste fixo a cada ciclo novo.
+
+A tabela abaixo é o fallback quando o ente não está nas tabelas empacotadas.
+
 **Dívida Consolidada/Receita Corrente Líquida → referência de pontuação (calibrada
 empiricamente):**
 | Dívida Consolidada/Receita Corrente Líquida | Tendência | Pontuação esperada |

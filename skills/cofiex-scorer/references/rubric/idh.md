@@ -3,60 +3,40 @@
 ## FASE 6 — Índice de Desenvolvimento Humano (apenas subnacional)
 `Nota de Índice de Desenvolvimento Humano = 2 × ((1 − IDH_entidade) / (1 − IDH_menor_na_reunião))`
 
-**CRÍTICO:** a nota é RELATIVA à composição da reunião — não pode ser calculada sem saber quem
-mais está pautado. Apresentar sempre como uma faixa de cenário. A âncora de piso fixo de
-conveniência abaixo é um PADRÃO apenas para reuniões com predomínio estadual; ela nunca
-substitui a fórmula relativa quando a composição da pauta é conhecida, e nunca sobrepõe os
-pisos municipais.
+**Primeiro passo:** rodar `python -X utf8 scripts/objective_lookup.py --uf <UF> --reuniao <AAAA-MM-DD>
+[--municipio "<nome>"]`. O script lê o IDH da planilha empacotada e aplica o piso padrão abaixo,
+com a faixa. Se a composição da pauta for conhecida, passar `--piso-idh <IDH_menor>`.
 
-### Âncora padrão para reunião estadual
-Para reuniões com predomínio estadual e composição desconhecida, usar o piso **0,668** como
-base, com:
-- Pessimista 0,650 · Base 0,668 · Otimista 0,686 (limite superior 0,700 para pautas dominadas
-  por estados de alto Índice de Desenvolvimento Humano do Sul/Sudeste ou litoral do Nordeste).
-Sobrepor apenas com evidência da composição real da pauta (marcado como tal).
+### Piso da reunião (IDH_menor), calibrado nas notas oficiais da RN 1/2024
+Os pisos abaixo foram tirados das notas oficiais das reuniões 180ª–185ª, invertendo a fórmula. Achado
+principal: **municípios são comparados só com municípios, e estados só com estados.**
 
-### Cenários calibrados (corpus 180ª–187ª reunião)
-| Cenário | IDH_menor | Usar quando |
-|---|---|---|
-| Pessimista | 0,646–0,650 | Reunião tem estado do Norte/Nordeste com Índice de Desenvolvimento Humano muito baixo |
-| Moderado (padrão estadual) | 0,668 | Padrão para reuniões com predomínio estadual |
-| Otimista | 0,686–0,700 | Nenhum estado abaixo do piso de alto Índice de Desenvolvimento Humano |
-| Municipal | 0,572–0,620 | Reunião inclui municípios de Índice de Desenvolvimento Humano Municipal baixo (pisos preservados) |
+| Tipo de ente | IDH usado | Piso observado | Padrão |
+|---|---|---|---|
+| Município | IDHM 2010 | 0,639–0,646 (o mesmo valor para todos os municípios de cada reunião) | **0,643** |
+| Estado | IDH estadual | 0,676–0,689 | **0,680** |
 
-**Faixas empíricas — estados:** Índice de Desenvolvimento Humano baixo (0,639–0,689) → 1,7–2,0;
-médio (0,660–0,665) → 1,3–1,9; alto (0,740–0,826) → 0,5–1,2. Âncora: estado do Nordeste com
-Índice de Desenvolvimento Humano ≈ 0,689 que é praticamente o piso da reunião (IDH_menor ≈
-0,686) → ≈ 1,98.
+- O ente que tem o menor IDH entre os pleitos do mesmo tipo na pauta recebe 2,000.
+- Para alguns estados, o IDH que a SEAID usa diverge do IDH 2021 da planilha em até ~0,03.
+  Tratar a nota estadual como ±0,1 ponto.
+- Entidades federais: não se aplica (nota 0). Estatais e consórcios: usar o ente mantenedor (FASE 2).
 
-**Faixas empíricas — municípios (Índice de Desenvolvimento Humano Municipal) — pisos
-preservados, NÃO sujeitos à âncora estadual de 0,668:**
-- ≤ 0,600 (muito baixo) → 1,8–2,0 (quase máximo se for o menor da reunião)
-- 0,650–0,699 (baixo) → 1,5–1,8
-- 0,700–0,710 (médio-baixo) → 1,4–1,7 (piso ~0,619–0,646); até ~1,98 se for o menor
-- 0,750–0,770 (médio) → 1,2–1,4 (piso ~0,580–0,620)
-- 0,760–0,799 (médio-alto) → 0,9–1,4
-- ≥ 0,800 (alto) → 0,4–0,9
-Âncoras (anonimizadas): município com Índice de Desenvolvimento Humano Municipal 0,759, piso
-da reunião ≈ 0,619 → **1,335**; município com Índice de Desenvolvimento Humano Municipal
-0,700, piso semelhante → **1,695**.
+**Erro com o piso padrão** (mesmas reuniões usadas na calibração, então ligeiramente otimista):
+erro médio de 0,01 ponto para municípios e 0,10 para estados, sem viés. Com os pisos antigos
+(0,668 estadual; 0,572–0,620 municipal), o erro era de 0,12 e 0,14, ambos subestimando.
 
-**Estimativa prática:** quando a composição da reunião é desconhecida, usar a âncora estadual
-de 0,668 para pautas estaduais; para pautas municipais ou mistas usar piso 0,620–0,650; ajustar
-para cima (→1,9+) se a entidade for demonstravelmente o menor Índice de Desenvolvimento Humano
-da pauta, para baixo (→0,5–1,2) se houver entidades de Índice de Desenvolvimento Humano menor
-presentes.
+### Por que o viés de −0,29 do teste cego acontecia
+Os pisos antigos eram **baixos demais**, sobretudo o municipal (0,572–0,620 contra 0,643 real).
+Um piso menor aumenta o denominador e reduz a nota. A instrução anterior de "preferir o extremo
+pessimista" (piso ainda mais baixo) agravava o erro e foi removida.
 
-Entidades federais: Índice de Desenvolvimento Humano = não se aplica (nota 0).
+### Faixas de referência (com o piso padrão)
+- **Estados:** IDH 0,676–0,690 → 1,9–2,0; IDH ~0,72 → ~1,75; IDH ~0,77 → ~1,4; IDH 0,80–0,83 → 1,1–1,25.
+- **Municípios (IDHM 2010):** ≤ 0,643 → 2,0; 0,700 → ~1,68; 0,750 → ~1,40; 0,800 → ~1,12;
+  0,850 → ~0,84.
 
-**Viés sistemático de subestimação (achado da validação por teste cego, n=15, 2026-10).** A Nota
-de Índice de Desenvolvimento Humano cega saiu, em média, 0,29 ponto (escala 0–2) abaixo da nota
-oficial — o único componente objetivo com viés direcional consistente (CAPAG e Dívida saíram
-quase sem viés no mesmo teste). Como a fórmula é relativa ao IDH_menor da reunião real (não
-conhecido às cegas), a hipótese mais provável é que os pisos-âncora acima (0,668 estadual;
-0,572–0,620 municipal) estão, em média, ligeiramente **altos demais** — mais perto do IDH da
-própria entidade do que o IDH_menor real costuma ser, o que comprime a nota calculada para baixo.
-**Ajuste recomendado:** na ausência de evidência da composição real da pauta, preferir o extremo
-**pessimista** de cada faixa de cenário (não o moderado) como ponto de partida — ex.: usar
-0,650–0,660 em vez de 0,668 para pautas estaduais, e o piso inferior das faixas municipais. n=15
-é pequeno; tratar como ajuste preliminar e revisar com mais casos de validação.
+### Quando mudar o piso
+- **Pauta conhecida:** piso = menor IDH entre os pleitos do mesmo tipo na pauta (`--piso-idh`).
+- **Pauta com muitos municípios de IDHM muito baixo** (< 0,62): o piso municipal pode cair.
+  Mostrar o cenário com o piso menor como o extremo inferior da faixa, sem trocar o padrão.
+- Sem evidência, manter o padrão. Não "puxar para o pessimista".

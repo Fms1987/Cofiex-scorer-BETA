@@ -5,6 +5,15 @@ Art. 10, I, c: máximo 2 pontos. A Capacidade de Pagamento mede a solidez fiscal
 de serviço da dívida da entidade (Portaria MF 501/2017: endividamento, poupança corrente,
 liquidez) — NÃO os termos da operação proposta.
 
+**Fonte e ciclo (usar primeiro):** `scripts/objective_lookup.py --uf <UF> --reuniao <data>
+[--municipio "<nome>"]` devolve a classificação oficial da STN do ciclo em vigor na data da
+reunião. Para estados, o ciclo é o último publicado antes da reunião (2023, 2024, revisão de
+2024, 2025). Para municípios, é a última posição publicada antes da reunião (2025 e 2026). Nas
+63 notas oficiais da RN 1/2024, esse critério acertou 61. Os 2 erros foram uma estatal
+pontuada pelo ente mantenedor e uma revisão estadual não publicada em arquivo. Se a STN
+publicar um ciclo depois da data de corte da pauta, mostrar os dois como cenário. Atualizar as
+tabelas com `tools/build_objective_data.py`.
+
 **Tabela fixa de classificação→pontos (sem sobreposição ad hoc; valores do usuário exigem
 metadado conforme a FASE 1.6):**
 | Classificação | Pontos | Situação |

@@ -1,0 +1,109 @@
+uf,ciclo,vigente_desde,classificacao,indicador_1,nota_1,indicador_2,nota_2,indicador_3,nota_3,qualidade_informacao
+AC,CAPAG Estados 2023,2023-11-06,B,"46,90%",A,"90,47%",B,"70,09%",A,
+AL,CAPAG Estados 2023,2023-11-06,B,"91,85%",B,"86,30%",B,"46,60%",A,
+AP,CAPAG Estados 2023,2023-11-06,C,"77,33%",B,"76,24%",A,"134,58%",C,
+AM,CAPAG Estados 2023,2023-11-06,B,"40,00%",A,"92,19%",B,"9,20%",A,
+BA,CAPAG Estados 2023,2023-11-06,A,"51,55%",A,"84,81%",A,"4,51%",A,
+CE,CAPAG Estados 2023,2023-11-06,B,"60,27%",B,"87,12%",B,"8,46%",A,
+DF,CAPAG Estados 2023,2023-11-06,B,"42,03%",A,"94,28%",B,"59,35%",A,
+ES,CAPAG Estados 2023,2023-11-06,A,"34,21%",A,"80,57%",A,"6,98%",A,
+GO,CAPAG Estados 2023,2023-11-06,C,-,-,-,-,-,-,
+MA,CAPAG Estados 2023,2023-11-06,C,"40,61%",A,"89,07%",B,-,C,
+MT,CAPAG Estados 2023,2023-11-06,A,"17,47%",A,"78,85%",A,"7,06%",A,
+MS,CAPAG Estados 2023,2023-11-06,B,"49,17%",A,"85,78%",B,"11,99%",A,
+MG,CAPAG Estados 2023,2023-11-06,D,-,-,-,-,-,-,
+PA,CAPAG Estados 2023,2023-11-06,B,"16,10%",A,"87,86%",B,"20,73%",A,
+PB,CAPAG Estados 2023,2023-11-06,A,"33,75%",A,"84,54%",A,"2,82%",A,
+PR,CAPAG Estados 2023,2023-11-06,B,"58,29%",A,"87,12%",B,"7,21%",A,
+PE,CAPAG Estados 2023,2023-11-06,C,"47,18%",A,"92,37%",B,"146,49%",C,
+PI,CAPAG Estados 2023,2023-11-06,B,"68,93%",B,"89,90%",B,"55,85%",A,
+RJ,CAPAG Estados 2023,2023-11-06,D,-,-,-,-,-,-,
+RN,CAPAG Estados 2023,2023-11-06,C,"34,55%",A,"95,49%",C,-,C,
+RS,CAPAG Estados 2023,2023-11-06,D,-,-,-,-,-,-,
+RO,CAPAG Estados 2023,2023-11-06,A,"44,40%",A,"83,67%",A,"3,55%",A,
+RR,CAPAG Estados 2023,2023-11-06,B,"27,29%",A,"88,15%",B,"22,55%",A,
+SC,CAPAG Estados 2023,2023-11-06,B,"58,44%",A,"89,04%",B,"10,33%",A,
+SP,CAPAG Estados 2023,2023-11-06,B,"144,53%",C,"87,71%",B,"37,78%",A,
+SE,CAPAG Estados 2023,2023-11-06,B,"43,15%",A,"92,35%",B,"23,13%",A,
+TO,CAPAG Estados 2023,2023-11-06,B,"31,94%",A,"88,94%",B,"36,80%",A,
+AC,Capag Estados 2024,2025-01-13,C,"38,63%",A,"92,15%",B,"-0,43%",C,Bicf
+AL,Capag Estados 2024,2025-01-13,B,"90,77%",B,"90,28%",B,"1,01%",B,Bicf
+AM,Capag Estados 2024,2025-01-13,B+,"40,72%",A,"93,92%",B,"0,82%",B,Aicf
+AP,Capag Estados 2024,2025-01-13,B,"66,46%",B,"79,36%",A,"0,11%",B,Eicf
+BA,Capag Estados 2024,2025-01-13,A+,"53,41%",A,"86,97%",B,"5,39%",A,Aicf
+CE,Capag Estados 2024,2025-01-13,A,"54,81%",A,"90,06%",B,"9,51%",A,Cicf
+DF,Capag Estados 2024,2025-01-13,B,"46,62%",A,"92,23%",B,"3,54%",B,Bicf
+ES,Capag Estados 2024,2025-01-13,A+,"33,75%",A,"81,72%",A,"11,49%",A,Aicf
+GO,Capag Estados 2024,2025-01-13,C,-,-,-,-,-,-,Aicf
+MA,Capag Estados 2024,2025-01-13,B,"37,58%",A,"89,02%",B,"0,00%",B,Cicf
+MG,Capag Estados 2024,2025-01-13,C,"178,05%",C,"94,93%",B,"-10,33%",C,Bicf
+MS,Capag Estados 2024,2025-01-13,A+,"45,03%",A,"87,99%",B,"7,91%",A,Aicf
+MT,Capag Estados 2024,2025-01-13,A+,"12,61%",A,"81,92%",A,"11,91%",A,Aicf
+PA,Capag Estados 2024,2025-01-13,B,"19,55%",A,"89,97%",B,"1,40%",B,Bicf
+PB,Capag Estados 2024,2025-01-13,A,"41,65%",A,"85,27%",B,"24,22%",A,Bicf
+PE,Capag Estados 2024,2025-01-13,B+,"44,54%",A,"93,48%",B,"0,77%",B,Aicf
+PI,Capag Estados 2024,2025-01-13,B+,"68,56%",B,"92,05%",B,"1,39%",B,Aicf
+PR,Capag Estados 2024,2025-01-13,A+,"49,07%",A,"87,34%",B,"23,68%",A,Aicf
+RJ,Capag Estados 2024,2025-01-13,C,"203,65%",C,"94,42%",B,"-11,24%",C,Bicf
+RN,Capag Estados 2024,2025-01-13,C,"27,41%",A,"95,23%",C,"-13,91%",C,Aicf
+RO,Capag Estados 2024,2025-01-13,A+,"41,57%",A,"86,88%",B,"10,29%",A,Aicf
+RR,Capag Estados 2024,2025-01-13,A,"27,83%",A,"91,35%",B,"9,23%",A,Cicf
+RS,Capag Estados 2024,2025-01-13,D,"218,58%",C,"95,57%",C,"-9,77%",C,Bicf
+SC,Capag Estados 2024,2025-01-13,A+,"54,23%",A,"89,44%",B,"8,58%",A,Aicf
+SE,Capag Estados 2024,2025-01-13,A,"39,49%",A,"90,95%",B,"6,47%",A,Bicf
+SP,Capag Estados 2024,2025-01-13,B,"152,38%",C,"89,64%",B,"3,59%",B,Bicf
+TO,Capag Estados 2024,2025-01-13,B+,"25,87%",A,"90,15%",B,"4,66%",B,Aicf
+AC,Capag Estados 2024 - Revisão,2025-04-24,C,"38,63%",A,"92,15%",B,"-0,43%",C,Bicf
+AL,Capag Estados 2024 - Revisão,2025-04-24,B,"90,77%",B,"90,28%",B,"1,01%",B,Bicf
+AM,Capag Estados 2024 - Revisão,2025-04-24,B+,"40,72%",A,"93,92%",B,"0,82%",B,Aicf
+AP,Capag Estados 2024 - Revisão,2025-04-24,B,"66,46%",B,"79,36%",A,"0,11%",B,Eicf
+BA,Capag Estados 2024 - Revisão,2025-04-24,A+,"53,41%",A,"86,97%",B,"5,39%",A,Aicf
+CE,Capag Estados 2024 - Revisão,2025-04-24,A,"54,81%",A,"90,06%",B,"9,51%",A,Cicf
+DF,Capag Estados 2024 - Revisão,2025-04-24,C,"27,37%",A,"95,27%",C,"0,90%",B,Bicf
+ES,Capag Estados 2024 - Revisão,2025-04-24,A+,"33,75%",A,"81,72%",A,"11,49%",A,Aicf
+GO,Capag Estados 2024 - Revisão,2025-04-24,C,-,-,-,-,-,-,Aicf
+MA,Capag Estados 2024 - Revisão,2025-04-24,B,"37,58%",A,"89,02%",B,"0,00%",B,Cicf
+MG,Capag Estados 2024 - Revisão,2025-04-24,C,"178,05%",C,"94,93%",B,"-10,33%",C,Bicf
+MS,Capag Estados 2024 - Revisão,2025-04-24,A+,"45,03%",A,"87,99%",B,"7,91%",A,Aicf
+MT,Capag Estados 2024 - Revisão,2025-04-24,A+,"12,61%",A,"81,92%",A,"11,91%",A,Aicf
+PA,Capag Estados 2024 - Revisão,2025-04-24,B,"19,55%",A,"89,97%",B,"1,40%",B,Bicf
+PB,Capag Estados 2024 - Revisão,2025-04-24,A,"41,65%",A,"85,27%",B,"24,22%",A,Bicf
+PE,Capag Estados 2024 - Revisão,2025-04-24,B+,"44,54%",A,"93,48%",B,"0,77%",B,Aicf
+PI,Capag Estados 2024 - Revisão,2025-04-24,B+,"68,56%",B,"92,05%",B,"1,39%",B,Aicf
+PR,Capag Estados 2024 - Revisão,2025-04-24,A+,"49,07%",A,"87,34%",B,"23,68%",A,Aicf
+RJ,Capag Estados 2024 - Revisão,2025-04-24,C,"203,65%",C,"94,42%",B,"-11,24%",C,Bicf
+RN,Capag Estados 2024 - Revisão,2025-04-24,C,"27,41%",A,"95,23%",C,"-13,91%",C,Aicf
+RO,Capag Estados 2024 - Revisão,2025-04-24,A+,"41,57%",A,"86,88%",B,"10,29%",A,Aicf
+RR,Capag Estados 2024 - Revisão,2025-04-24,A,"27,83%",A,"91,35%",B,"9,23%",A,Cicf
+RS,Capag Estados 2024 - Revisão,2025-04-24,D,"218,58%",C,"95,57%",C,"-9,77%",C,Bicf
+SC,Capag Estados 2024 - Revisão,2025-04-24,A+,"54,23%",A,"89,44%",B,"8,58%",A,Aicf
+SE,Capag Estados 2024 - Revisão,2025-04-24,A,"39,49%",A,"90,95%",B,"6,47%",A,Bicf
+SP,Capag Estados 2024 - Revisão,2025-04-24,B,"152,38%",C,"89,64%",B,"3,59%",B,Bicf
+TO,Capag Estados 2024 - Revisão,2025-04-24,B+,"25,87%",A,"90,15%",B,"4,66%",B,Aicf
+AC,Capag Estados 2025,2026-03-10,C,"34,95%",A,"92,29%",B,"-1,03%",C,Bicf
+AL,Capag Estados 2025,2026-03-10,B+,"86,90%",B,"88,31%",B,"0,36%",B,Aicf
+AM,Capag Estados 2025,2026-03-10,B+,"42,80%",A,"93,33%",B,"1,07%",B,Aicf
+AP,Capag Estados 2025,2026-03-10,A,"55,87%",A,"82,46%",A,"0,87%",B,Cicf
+BA,Capag Estados 2025,2026-03-10,B+,"54,22%",A,"87,66%",B,"3,12%",B,Aicf
+CE,Capag Estados 2025,2026-03-10,A+,"52,13%",A,"90,67%",B,"6,87%",A,Aicf
+DF,Capag Estados 2025,2026-03-10,C,"30,85%",A,"95,27%",C,"1,01%",B,Bicf
+ES,Capag Estados 2025,2026-03-10,A+,"31,88%",A,"77,75%",A,"7,48%",A,Aicf
+GO,Capag Estados 2025,2026-03-10,B+,"65,53%",B,"86,28%",B,"12,95%",A,Aicf
+MA,Capag Estados 2025,2026-03-10,A,"23,32%",A,"83,90%",A,"4,31%",B,Bicf
+MG,Capag Estados 2025,2026-03-10,D,"181,78%",C,"95,21%",C,"-19,53%",C,Aicf
+MS,Capag Estados 2025,2026-03-10,B+,"47,11%",A,"89,60%",B,"4,10%",B,Aicf
+MT,Capag Estados 2025,2026-03-10,A+,"15,55%",A,"82,38%",A,"9,63%",A,Aicf
+PA,Capag Estados 2025,2026-03-10,B+,"21,16%",A,"90,05%",B,"3,18%",B,Aicf
+PB,Capag Estados 2025,2026-03-10,A+,"40,24%",A,"84,66%",A,"26,34%",A,Aicf
+PE,Capag Estados 2025,2026-03-10,B+,"42,80%",A,"92,52%",B,"1,93%",B,Aicf
+PI,Capag Estados 2025,2026-03-10,B+,"76,71%",B,"91,99%",B,"3,13%",B,Aicf
+PR,Capag Estados 2025,2026-03-10,A+,"44,72%",A,"86,89%",B,"24,08%",A,Aicf
+RJ,Capag Estados 2025,2026-03-10,D,"231,81%",C,"98,44%",C,"-8,7%",C,Bicf
+RN,Capag Estados 2025,2026-03-10,C,"41,73%",A,"95,74%",C,"-16,04%",C,Aicf
+RO,Capag Estados 2025,2026-03-10,A+,"33,36%",A,"86,91%",B,"9,88%",A,Aicf
+RR,Capag Estados 2025,2026-03-10,A,"30,58%",A,"93,00%",B,"5,56%",A,Bicf
+RS,Capag Estados 2025,2026-03-10,C,"224,02%",C,"94,98%",B,"-11,38%",C,Aicf
+SC,Capag Estados 2025,2026-03-10,A+,"51,44%",A,"86,73%",B,"11,26%",A,Aicf
+SE,Capag Estados 2025,2026-03-10,A,"34,55%",A,"88,50%",B,"12,80%",A,Bicf
+SP,Capag Estados 2025,2026-03-10,B,"147,35%",C,"89,75%",B,"1,97%",B,Bicf
+TO,Capag Estados 2025,2026-03-10,B+,"27,45%",A,"92,16%",B,"2,18%",B,Aicf

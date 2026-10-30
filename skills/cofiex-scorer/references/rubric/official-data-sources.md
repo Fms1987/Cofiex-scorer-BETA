@@ -8,7 +8,20 @@ gratuitas e oficiais para obtê-los ou confirmá-los — nunca um fornecedor pag
 valor não puder ser confirmado contra uma destas, levantar `input_flag` em vez de confiar no
 número do proponente.
 
-## Planilha empacotada (verificar primeiro)
+## Tabelas oficiais por ciclo (verificar antes de tudo)
+
+`scripts/objective_lookup.py` consulta estas tabelas e devolve Capacidade de Pagamento, Tendência
+da Dívida e Índice de Desenvolvimento Humano já pontuados, com fonte e ciclo. Elas são
+atualizadas por `tools/build_objective_data.py`; a data da última atualização está em
+`reference-data/objective_tables_built_on.txt`.
+
+| Tabela (`reference-data/`) | Conteúdo | Fonte |
+|---|---|---|
+| `capag_estados_por_ciclo.csv` | Classificação e indicadores de cada estado por ciclo, com a data em que o ciclo entrou em vigor | STN, Tesouro Transparente (capag-estados) |
+| `capag_municipios_por_posicao.csv` | Classificação de cada município em cada posição publicada desde 2025, e Dívida Consolidada/Receita Corrente Líquida dos anos-base | STN, Tesouro Transparente (capag-municipios) |
+| `divida_estados_dcl_rcl.csv` | % Dívida Consolidada Líquida/Receita Corrente Líquida dos estados em cada fim de ano desde 2020 e no último quadrimestre | Siconfi, RGF Anexo 2 |
+
+## Planilha empacotada
 
 `reference-data/External_Credit_Operations_Database_September_2026.xlsx` vem junto com este
 repositório — consultá-la **antes** de recorrer a uma API externa. É mais rápida e já está

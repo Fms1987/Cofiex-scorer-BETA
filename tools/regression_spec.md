@@ -61,3 +61,8 @@ anonymous changelog (metric values only, no ids).
 Bank v1 = 40 pleitos drawn from the 89 already run blind (Oct 2026), so v1 needed no new runs. Those
 runs predate the multi-pleito sandbox and some read a skill that still held the pleito's own fichas,
 so v1 is an indicative baseline. It has no AREA lines: level accuracy starts at the first new run.
+
+## History (metrics only)
+| Change | Bank | Measure | Before → after |
+|---|---|---|---|
+| Package 2: official tables + `objective_lookup.py` (CAPAG by cycle, calibrated debt rule, IDH floors 0.680 / 0.643) | v1, 29 subnational pleitos | Component MAE, script vs official (no new blind run) | CAPAG 0.188 → 0.000; Debt 0.166 → 0.060; IDH 0.255 → 0.047. Debt rule and IDH floors were fitted on the same meetings: in-sample, re-check on the next bank. |
