@@ -158,6 +158,63 @@ Esta subseção é **de concepção**. Ela serve ao líder de equipe para defend
 internamente e não altera a nota COFIEX. Pode ir da reconcepção do projeto a pautas de discussão
 e ênfases de argumento.
 
+### 7.0 Referências do Banco Mundial sobre o tema do pleito (buscar a cada simulação)
+O repositório local não guarda documentos do Banco Mundial; a base aqui é COFIEX e SEAID. Por
+isso, **a cada simulação, buscar na web** publicações do Banco sobre os temas do pleito, de
+preferência as que cruzam o tema com emprego. Isso dá ao líder de equipe argumentos com fonte
+do próprio Banco, que é o que convence o Diretor do País e a Diretoria.
+
+**Onde buscar.** A busca direta no Repositório de Conhecimento Aberto
+(openknowledge.worldbank.org) costuma bloquear acesso automatizado. Usar busca na web
+restrita aos domínios do Banco:
+- `site:openknowledge.worldbank.org`: relatórios, livros, documentos de trabalho, notas de
+  política;
+- `site:documents.worldbank.org`: documentos de projeto (documento de avaliação do projeto,
+  documento de informação do programa), que mostram como operações parecidas foram
+  defendidas;
+- `site:worldbank.org/pt/news` e `/en/news`: comunicados de operações recentes no Brasil;
+- `site:blogs.worldbank.org`: posicionamento da liderança e das práticas globais.
+
+**Como montar as consultas.** Usar de 3 a 6 consultas por pleito, combinando setor e emprego,
+setor e Brasil, e o canal de emprego identificado em 7.1. Exemplos:
+- `site:openknowledge.worldbank.org jobs urban infrastructure Brazil`
+- `site:openknowledge.worldbank.org "sanitation" employment OR jobs Latin America`
+- `site:openknowledge.worldbank.org Brazil "Country Growth and Jobs" OR "jobs diagnostic"`
+- `site:documents.worldbank.org Brazil state "Program-for-Results" jobs`
+- `site:worldbank.org/pt/news Brasil empregos [setor] [ano]`
+
+Em português e inglês, porque muita coisa sobre o Brasil sai nas duas línguas.
+
+**O que procurar, em ordem de utilidade:**
+1. Diagnóstico de empregos ou relatório de crescimento e empregos do Brasil ou da região:
+   números do mercado de trabalho e a tese do Banco para o país.
+2. Avaliação de impacto ou estudo setorial que mede efeito de emprego do tipo de intervenção do
+   pleito: obra urbana, saneamento, estradas rurais, qualificação, saúde, regularização
+   fundiária.
+3. Operações recentes do Banco no Brasil com enquadramento de empregos, de preferência
+   subnacionais. Exemplo encontrado em 30/10/2026: comunicado de março de 2026 sobre
+   financiamento ao Estado da Bahia que liga infraestrutura e reformas à criação de empregos.
+   Servem como precedente de como a Diretoria aprovou um argumento parecido.
+4. Notas de política sobre ambiente de negócios, regulação e emprego (ver 7.5).
+
+**Como usar na saída.** Uma tabela curta, com 3 a 6 linhas no máximo:
+
+| Referência (título, ano, tipo) | O que diz de útil para este pleito | Onde usar (7.2 reconcepção, 7.3 indicador, 7.4 argumento) |
+|---|---|---|
+
+Regras:
+- Citar só o que foi aberto e lido. Título, ano e link têm de ser reais. Não inventar
+  referência nem número; se a busca não achar nada útil, dizer isso.
+- Preferir documentos dos últimos 5 anos e do Brasil ou da América Latina. Estudo de outra
+  região vale como evidência do mecanismo, dito como tal.
+- Resumir com palavras próprias. No máximo uma citação curta entre aspas por referência
+  (direitos autorais).
+- **Julgamento cego:** a busca é por literatura do Banco sobre o tema, nunca por documentos do
+  próprio pleito avaliado. Não buscar nota técnica, ata ou resultado COFIEX do pleito, nem
+  documento de projeto do Banco com o mesmo nome do pleito. Se um resultado for claramente a
+  operação avaliada, descartar.
+- A busca alimenta a lente e não muda nenhuma nota.
+
 ### 7.1 Diagnóstico: por qual canal o projeto gera emprego
 Ler a carta e marcar os canais presentes, com o grau de evidência (explícito, implícito ou
 ausente):
@@ -309,7 +366,8 @@ emprego. Na carta COFIEX, o emprego entra como resultado na justificativa e nos 
 usuário.
 
 ### Saída no relatório
-Subseção "Empregos" dentro da lente Banco Mundial, com cinco partes:
+Subseção "Empregos" dentro da lente Banco Mundial, com seis partes:
+- as referências do Banco Mundial encontradas sobre o tema e emprego (7.0);
 - a tabela de canais (7.1) com o grau de evidência;
 - de 2 a 4 opções de reconcepção (7.2);
 - de 3 a 5 indicadores (7.3);
