@@ -77,6 +77,17 @@ def table(doc, header, rows, widths=None, styles=None, num_cols=()):
     return t
 
 
+def pts(area, k):
+    """Pontos da área no cenário k (min/esp/max): valor numérico explícito, se houver, ou o nível."""
+    v = area.get(f"pontos_{k}")
+    return float(v) if v is not None else NIVEL_PONTOS.get(area[f"nivel_{k}"], 0.0)
+
+
+def declaradas(areas):
+    """Áreas que entram na soma: as declaradas no pleito (inclusive sem sustentação), não as sugeridas."""
+    return [a for a in areas if a.get("pleiteado_como", "Declarada").startswith("Declarada")]
+
+
 def soma(itens, chave):
     return sum((it.get(chave) or 0) for it in itens)
 
@@ -96,18 +107,18 @@ def tabela_pontuacao(doc, d):
         styles.append("subtotal")
 
     ae = d["area_estrategica"]
-    areas = ae["areas"]
+    areas = declaradas(ae["areas"])
     for a in areas:
-        rows.append(["Área Estratégica", f"{a['codigo']} — {a['objetivo']}",
-                     fmt(NIVEL_PONTOS.get(a["nivel_min"], 0)), fmt(NIVEL_PONTOS.get(a["nivel_esp"], 0)),
-                     fmt(NIVEL_PONTOS.get(a["nivel_max"], 0))])
+        rows.append(["Área Estratégica", f"Área {a['codigo']}",
+                     fmt(pts(a, "min")), fmt(pts(a, "esp")), fmt(pts(a, "max"))])
         styles.append(None)
     for b in ae.get("bonus", []):
-        rows.append(["Área Estratégica", f"Bônus — {b['item']}", fmt(b["min"]), fmt(b["esp"]), fmt(b["max"])])
+        situacao = f" ({b['situacao']})" if b.get("situacao") else ""
+        rows.append(["Área Estratégica", f"Bônus — {b['item']}{situacao}", fmt(b["min"]), fmt(b["esp"]), fmt(b["max"])])
         styles.append(None)
     sub_ae = {}
-    for k, nk in (("min", "nivel_min"), ("esp", "nivel_esp"), ("max", "nivel_max")):
-        bruto = sum(NIVEL_PONTOS.get(a[nk], 0) for a in areas) + soma(ae.get("bonus", []), k)
+    for k in ("min", "esp", "max"):
+        bruto = sum(pts(a, k) for a in areas) + soma(ae.get("bonus", []), k)
         sub_ae[k] = min(teto_ae, bruto)
     rows.append(["Subtotal", f"Nota de Área Estratégica (teto {fmt(teto_ae)}, bônus incluído)",
                  fmt(sub_ae["min"]), fmt(sub_ae["esp"]), fmt(sub_ae["max"])])
@@ -135,6 +146,9 @@ def tabela_areas(doc, d):
     table(doc, ["Código PPA", "Objetivo estratégico", "Situação", "Nível (mín./esp./máx.)",
                 "Pontos (mín./esp./máx.)", "Fundamento resumido"], rows,
           widths=[1.6, 4.4, 2.0, 2.2, 2.6, 4.6], num_cols=(0, 3, 4))
+    if any(a not in declaradas(d["area_estrategica"]["areas"]) for a in d["area_estrategica"]["areas"]):
+        bloco(doc, {"tipo": "nota", "texto": "Objetivos marcados como sugeridos não foram declarados no pleito "
+                                             "e não entram no subtotal da Tabela 1."})
 
 
 def tabela_sugestoes(doc, d):
@@ -179,7 +193,8 @@ def main(src, out):
     cab = d["cabecalho"]
     doc.add_heading("Simulação da Avaliação Técnica COFIEX", level=0)
     doc.add_paragraph(f"{cab['proposta']} — {cab['proponente']}").runs[0].bold = True
-    doc.add_paragraph(f"Data da simulação: {d.get('data', date.today().strftime('%d/%m/%Y'))}. "
+    versao = f" Versão da skill: {d['versao_skill']}." if d.get("versao_skill") else ""
+    doc.add_paragraph(f"Data da simulação: {d.get('data', date.today().strftime('%d/%m/%Y'))}.{versao} "
                       "Simulação sob julgamento cego, sem consulta à Nota Técnica do pleito. "
                       "Resultado estimativo; não substitui a avaliação oficial.").runs[0].italic = True
 

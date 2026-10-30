@@ -7,7 +7,8 @@ assim as tabelas do sumário executivo nunca contradizem os itens.
 
 ## Passos
 1. Montar um JSON com o esquema abaixo, com os mesmos números da resposta no chat.
-2. Rodar `python scripts/build_report_docx.py relatorio.json "Simulacao_COFIEX_<proposta>.docx"`.
+2. Rodar `python -X utf8 scripts/build_report_docx.py relatorio.json "Simulacao_COFIEX_<proposta>.docx"`.
+   (`-X utf8` evita erro de codificação no Windows.)
    Precisa de `python-docx`; se faltar, instalar com `pip install python-docx`. Em ambiente
    sem Python, montar o mesmo documento com a skill de `.docx` disponível, seguindo a mesma
    estrutura.
@@ -40,6 +41,7 @@ mesmos títulos por extenso e sem siglas.
 ```json
 {
   "data": "29/10/2026",
+  "versao_skill": "selo de versão exigido pela skill",
   "cabecalho": {
     "proposta": "Nome da proposta",
     "proponente": "Ente",
@@ -61,7 +63,8 @@ mesmos títulos por extenso e sem siglas.
        "justificativa_curta": "Objetivo geral direto; ~60% dos recursos; impacto alto."}
     ],
     "bonus": [
-      {"item": "Prioridade do PPA (Art. 15 §3º)", "min": 0, "esp": 0, "max": 1.0},
+      {"item": "Prioridade do PPA (Art. 15 §3º)", "situacao": "não pedido / pedido / negado",
+       "min": 0, "esp": 0, "max": 1.0},
       {"item": "Integração regional (Art. 15 §4º)", "min": 0, "esp": 0, "max": 0}
     ]
   },
@@ -80,5 +83,13 @@ mesmos títulos por extenso e sem siglas.
   ]
 }
 ```
+Regras de soma:
+- Só entram no subtotal da Tabela 1 as áreas com `pleiteado_como` começando por "Declarada",
+  inclusive "Declarada sem sustentação", que tende a zero. Linhas "Sugerida — não declarada"
+  aparecem só na Tabela 2.
+- Para um esperado entre dois níveis, informar `pontos_min`, `pontos_esp` ou `pontos_max`
+  numéricos na área (ex.: `"pontos_esp": 1.5`). Esses valores prevalecem sobre o nível na
+  soma, e o nível continua sendo exibido.
+
 Níveis aceitos: `A` (5), `B` (3), `C` (2), `D` (1), `E` (0,5), `0` (sem nota). Os valores do
 JSON usam ponto decimal; o documento sai com vírgula.
