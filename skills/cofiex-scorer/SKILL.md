@@ -356,7 +356,7 @@ Insumos regulados não são automaticamente confiados. Executar ANTES da classif
   correspondente do dataset; expor a marcação na saída e solicitar a correção.
 - **Apenas tabelas gerais, nunca um documento específico do caso.** Os valores de Capacidade
   de Pagamento, Dívida e Índice de Desenvolvimento Humano/Municipal precisam vir de uma tabela
-  ou dataset oficial geral (a planilha empacotada, o boletim de Capacidade de Pagamento da
+  ou dataset oficial geral (as tabelas empacotadas em `reference-data/`, o boletim de Capacidade de Pagamento da
   Secretaria do Tesouro Nacional, Relatório Resumido de Execução Orçamentária/Relatório de
   Gestão Fiscal, Tesouro Transparente, IBGE, IPEA) que liste muitas entidades — nunca de uma
   Nota Técnica, parecer, ofício ou qualquer outro documento produzido para avaliar este
