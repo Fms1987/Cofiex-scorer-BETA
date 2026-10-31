@@ -32,7 +32,7 @@ abaixo estão as lacunas que impedem pontuar e uma faixa provisória só do que 
 
 | Lacuna | Item que ela trava | O que escrever | Texto-modelo ou referência |
 |---|---|---|---|
-| Custo por componente e produto | Nota de Área Estratégica (teto de nível por área) | Tabela produto → valor → área do PPA | planilha `budget_by_area.py --modelo` |
+| Custo por componente e produto | Nota de Área Estratégica (teto de nível por área) | Tabela produto → valor → área do PPA | `budget_by_area.py` com `produtos.json`, uma área dona por produto |
 | Objetivos do PPA não escolhidos | Nota de Área Estratégica | Área principal + secundárias com produto e indicador próprios | `calibration/ae-criteria-by-level-and-ppa-area.md` |
 | Indicadores sem linha de base, meta ou ano | Nível das áreas; item A.2 | Um indicador de resultado por objetivo específico | `calibration/indicator-library.md` |
 | Gestão sem equipe nem matriz | Item A.4; perguntas do Grupo Técnico | Unidade de gestão, equipe, matriz de responsabilidades | `review/model-texts.md` §2 |

@@ -119,7 +119,7 @@ objetivo. Se faltar indicador para algum elemento, apontar a lacuna e a troca su
 | Contexto do país e do setor | I. Justificativa | Diagnóstico sem dado quantitativo do problema |
 | Relevância e encaixe no quadro de parceria | II. Áreas Estratégicas, objetivo geral | Não cita o quadro (normal numa carta: só apontar) |
 | Objetivo de desenvolvimento e indicadores | I. Objetivos, I. Indicadores | Ver seção 5 acima |
-| Componentes e custos | I. Componentes, V. Financiamento | Custo por produto ausente (mesma lacuna da planilha de custo por área) |
+| Componentes e custos | I. Componentes, V. Financiamento | Custo por produto ausente (mesma lacuna do orçamento por área) |
 | Instrumento e justificativa | V. Financiamento | Ver seção 1 |
 | Arranjo de implementação | III. Gestão | Equipe e experiência não descritas (item A.4) |
 | Riscos e classe de risco ambiental e social | IV. Riscos | Ver seção 3 |

@@ -10,14 +10,28 @@ fonte de erro da Nota de Área Estratégica. Calcular sempre:
    divergência entre texto e anexo, usar o anexo e marcar a inconsistência (ela custa nível).
 2. Gravar num JSON e rodar `python -X utf8 scripts/budget_by_area.py <produtos.json>`.
    - Produto com uma área vai inteiro para ela.
-   - Produto com várias áreas e sem custo atribuído pela carta é repartido em partes iguais,
-     como faz a Nota Técnica. Usar `alocacao` só quando a própria carta atribuir o custo.
+   - Produto com várias áreas e custo atribuído pela carta: usar `alocacao`.
+   - Produto com várias áreas e sem custo atribuído: marcar a **área dona** (`"dona"`), a que o
+     produto atende diretamente, com objetivo específico e indicador próprios. A dona conta o
+     produto inteiro, com teto B; as outras áreas do produto contam a parte linear, com teto D, e
+     o nível delas sai do passo 5. Cada produto tem no máximo uma dona. Só deixar sem dona quando
+     a própria carta repartir o produto por igual entre poucas áreas (até três), cada uma com
+     indicador próprio: aí vale a repartição linear, como faz a Nota Técnica.
+   - Por quê: na validação cega, cartas sem custo por produto marcavam um componente grande em
+     6 a 12 áreas. A repartição linear prendia a área principal em C ou D, e a nota oficial foi B
+     em 5 de 5 casos e na simulação de uma carta real.
 3. Colar a tabela do script no detalhamento por área. O **teto pelo orçamento** limita o nível:
    A só acima de 50%, B acima de 30%, C a partir de 15%, D a partir de 4%; abaixo disso, E.
    Teto não é nível. O nível final vem da lente A.6 (objetivo direto, indicador de resultado
    com ano-meta, impacto, inovação) e pode ficar abaixo do teto, nunca acima.
+   **Área principal: ponto de partida B** quando o teto permite. Nas Notas Técnicas da RN 1/2024,
+   a área principal ficou em B em cerca de 60% dos pleitos, em C em 25% e em A em 10%. Descer
+   para C só com falha concreta da lente A.6 (indicador de produto em vez de resultado, sem
+   ano-meta, objetivo indireto); para D, duas falhas. Subir para A exige mais de 50% do orçamento
+   com custo atribuído pela carta e caráter excepcional ou inovador dito na própria carta.
 4. Os alertas do script entram no plano de correção: área declarada sem produto próprio
-   (tende a zero), produto sem área, repartição linear que derruba a área principal.
+   (tende a zero), produto sem área, produto sem custo por área (pedir a tabela de custo por
+   área, produto a produto).
 5. **Áreas secundárias: nível pelo grupo do objetivo.** Para cada área que não é a principal e
    tem menos de 15% do orçamento, aplicar a regra da seção 4 de
    `calibration/ae-criteria-by-level-and-ppa-area.md`. Objetivos que quase sempre ficam em 0:

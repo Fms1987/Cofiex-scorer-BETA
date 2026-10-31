@@ -131,7 +131,7 @@ de uma vez. Começar por `references/INDEX.md`.
 | 10 Perguntas do Grupo Técnico | `references/gtec/questions.md` |
 | 11 Revisão de banco multilateral | `references/review/senior-mdb-review.md` + régua de subitens `references/calibration/technical-quality-r17.md` + **lente Banco Mundial, sempre** `references/review/world-bank-lens.md` + checklist do credor `references/review/creditor-justification.md` |
 | 12 Plano de correção | `references/review/correction-plan.md` + `references/review/model-texts.md` (textos-modelo) + `references/calibration/indicator-library.md` (indicadores por setor); comparativo de credores por `scripts/creditor_terms.py` |
-| Entrega | `references/output/docx-report.md` (regras de redação, resumo para o líder de equipe, carta ao cliente, planilha de custo por área) |
+| Entrega | `references/output/docx-report.md` (regras de redação, resumo para o líder de equipe, carta ao cliente) |
 
 ### O que é recuperável (camadas, mais baratas primeiro)
 | Camada | Onde | Contém | Usar para |
@@ -469,8 +469,7 @@ de aprovação em percentual; cada achado numa seção só, as demais remetem a 
 
 **Entrega final obrigatória: relatório em .docx.** Depois da resposta no chat, gravar o
 relatório completo com `scripts/build_report_docx.py` e entregar o arquivo ao usuário
-(esquema e estrutura em `references/output/docx-report.md`), com a planilha de custo por área
-e produto quando a carta tiver valores por componente, e a carta de comentários ao cliente
+(esquema e estrutura em `references/output/docx-report.md`), com a carta de comentários ao cliente
 quando o usuário for devolver a carta ao mutuário. O sumário executivo do .docx traz três
 tabelas separadas:
 - **Tabela 1:** pontuação mínima, esperada e máxima por item, nos subtotais (Dados Objetivos;

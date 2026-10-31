@@ -50,11 +50,6 @@ dona e trocar o outro por uma remissão.
   leitura interna. A redação sugerida sai dos textos-modelo (`review/model-texts.md`) e da
   biblioteca de indicadores. Na versão para o cliente, ela substitui o Plano de Correção; no
   relatório interno o Plano de Correção continua, e a carta não é copiada para ele.
-- **Planilha de custo por área e produto** (sempre que a carta tiver valores por componente ou
-  produto). Gerada por
-  `python -X utf8 scripts/budget_by_area.py produtos.json orcamento.md --xlsx Custo_por_area_<proposta>.xlsx`,
-  com o mesmo JSON do passo 0 da FASE 5. Para o cliente preencher do zero:
-  `scripts/budget_by_area.py --modelo modelo.xlsx`. Entregar junto com o .docx.
 
 ## Painel de carteira
 Se o usuário acompanha vários pleitos, registrar cada simulação com

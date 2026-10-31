@@ -88,8 +88,10 @@ necessários, mas não bastam. "Excepcional" aparece em 36% dos blocos A e em ~1
 "Replicabilidade/escalonamento" aparece em 18% dos A e em ~1% dos demais.
 
 **Armadilhas a marcar na revisão (cada uma custa um degrau ou zera a área):**
-- **Repartição linear.** Um produto declarado para várias áreas tem o custo dividido igualmente
-  entre elas ("US$ 480 milhões divididos por três"), o que derruba a fatia de cada área.
+- **Repartição linear.** Quando a carta reparte um produto por igual entre poucas áreas, cada
+  uma com indicador próprio, a Nota Técnica divide o custo ("US$ 480 milhões divididos por três"),
+  o que derruba a fatia de cada área. Quando a carta só marca um componente grande em muitas áreas,
+  a Nota Técnica pontua a área que o componente atende diretamente (passo 0, área dona).
 - **Área declarada sem objetivo específico, produto, indicador e custo próprios** recebe zero.
   Nas áreas secundárias, o ponto de partida depende do grupo do objetivo (regra da seção 4 de
   `calibration/ae-criteria-by-level-and-ppa-area.md`).
