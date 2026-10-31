@@ -2,6 +2,7 @@
 de um ente subnacional, a partir das tabelas oficiais empacotadas em reference-data/.
 
 uso: python -X utf8 objective_lookup.py --uf PE --reuniao 2026-12-03 [--municipio "Recife" | --ibge 2611606] [--piso-idh 0.65]
+                             [--entidade banco|empresa]
 
 Sem --municipio/--ibge, consulta o governo estadual. A data da reunião-alvo escolhe o ciclo de Capacidade de
 Pagamento em vigor e os anos de dívida já fechados. Saída em texto, com a fonte e o ciclo de cada valor.
@@ -14,10 +15,22 @@ import openpyxl
 RD = Path(__file__).resolve().parent.parent / "reference-data"
 PONTOS_CAPAG = {"A+": 2.0, "A": 1.5, "B+": 1.0, "B": 0.5, "C": 0.0}
 # Piso de IDH (IDH_menor da reunião) implícito nas notas oficiais da RN 1/2024 (reuniões 180ª–185ª).
-# Municípios são comparados só com municípios (IDHM 2010): piso 0,639–0,646. Estados: 0,676–0,689.
-PISO = {"municipal": (0.639, 0.643, 0.646), "estadual": (0.676, 0.680, 0.689)}
+# Municípios são comparados só com municípios (IDHM 2010, Atlas): piso 0,639–0,646, estável e exato por reunião
+# (32 notas oficiais, desvio 0,003). Estados usam o IDHM 2024 do Atlas: piso 0,705–0,762, média 0,739 (26 notas, desvio 0,013).
+PISO = {"municipal": (0.639, 0.643, 0.646), "estadual": (0.715, 0.739, 0.760)}
 # Regra da Tendência da Dívida calibrada em 63 notas oficiais (31 estaduais, 32 municipais): erro médio 0,05.
 ALTO, SUBIDA, QUEDA, ALTO_SUBINDO = 80.0, 8.0, 10.0, 60.0
+
+
+ENTIDADE = {
+    "banco": ["Capacidade de Pagamento: instituição financeira, pela categoria Basileia (A+ acima de 15%) → 2,000 pontos com Basileia acima de 15%. "
+              "Nas 10 notas oficiais de bancos estaduais da Res. 17/2021 e nos 2 pleitos da RN 1/2024 (pelo total) a nota foi sempre a máxima.",
+              "Tendência da Dívida: 1,000 ponto (máxima). Mesmo padrão: sempre no máximo. Nunca usar a classificação nem a dívida do estado."],
+    "empresa": ["Capacidade de Pagamento: estatal pela Garantia-Ativo-Fixo e Retorno sobre Investimento próprios → cenário 0,500 (faixa 0,000–1,000); "
+                "levantar input_flag pedindo o balanço. Nunca usar a classificação do estado.",
+                "Tendência da Dívida: estatal pelo Exigível/Patrimônio Líquido próprio → cenário 0,250 (faixa 0,000–0,500); "
+                "levantar input_flag pedindo o balanço. Nunca usar a dívida do estado."],
+}
 
 
 def norm(s):
@@ -52,6 +65,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--uf", required=True); ap.add_argument("--reuniao", required=True)
     ap.add_argument("--municipio"); ap.add_argument("--ibge", type=int); ap.add_argument("--piso-idh", type=float)
+    ap.add_argument("--entidade", choices=["banco", "empresa"],
+                    help="banco/agência de fomento ou estatal não financeira de um estado/município: não usa a Capacidade de Pagamento "
+                         "nem a Dívida do governo; o Índice de Desenvolvimento Humano é o da sede")
     a = ap.parse_args()
     uf, data = a.uf.upper(), dt.date.fromisoformat(a.reuniao)
     municipal = bool(a.municipio or a.ibge)
@@ -101,16 +117,19 @@ def main():
     else:
         L.append("Tendência da Dívida: série insuficiente na tabela; usar a rubrica (cenário 0,500–1,000) e levantar input_flag.")
 
-    wb = openpyxl.load_workbook(RD / "External_Credit_Operations_Database_September_2026.xlsx", read_only=True, data_only=True)
+    if a.entidade:
+        L = L[:1]
+        L += ENTIDADE[a.entidade]
+    if a.entidade and uf == "DF" and not municipal:
+        municipal, m = True, {"ibge": "5300108"}  # entes do Distrito Federal: IDHM 2010 de Brasília, piso municipal (IDH da sede)
     if municipal:
-        idh = next((r[7] for r in wb["Borrowers_Municipalities"].iter_rows(min_row=3, values_only=True)
-                    if r[0] == int(m["ibge"])), None)
-        fonte_idh, tipo = "IDHM 2010 (planilha empacotada, Borrowers_Municipalities)", "municipal"
+        idh = next((float(r["idhm_2010"]) for r in ler("idhm_municipios_2010.csv") if int(r["ibge"]) == int(m["ibge"])), None)
+        fonte_idh, tipo = "IDHM 2010, Atlas do Desenvolvimento Humano (idhm_municipios_2010.csv)", "municipal"
     else:
-        idh = next((r[6] for r in wb["Borrowers_States"].iter_rows(min_row=3, values_only=True) if r[2] == uf), None)
-        fonte_idh, tipo = "IDH 2021 (planilha empacotada, Borrowers_States)", "estadual"
+        idh = next((float(r["idhm_2024"]) for r in ler("idh_estados_2024.csv") if r["uf"] == uf), None)
+        fonte_idh, tipo = "IDHM 2024, Atlas do Desenvolvimento Humano (idh_estados_2024.csv)", "estadual"
     if idh is None:
-        L.append("Índice de Desenvolvimento Humano: ente fora da planilha; buscar o IDHM 2010 no Atlas do Desenvolvimento Humano.")
+        L.append("Índice de Desenvolvimento Humano: ente fora da tabela (município criado depois de 2010 ou sem código); buscar o IDHM no Atlas do Desenvolvimento Humano.")
     else:
         lo, base, hi = PISO[tipo]
         if a.piso_idh:
@@ -119,7 +138,7 @@ def main():
         L.append(f"Índice de Desenvolvimento Humano: {idh:.3f} ({fonte_idh}) → {f(base):.3f} pontos com piso {base:.3f}; "
                  f"faixa {f(lo):.3f}–{f(hi):.3f} para piso {lo:.3f}–{hi:.3f}. Se o ente tiver o menor IDH da pauta, 2,000.")
         if tipo == "estadual":
-            L.append("  Para alguns estados, o IDH usado pela SEAID diverge do IDH 2021 da planilha em até ~0,03; tratar como ±0,1 ponto.")
+            L.append("  Estados: o piso varia entre 0,705 e 0,762 conforme a pauta; tratar a nota como ±0,2 ponto.")
     print("\n".join(L))
 
 

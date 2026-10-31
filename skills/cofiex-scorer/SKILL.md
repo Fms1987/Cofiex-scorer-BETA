@@ -376,8 +376,8 @@ Insumos regulados não são automaticamente confiados. Executar ANTES da classif
 | Órgão federal | Nenhum | Não se aplica | Não se aplica | Não se aplica | Adequação da Secretaria de Orçamento Federal, Art. 23 |
 | Estatal federal não dependente | Nenhum | Garantia-Ativo-Fixo/Retorno sobre Investimento ou Basileia | Não se aplica | Matriz própria | — |
 | Estado/DF/Município subnacional | 3,0 | Secretaria do Tesouro Nacional, se classificado | Sim | 5 níveis | Art. 28, I, a–h |
-| Estatal subnacional não dependente | Nenhum | Garantia-Ativo-Fixo/Retorno sobre Investimento | Não se aplica | Exigível/Patrimônio Líquido | — |
-| Instituição/agência financeira | Nenhum | Basileia | Não se aplica | Categoria Basileia | — |
+| Estatal subnacional não dependente | Nenhum | Garantia-Ativo-Fixo/Retorno sobre Investimento próprios (nunca os do estado) | **Sim**, do estado ou município-sede | Exigível/Patrimônio Líquido próprio | — |
+| Instituição/agência financeira subnacional | Nenhum | Basileia (nas notas oficiais, sempre a máxima) | **Sim**, do estado-sede | Máxima (nas notas oficiais) | — |
 
 > **Sociedade de economia mista municipal:** tratada sob as regras de estatal subnacional
 > (sem piso de Nota de Área Estratégica, Capacidade de Pagamento baseada em Garantia-Ativo-
@@ -385,18 +385,15 @@ Insumos regulados não são automaticamente confiados. Executar ANTES da classif
 > economia mista com receita própria forte (ex.: tarifa de água) pode se qualificar para
 > dispensa do mínimo de contrapartida do Art. 28 (anomalia — confirmar o regime).
 
-> **Empresa pública/estatal sem Garantia-Ativo-Fixo/Retorno sobre Investimento ou
-> Exigível/Patrimônio Líquido próprios divulgados:** usar os dados do ente mantenedor
-> (controlador) — Capacidade de Pagamento, Dívida e Índice de Desenvolvimento Humano do
-> governo (federal/estadual/municipal) que detém a empresa — em vez de marcar `input_flag` e
-> deixar o componente sem nota. Exemplos de mapeamento estatal → ente mantenedor: Caixa
-> Econômica Federal → Governo Federal; Banco de Desenvolvimento de Minas Gerais (BDMG) →
-> Estado de Minas Gerais; Companhia Pernambucana de Saneamento (Compesa) → Estado de
-> Pernambuco. Identificar o ente mantenedor pelo texto da própria carta-consulta (proponente,
-> vinculação societária) e buscar os dados desse ente na planilha empacotada/fontes oficiais
-> (mesma regra da FASE 1.6). Registrar explicitamente que o valor é do ente mantenedor, não da
-> estatal, com a fonte/data — isso substitui o `input_flag` de ausência total de dado, não a
-> exigência de citar a fonte.
+> **Banco, agência de fomento e estatal de um estado ou município (regra tirada das notas oficiais, ver
+> `references/rubric/capag.md`, `debt.md` e `idh.md`):** os dados objetivos são os da própria entidade, nunca os do
+> governo que a mantém. Banco ou agência de fomento: Capacidade de Pagamento e Dívida no máximo (RN 1/2024: 2,000 e
+> 1,000), em todas as notas oficiais conhecidas. Estatal não financeira: Garantia-Ativo-Fixo, Retorno sobre
+> Investimento e Exigível/Patrimônio Líquido próprios, em geral baixos; sem o balanço, cenário e `input_flag`. O Índice
+> de Desenvolvimento Humano **vale para todas**, calculado com o índice do estado-sede (do município, se o dono for
+> um município; para o Distrito Federal, o IDHM 2010 de Brasília com o piso municipal). Rodar
+> `objective_lookup.py --uf <UF> --entidade banco|empresa`. Usar a nota do estado mantenedor como se fosse da
+> entidade errou o total de um banco em 1,4 ponto (com a classificação D do estado, o banco seria eliminado).
 
 Eixos de coordenação da SEAID: Modernização Estadual | Infraestrutura | Social e
 Sustentabilidade.

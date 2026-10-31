@@ -31,8 +31,9 @@ usuário fornecer depois uma versão mais nova localmente, preferir essa e dizer
 | Necessidade | Planilha | Colunas |
 |---|---|---|
 | Classificação de Capacidade de Pagamento municipal (metodologia oficial da STN) | `CAPAG_Municipalities` | `IBGE_Code`, `Municipality_Name`, `Rating_1` (indicador dívida/receita) — esta é a classificação de Capacidade de Pagamento autoritativa, não a coluna `Fiscal Rating` em `Borrowers_Municipalities` (uma nota proprietária mais ampla que pode divergir em um nível) |
-| Classificação fiscal estadual (equivalente à Capacidade de Pagamento) + Índice de Desenvolvimento Humano | `Borrowers_States` | `Fiscal Rating (2026)`, `HDI (2021)` |
-| Índice de Desenvolvimento Humano Municipal | `Borrowers_Municipalities` | `HDI (2010)` |
+| Classificação fiscal estadual (equivalente à Capacidade de Pagamento) | `Borrowers_States` | `Fiscal Rating (2026)` |
+| Índice de Desenvolvimento Humano Municipal (todos os municípios) | `reference-data/idhm_municipios_2010.csv` (Atlas do Desenvolvimento Humano; gerada por `tools/build_idh_tables.py`) | `idhm_2010` e componentes |
+| Índice de Desenvolvimento Humano Estadual | `reference-data/idh_estados_2024.csv` (Atlas; atualizado com a PNAD) | `idhm_2024` e componentes |
 | Capacidade de endividamento/espaço fiscal estadual | `Borrowing_Capacity_States` | `Available_Fiscal_Space_BRL`/`_USD`, `Available Fiscal Space (%)` |
 | Operações COFIEX anteriores/irmãs (conferência cruzada multi-tranche, pergunta 26; checagem de credor duplo) | `Operations_COFIEX` | `Request_ID`, `Process_No`, `Project_Name`, `Borrower`, `Phase`, `Bank`, `Loan_USD`, `Counterpart_USD`, datas de aprovação/negociação — **ver alerta abaixo** |
 | Carteira de bancos multilaterais de desenvolvimento por banco/ano (checagem de sanidade do porte típico de um credor) | `Banks`, `Loans_Master` | milhões de dólares anuais e contagem de operações por banco |

@@ -30,7 +30,9 @@ com erro médio de 0,05 (contra 0,12 de "sempre 0,750").
   2. Subiu mais de 8 pontos percentuais no último ano: 0,500; 0,250 se o nível for ≥ 60%.
   3. Caiu 10 pontos percentuais ou mais no período: 1,000.
   4. Caso contrário (estável ou pequena variação): 0,750.
-- A nota 0,000 apareceu uma vez, numa estatal pontuada pelo ente mantenedor. A regra não a prevê.
+- A nota 0,000 apareceu em estatais não financeiras (nota própria, Exigível/Patrimônio Líquido), não na regra acima. A regra acima vale só para governos.
+- **Bancos e agências de fomento estaduais:** Dívida sempre na máxima (Res. 17/2021: 2 de máx. 2 nas 10 notas; RN 1/2024: 1,000 pelo total).
+- **Estatais não financeiras:** nota própria, na maioria 0 (17 de 22 notas da Res. 17/2021 e da RN 1/2024). Sem balanço: cenário 0,250 (faixa 0,000–0,500) e `input_flag`. Nunca a dívida do estado.
 - Ressalva: a regra foi ajustada nas mesmas reuniões em que foi medida. Rever com o banco de
   teste fixo a cada ciclo novo.
 
