@@ -32,20 +32,24 @@ fonte de erro da Nota de Área Estratégica. Calcular sempre:
    com ano-meta, impacto, inovação) e pode ficar abaixo do teto, nunca acima.
    **Área principal: ponto de partida B** quando o teto permite. Nas Notas Técnicas da RN 1/2024,
    a área principal ficou em B em cerca de 60% dos pleitos, em C em 25% e em A em 10%. Descer
-   para C quando houver **qualquer um** destes quatro sinais; para D, dois deles com falha de indicador,
-   ou uma falha de indicador que impeça medir o resultado (só indicadores de produto, sem linha de
-   base ou sem meta):
+   para C só quando o sinal (c) estiver presente, ou quando **dois ou mais** dos outros três estiverem
+   juntos; para D, dois deles com falha de indicador. Um único sinal entre (a), (b) e (d) **não** desce
+   a área principal: manter B.
    (a) a área recebe cerca de um terço dos recursos ou menos, ou a participação é "relevante" sem ser a
    maior parte do programa; (b) alcance restrito: uma bacia, um corredor, poucos bairros, trechos
    específicos, uma população pequena ou um grupo direto reduzido; (c) foco setorial único, sem
    integração com outras políticas (só rodovias, só uma modalidade; em área integradora como a 111,
    um programa só de habitação, ainda que com 98% do orçamento); (d) falha de indicador: não totalmente
-   SMART, meta sem prazo, indicador que não mede a área. Sem nenhum dos quatro, e com a maior parte dos
-   recursos (metade ou mais, ou a maior área do programa), manter B.
+   SMART, meta sem prazo, indicador que não mede a área. Sem (c) e sem dois dos outros, e com a maior
+   parte dos recursos (metade ou mais, ou a maior área do programa), manter B.
    **Obrigatório na saída:** uma tabela com os quatro sinais (sim/não) e uma citação curta da carta
-   como evidência de cada um, antes de fixar o nível da área principal. Na rodada cega de 20 cartas, o
-   agente manteve B numa área que a carta restringia a uma bacia e a bairros, sinal (b) que já constava
-   da lista, porque não o testou.
+   como evidência de cada um, antes de fixar o nível da área principal.
+   Por que um sinal sozinho não basta: na rodada cega de 40 cartas, (b) isolado desceu a C áreas
+   que a Nota Técnica deixou em B em pelo menos 8 casos e acertou em 2 (bairros nomeados em programa de
+   cidades sustentáveis, mantido em B por "maioria dos recursos" e "alto impacto"); (d) isolado errou em
+   pelo menos 8 casos e acertou em 1 (linha de base ausente ou meta sem ano não bastaram). Com os quatro
+   como gatilhos, o nível certo na área principal caiu de 27 para 15 de 40 e o viés da Nota de Área
+   Estratégica foi para −0,56. O sinal (c) acertou o único caso em que apareceu isolado.
    Origem: nas justificativas das Notas Técnicas, as áreas principais em B (64) citam a maior parte dos
    recursos em 75% e impacto alto em 83%; as em C (33) citam impacto moderado em 70% e a maior parte dos
    recursos em 21%. Só a qualidade dos indicadores não separa os níveis (indicadores SMART em 30% dos B e
