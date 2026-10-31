@@ -43,7 +43,7 @@ instalação local) que lê `SKILL.md` e espera o corpus RAG como irmão dele, n
 
 Documentos-fonte (PDFs/Notas Técnicas/planilhas) **não** estão neste repositório por
 desenho.
-Pipeline de reconstrução (apenas com arquivos-fonte locais, executar nesta ordem):
+Pipeline de reconstrução (apenas com arquivos-fonte locais, executar nesta ordem; os scripts de montagem do corpus estão em `tools/arquivo-corpus/`, fora do fluxo de regressão e do teste cego):
 `build_fichas.py` (esqueleto + vínculo com Nota Técnica) → preenchimento narrativo →
 `clean_fichas.py` (credor/contrapartida/marcadores) → `audit_nt_scores.py` (Nota Técnica
 versus planilha) → `build_cases_from_fichas.py` (CSV + cartões de setor) →
