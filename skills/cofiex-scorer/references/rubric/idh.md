@@ -19,6 +19,11 @@ principal: **municípios são comparados só com municípios, e estados só com 
 - O ente que tem o menor IDH entre os pleitos do mesmo tipo na pauta recebe 2,000.
 - Estados: o IDHM 2024 reproduz as notas oficiais bem melhor que o de 2021 (desvio do piso 0,013 contra 0,029). O piso ainda varia
   entre reuniões; tratar a nota estadual como ±0,2 ponto. O índice municipal só muda com o Censo; o estadual, com a PNAD.
+- Estabilidade do piso 0,739 (conferida nas 23 combinações de reunião e estado da Res. Normativa 1/2024, 180ª a 185ª): o piso
+  implícito médio por reunião é 0,745 (180ª), 0,737 (182ª), 0,739 (184ª) e 0,741 (185ª), sem tendência no tempo nem relação com o
+  IDH do estado. Com 0,739, o viés é −0,006 e o erro médio 0,071 ponto (20 notas abaixo do teto). A variação vem de poucos
+  estados: o Amapá fica em 0,705–0,708 nas duas reuniões em que aparece (erro de 0,2 ponto) e, sem ele, o erro médio cai para 0,056.
+  Notas no teto de 2,000 (Maranhão, Piauí) só dão um limite superior para o piso. Manter 0,739; não há ganho em ajustar por reunião.
 - A tabela municipal cobre todos os municípios existentes em 2010; os criados depois (por exemplo, Mojuí dos Campos, Pescaria
   Brava, Balneário Rincão, Pinto Bandeira e Paraíso das Águas) ficam sem índice e exigem busca no Atlas.
 - Entidades federais: não se aplica (nota 0).
