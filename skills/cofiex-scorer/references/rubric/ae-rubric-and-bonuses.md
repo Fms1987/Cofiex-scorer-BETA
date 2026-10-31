@@ -26,9 +26,20 @@ fonte de erro da Nota de Área Estratégica. Calcular sempre:
    com ano-meta, impacto, inovação) e pode ficar abaixo do teto, nunca acima.
    **Área principal: ponto de partida B** quando o teto permite. Nas Notas Técnicas da RN 1/2024,
    a área principal ficou em B em cerca de 60% dos pleitos, em C em 25% e em A em 10%. Descer
-   para C só com falha concreta da lente A.6 (indicador de produto em vez de resultado, sem
-   ano-meta, objetivo indireto); para D, duas falhas. Subir para A exige mais de 50% do orçamento
-   com custo atribuído pela carta e caráter excepcional ou inovador dito na própria carta.
+   para C quando houver **qualquer um** destes quatro sinais; para D, dois deles com falha de indicador:
+   (a) a área recebe cerca de um terço dos recursos ou menos, ou a participação é "relevante" sem ser a
+   maior parte do programa; (b) alcance restrito: uma bacia, um corredor, trechos específicos, uma
+   população pequena ou um grupo direto reduzido; (c) foco setorial único, sem integração com outras
+   políticas (só rodovias, só uma modalidade); (d) falha de indicador: não totalmente SMART, meta sem
+   prazo, indicador que não mede a área. Sem nenhum dos quatro, e com a maior parte dos recursos (metade
+   ou mais, ou a maior área do programa), manter B.
+   Origem: nas justificativas das Notas Técnicas, as áreas principais em B (64) citam a maior parte dos
+   recursos em 75% e impacto alto em 83%; as em C (33) citam impacto moderado em 70% e a maior parte dos
+   recursos em 21%. Só a qualidade dos indicadores não separa os níveis (indicadores SMART em 30% dos B e
+   36% dos C): o que separa é a fatia de recursos e o alcance. A regra, aplicada ao texto das
+   justificativas, acerta 84% (81 de 97), mas ainda não foi testada às cegas sobre a carta.
+   Subir para A exige mais de 50% do orçamento com custo atribuído pela carta e caráter excepcional ou
+   inovador dito na própria carta.
 4. Os alertas do script entram no plano de correção: área declarada sem produto próprio
    (tende a zero), produto sem área, produto sem custo por área (pedir a tabela de custo por
    área, produto a produto).
