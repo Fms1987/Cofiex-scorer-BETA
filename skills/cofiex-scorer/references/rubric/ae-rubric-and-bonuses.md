@@ -17,6 +17,12 @@ fonte de erro da Nota de Área Estratégica. Calcular sempre:
      o nível delas sai do passo 5. Cada produto tem no máximo uma dona. Só deixar sem dona quando
      a própria carta repartir o produto por igual entre poucas áreas (até três), cada uma com
      indicador próprio: aí vale a repartição linear, como faz a Nota Técnica.
+   - **Instrumento único:** quando o programa é um fundo, linha de crédito ou facilidade cujo objetivo
+     geral declarado é uma área, todo o orçamento do instrumento vai para essa área, como dona do
+     conjunto (a Nota Técnica a trata como "núcleo do programa"); as demais áreas contam só os
+     produtos próprios, com componente dedicado. Caso de origem: um fundo estadual de
+     competitividade que a Nota Técnica pontuou em A com "mais da metade dos recursos", enquanto a
+     divisão em 13 produtos de donas diferentes dava 30,5% e o nível C.
    - Por quê: na validação cega, cartas sem custo por produto marcavam um componente grande em
      6 a 12 áreas. A repartição linear prendia a área principal em C ou D, e a nota oficial foi B
      em 5 de 5 casos e na simulação de uma carta real.
@@ -26,13 +32,20 @@ fonte de erro da Nota de Área Estratégica. Calcular sempre:
    com ano-meta, impacto, inovação) e pode ficar abaixo do teto, nunca acima.
    **Área principal: ponto de partida B** quando o teto permite. Nas Notas Técnicas da RN 1/2024,
    a área principal ficou em B em cerca de 60% dos pleitos, em C em 25% e em A em 10%. Descer
-   para C quando houver **qualquer um** destes quatro sinais; para D, dois deles com falha de indicador:
+   para C quando houver **qualquer um** destes quatro sinais; para D, dois deles com falha de indicador,
+   ou uma falha de indicador que impeça medir o resultado (só indicadores de produto, sem linha de
+   base ou sem meta):
    (a) a área recebe cerca de um terço dos recursos ou menos, ou a participação é "relevante" sem ser a
-   maior parte do programa; (b) alcance restrito: uma bacia, um corredor, trechos específicos, uma
-   população pequena ou um grupo direto reduzido; (c) foco setorial único, sem integração com outras
-   políticas (só rodovias, só uma modalidade); (d) falha de indicador: não totalmente SMART, meta sem
-   prazo, indicador que não mede a área. Sem nenhum dos quatro, e com a maior parte dos recursos (metade
-   ou mais, ou a maior área do programa), manter B.
+   maior parte do programa; (b) alcance restrito: uma bacia, um corredor, poucos bairros, trechos
+   específicos, uma população pequena ou um grupo direto reduzido; (c) foco setorial único, sem
+   integração com outras políticas (só rodovias, só uma modalidade; em área integradora como a 111,
+   um programa só de habitação, ainda que com 98% do orçamento); (d) falha de indicador: não totalmente
+   SMART, meta sem prazo, indicador que não mede a área. Sem nenhum dos quatro, e com a maior parte dos
+   recursos (metade ou mais, ou a maior área do programa), manter B.
+   **Obrigatório na saída:** uma tabela com os quatro sinais (sim/não) e uma citação curta da carta
+   como evidência de cada um, antes de fixar o nível da área principal. Na rodada cega de 20 cartas, o
+   agente manteve B numa área que a carta restringia a uma bacia e a bairros, sinal (b) que já constava
+   da lista, porque não o testou.
    Origem: nas justificativas das Notas Técnicas, as áreas principais em B (64) citam a maior parte dos
    recursos em 75% e impacto alto em 83%; as em C (33) citam impacto moderado em 70% e a maior parte dos
    recursos em 21%. Só a qualidade dos indicadores não separa os níveis (indicadores SMART em 30% dos B e
@@ -48,8 +61,19 @@ fonte de erro da Nota de Área Estratégica. Calcular sempre:
    `calibration/ae-criteria-by-level-and-ppa-area.md`. Objetivos que quase sempre ficam em 0:
    nota 0. Grupo intermediário: 0, ou E com dois vínculos próprios fora da seção de áreas
    estratégicas. Objetivos que costumam pontuar: começar em E. Depois, fazer o teste da soma.
+   **Portão de pontuação (vale para todo nível, inclusive E):** a área só pontua se a carta tiver,
+   juntos, (i) objetivo específico dela, (ii) produto ou componente dedicado e (iii) indicador que
+   mede a área e não foi usado para outra área (cada indicador conta para uma só). Faltando um dos
+   três, ou havendo só uma menção: nota 0. Nas Notas Técnicas, as 407 áreas com 0 vêm quase sempre
+   disso (sem objetivo, componente ou indicador próprio; só uma menção; indicador contado em outra
+   área). Nas rodadas 5 e 6, o skill deu pontos a 36% das áreas que a nota oficial zerou (E em 120 de
+   395, D em 20).
+   **Piso C:** secundária que passa nos três itens, tem indicador SMART e recursos relevantes ou
+   impacto alto: C, não E, mesmo com fatia pequena do orçamento. Passando nos três itens sem SMART, ou
+   com recursos pequenos e impacto baixo: D ou E. O skill classificou como E ou D várias áreas que a
+   Nota Técnica pontuou em C (objetivo, componente e indicador SMART com impacto alto).
    Dar E a áreas que receberam 0 foi o maior erro da Nota de Área Estratégica na validação
-   cega. Zerar todas por padrão errou na direção oposta.
+   cega. Zerar todas por padrão errou na direção oposta: o portão acima separa os dois casos.
 ### Objetivos do PPA 2024–2027 (35)
 Eixo 1 — Social: 101 Pobreza · 102 Saúde/SUS · 103 Primeira infância/educação · 104 Ensino
 médio/técnico · 105 Economia criativa · 106 Direitos humanos · 107 Mulheres · 108 Indígenas/
