@@ -90,6 +90,8 @@ Com `resumo_ttl.en`, o resumo sai também em inglês, para circular na equipe do
   fundamento em uma frase. A situação pode ser "Declarada", "Declarada sem sustentação" ou
   "Sugerida — não declarada". Incluir as áreas declaradas que devem sair com nota zero,
   porque mostram onde a carta perde pontos.
+  Para as áreas de `calibration/ppa-area-flags.md`, o fundamento e a seção 4 levam a linha "Sinal de
+  calibração:" (por que a nota dada e como as Notas Técnicas costumam pontuar a área).
 - **Tabela 3 — Sugestões a considerar (resumo).** De 5 a 10 linhas curtas: sugestão, item
   afetado, prioridade (P0–P3) e ganho estimado. Sem detalhamento: ele fica na seção Plano de
   Correção.

@@ -116,7 +116,7 @@ de uma vez. Começar por `references/INDEX.md`.
 | Fase | Carregar antes de executar |
 |---|---|
 | 3–4 Triagem, Art. 28 | `references/regulation/screening-and-eliminatory.md` |
-| 5 Nota de Área Estratégica | `references/rubric/ae-rubric-and-bonuses.md` + `references/calibration/ae-ranges-and-sectors.md` + `references/calibration/cross-cutting-findings.md` + `references/calibration/ae-criteria-by-level-and-ppa-area.md` |
+| 5 Nota de Área Estratégica | `references/rubric/ae-rubric-and-bonuses.md` + `references/calibration/ae-ranges-and-sectors.md` + `references/calibration/cross-cutting-findings.md` + `references/calibration/ae-criteria-by-level-and-ppa-area.md` + `references/calibration/ppa-area-flags.md` |
 | 5 (esquema de áreas) | `docs/analise-areas-estrategicas.md` **apenas seção 1** (primeiras ~60 linhas: como a Res. 17/2021 e a Res. 1/2024 pontuam as áreas); nunca carregar a seção 2 (registro por caso) |
 | 5 (taxas-base por área) | `references/calibration/areas-stats.md` (taxas de aceitação por objetivo, mix de níveis, taxas de pontos adicionais); para n < 30 ou pleito vindo do regime anterior, `references/calibration/old-regime-bridge.md` |
 | 5 (consulta de calibração) | seguir a **RECEITA DE RECUPERAÇÃO** abaixo: `cases/INDEX.md` → um cartão de setor → no máximo 6 fichas de pleito + 6 fichas de avaliação |
@@ -424,7 +424,7 @@ destaque, a **Nota Geral esperada**, com a Nota de Área Estratégica esperada l
 outro número em segundo plano, com uma frase que diz quando ele importa; nenhuma probabilidade
 de aprovação em percentual; cada achado numa seção só, as demais remetem a ele.
 
-0. **[PRIMEIRO] Resumo para o líder de equipe** (veredito em uma linha, Nota Geral esperada,
+**[PRIMEIRO, sem numeração] Resumo para o líder de equipe** (veredito em uma linha, Nota Geral esperada,
    sublimite recomendado, 3 lacunas que mais custam nota, 3 ações de maior ganho) **e
    Sumário executivo:** todo campo de cabeçalho identificado (nome da proposta,
    proponente, credor, valor total/empréstimo/contrapartida, sublimite-alvo, tipo de entidade)
@@ -432,13 +432,17 @@ de aprovação em percentual; cada achado numa seção só, as demais remetem a 
    Estratégica (componente) ou como item de Dados Objetivos (Nota do Índice de Desenvolvimento
    Humano, Classificação de Capacidade de Pagamento, Nota de Tendência da Dívida) — e, por fim,
    a **Nota Geral** com a faixa [Mínimo — Esperado — Máximo] rotulada como tal — em um bloco
-   compacto, antes de qualquer uma das seções abaixo.
+   compacto, antes de qualquer uma das seções abaixo. Este bloco não leva número de seção: as
+   seções numeradas começam em 1.
 1. **Cabeçalho:** proposta, proponente, credor, valor da operação
 2. **Integridade dos Insumos (FASE 1.6):** qualquer `input_flag` levantado
 3. **Checagem Eliminatória (FASE 2/4):** aprovado/reprovado com detalhes
 4. **Detalhamento da Nota de Área Estratégica (FASE 5):** área por área, com classificação de
    nível + faixa de bônus — todo número aqui é Nota de Área Estratégica (componente), nunca
    Nota Geral; identificar assim mesmo quando o total da área já incluir o bônus
+   **Sinal de calibração:** ao discutir uma área sinalizada em `references/calibration/ppa-area-flags.md`
+   (111, 205, 302, 306, 210, 209, 204, 203), acrescentar uma linha dizendo por que a nota dada foi aquela
+   e como as Notas Técnicas costumam pontuar a área. Áreas fora da lista não levam a linha.
 5. **Notas dos Componentes (FASES 6–8):** Índice de Desenvolvimento Humano, Classificação de
    Capacidade de Pagamento, Tendência da Dívida com faixas de cenário — estes são itens de
    Dados Objetivos, distintos da Nota de Área Estratégica; rotular cada um como tal
