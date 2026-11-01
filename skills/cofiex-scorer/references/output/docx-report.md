@@ -8,7 +8,8 @@ assim as tabelas do sumário executivo nunca contradizem os itens.
 ## Passos
 1. Montar um JSON com o esquema abaixo, com os mesmos números da resposta no chat.
 2. Rodar `python -X utf8 scripts/build_report_docx.py relatorio.json "Simulacao_COFIEX_<proposta>.docx"`
-   (acrescentar `--carta-cliente "Comentarios_<proposta>.docx"` quando houver carta ao cliente).
+   Gera um único arquivo: com o bloco `carta_cliente` no JSON, os comentários ao cliente entram como
+   a última parte do relatório (a opção `--carta-cliente` foi descontinuada).
    (`-X utf8` evita erro de codificação no Windows.)
    Precisa de `python-docx`; se faltar, instalar com `pip install python-docx`. Em ambiente
    sem Python, montar o mesmo documento com a skill de `.docx` disponível, seguindo a mesma
@@ -44,12 +45,13 @@ semelhança, com 80 caracteres ou mais). Corrigir antes de entregar: manter o te
 dona e trocar o outro por uma remissão.
 
 ## Anexos do relatório
-- **Carta de comentários ao cliente** (opcional, quando o usuário vai devolver a carta ao
-  mutuário). Bloco `carta_cliente` do JSON e opção `--carta-cliente carta.docx`. É uma tabela
-  "seção do formulário (Anexo I) → problema → redação sugerida". Não traz nota, sublimite nem
-  leitura interna. A redação sugerida sai dos textos-modelo (`review/model-texts.md`) e da
-  biblioteca de indicadores. Na versão para o cliente, ela substitui o Plano de Correção; no
-  relatório interno o Plano de Correção continua, e a carta não é copiada para ele.
+- **Comentários à carta-consulta** (opcional, quando o usuário vai devolver a carta ao
+  mutuário). Bloco `carta_cliente` do JSON. Entra como **última parte** do mesmo `.docx`, em página
+  nova, com aviso em negrito de que a parte é endereçada ao cliente. É uma tabela "seção do
+  formulário (Anexo I) → problema → redação sugerida". Não traz nota, sublimite nem leitura
+  interna. A redação sugerida sai dos textos-modelo (`review/model-texts.md`) e da biblioteca de
+  indicadores. Não é copiada para o Plano de Correção, que continua no corpo do relatório.
+  Entregar sempre um só arquivo `.docx`.
 
 ## Painel de carteira
 Se o usuário acompanha vários pleitos, registrar cada simulação com

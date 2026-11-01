@@ -470,8 +470,9 @@ de aprovação em percentual; cada achado numa seção só, as demais remetem a 
 
 **Entrega final obrigatória: relatório em .docx.** Depois da resposta no chat, gravar o
 relatório completo com `scripts/build_report_docx.py` e entregar o arquivo ao usuário
-(esquema e estrutura em `references/output/docx-report.md`), com a carta de comentários ao cliente
-quando o usuário for devolver a carta ao mutuário. O sumário executivo do .docx traz três
+(esquema e estrutura em `references/output/docx-report.md`), com os comentários ao cliente como
+última parte do mesmo arquivo (com aviso de que a parte é endereçada ao cliente), quando o usuário for
+devolver a carta ao mutuário. Entregar um só arquivo `.docx`. O sumário executivo do .docx traz três
 tabelas separadas:
 - **Tabela 1:** pontuação mínima, esperada e máxima por item, nos subtotais (Dados Objetivos;
   Nota de Área Estratégica) e na Nota Geral.

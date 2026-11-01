@@ -1,13 +1,13 @@
 """Gera o relatório final da simulação COFIEX em .docx a partir de um JSON.
 
-Uso: python build_report_docx.py relatorio.json saida.docx [--carta-cliente carta.docx]
+Uso: python build_report_docx.py relatorio.json saida.docx
 
 O JSON segue o esquema descrito em references/output/docx-report.md. Os subtotais e a Nota
 Geral são recalculados aqui a partir dos itens (com o teto da Nota de Área Estratégica), para
 que as tabelas do sumário executivo nunca fiquem inconsistentes com os itens.
 
-Com --carta-cliente, grava também a carta de comentários ao mutuário (bloco "carta_cliente"),
-sem notas. Antes de salvar, avisa quando dois parágrafos de seções diferentes são quase iguais
+Com o bloco "carta_cliente", os comentários ao mutuário entram como última parte do mesmo arquivo,
+com aviso de que a página é endereçada ao cliente e sem notas. Antes de salvar, avisa quando dois parágrafos de seções diferentes são quase iguais
 (regra "um achado, uma seção").
 """
 import difflib
@@ -252,11 +252,16 @@ def resumo_ttl(doc, d, total, sub_ae, idioma):
         doc.add_paragraph(f"{i}. {a['acao']} ({L['ganho']}: {a['ganho']})")
 
 
-def carta_cliente(d, out):
-    """Carta de comentários ao mutuário, por seção do Anexo I. Sem notas nem leitura de sublimite."""
+def carta_cliente(doc, d):
+    """Última parte do relatório: comentários ao mutuário, por seção do Anexo I. Sem notas nem leitura de sublimite."""
     c = d["carta_cliente"]
-    doc = novo_documento()
-    doc.add_heading("Comentários à carta-consulta", level=0)
+    doc.add_page_break()
+    doc.add_heading("Comentários à carta-consulta", level=1)
+    aviso = doc.add_paragraph()
+    r = aviso.add_run("AVISO: esta parte é endereçada ao cliente (o mutuário). Ela não traz notas, sublimite nem "
+                      "leitura interna. Se o relatório for repassado ao cliente, entregar somente esta parte "
+                      "(a partir desta página) e retirar as páginas anteriores.")
+    r.bold = True
     doc.add_paragraph(f"{d['cabecalho']['proposta']} — {d['cabecalho']['proponente']}").runs[0].bold = True
     if c.get("introducao"):
         doc.add_paragraph(c["introducao"])
@@ -264,8 +269,7 @@ def carta_cliente(d, out):
     table(doc, ["Seção do formulário (Anexo I)", "Problema", "Redação sugerida"], rows, widths=[3.5, 5.5, 8.0])
     if c.get("fechamento"):
         doc.add_paragraph(c["fechamento"])
-    doc.save(out)
-    print(f"Carta ao cliente salva em {out} — {len(rows)} comentários")
+    return len(rows)
 
 
 def checar_repeticao(d, limite=0.85, minimo=80):
@@ -288,6 +292,8 @@ def checar_repeticao(d, limite=0.85, minimo=80):
 
 
 def main(src, out, out_cliente=None):
+    if out_cliente:
+        print("AVISO: --carta-cliente foi descontinuada; a carta ao cliente é a última parte do relatório único.", file=sys.stderr)
     d = json.loads(open(src, encoding="utf-8").read())
     checar_repeticao(d)
     doc = novo_documento()
@@ -337,13 +343,10 @@ def main(src, out, out_cliente=None):
         for b in sec.get("blocos", []):
             bloco(doc, b)
 
+    n_cartas = carta_cliente(doc, d) if d.get("carta_cliente") else 0
     doc.save(out)
-    print(f"Relatório salvo em {out} — Nota Geral esperada {fmt(total['esp'])}")
-    if out_cliente:
-        if d.get("carta_cliente"):
-            carta_cliente(d, out_cliente)
-        else:
-            print("AVISO: --carta-cliente pedido, mas o JSON não tem o bloco carta_cliente.", file=sys.stderr)
+    print(f"Relatório salvo em {out} — Nota Geral esperada {fmt(total['esp'])}"
+          + (f"; comentários ao cliente na última parte ({n_cartas})" if n_cartas else ""))
 
 
 if __name__ == "__main__":
