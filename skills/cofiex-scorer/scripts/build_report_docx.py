@@ -265,8 +265,23 @@ def carta_cliente(doc, d):
     doc.add_paragraph(f"{d['cabecalho']['proposta']} — {d['cabecalho']['proponente']}").runs[0].bold = True
     if c.get("introducao"):
         doc.add_paragraph(c["introducao"])
-    rows = [[it["secao_anexo"], it["problema"], it["redacao_sugerida"]] for it in c["itens"]]
-    table(doc, ["Seção do formulário (Anexo I)", "Problema", "Redação sugerida"], rows, widths=[3.5, 5.5, 8.0])
+    if c.get("avaliacao_geral"):
+        doc.add_heading("Avaliação geral da carta", level=2)
+        for t in c["avaliacao_geral"] if isinstance(c["avaliacao_geral"], list) else [c["avaliacao_geral"]]:
+            doc.add_paragraph(t)
+    if c.get("prioridades"):
+        doc.add_heading("Prioridades de revisão", level=2)
+        for i, t in enumerate(c["prioridades"], start=1):
+            doc.add_paragraph(f"{i}. {t}")
+    doc.add_heading("Comentários por seção do formulário", level=2)
+    com_porque = any(it.get("por_que_importa") for it in c["itens"])
+    if com_porque:
+        rows = [[it["secao_anexo"], it["problema"], it.get("por_que_importa", ""), it["redacao_sugerida"]] for it in c["itens"]]
+        table(doc, ["Seção do formulário (Anexo I)", "Diagnóstico crítico", "Por que importa para a avaliação", "Redação sugerida"],
+              rows, widths=[2.8, 5.0, 4.4, 4.8])
+    else:
+        rows = [[it["secao_anexo"], it["problema"], it["redacao_sugerida"]] for it in c["itens"]]
+        table(doc, ["Seção do formulário (Anexo I)", "Problema", "Redação sugerida"], rows, widths=[3.5, 5.5, 8.0])
     if c.get("fechamento"):
         doc.add_paragraph(c["fechamento"])
     return len(rows)

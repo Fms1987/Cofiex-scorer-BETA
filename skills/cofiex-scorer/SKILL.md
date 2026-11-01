@@ -472,7 +472,9 @@ de aprovação em percentual; cada achado numa seção só, as demais remetem a 
 relatório completo com `scripts/build_report_docx.py` e entregar o arquivo ao usuário
 (esquema e estrutura em `references/output/docx-report.md`), com os comentários ao cliente como
 última parte do mesmo arquivo (com aviso de que a parte é endereçada ao cliente), quando o usuário for
-devolver a carta ao mutuário. Entregar um só arquivo `.docx`. O sumário executivo do .docx traz três
+devolver a carta ao mutuário. Entregar um só arquivo `.docx`. A parte do cliente é escrita no nível crítico de um
+Analista Líder de Equipe: avaliação geral, prioridades, diagnóstico fundamentado por seção, por que
+importa para a pontuação (sem nota numérica) e redação pronta (regras em `references/output/docx-report.md`). O sumário executivo do .docx traz três
 tabelas separadas:
 - **Tabela 1:** pontuação mínima, esperada e máxima por item, nos subtotais (Dados Objetivos;
   Nota de Área Estratégica) e na Nota Geral.

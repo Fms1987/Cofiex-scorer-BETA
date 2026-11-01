@@ -48,10 +48,27 @@ dona e trocar o outro por uma remissão.
 - **Comentários à carta-consulta** (opcional, quando o usuário vai devolver a carta ao
   mutuário). Bloco `carta_cliente` do JSON. Entra como **última parte** do mesmo `.docx`, em página
   nova, com aviso em negrito de que a parte é endereçada ao cliente. É uma tabela "seção do
-  formulário (Anexo I) → problema → redação sugerida". Não traz nota, sublimite nem leitura
-  interna. A redação sugerida sai dos textos-modelo (`review/model-texts.md`) e da biblioteca de
+  formulário (Anexo I) → diagnóstico crítico → por que importa para a avaliação → redação
+  sugerida", precedida de uma avaliação geral da carta e de uma lista de prioridades de revisão.
+  Não traz nota numérica, sublimite nem leitura interna. A redação sugerida sai dos textos-modelo (`review/model-texts.md`) e da biblioteca de
   indicadores. Não é copiada para o Plano de Correção, que continua no corpo do relatório.
   Entregar sempre um só arquivo `.docx`.
+
+  **Nível de redação da parte do cliente.** Escrever como um Analista Líder de Equipe (TTL)
+  experiente que quer a carta aprovada: crítico, fundamentado e específico. Regras:
+  - `avaliacao_geral`: 2 a 4 parágrafos com a leitura franca da carta: a tese central, onde ela
+    convence, onde um avaliador da COFIEX ou o Grupo Técnico vai pressionar e por quê.
+  - `prioridades`: de 3 a 5 mudanças em ordem de efeito, cada uma numa frase de ação.
+  - Cada item: `problema` diz o que está na carta (com a citação ou o dado) e por que falha;
+    `por_que_importa` liga a falha ao critério da rubrica (vínculo direto com o PPA, indicador
+    com linha de base e ano-meta, fatia de recursos, impacto, inovação) e diz, em termos
+    qualitativos, o que muda na chance de pontuar melhor (por exemplo, "sem custo por produto a
+    área tende a ficar em nível baixo"); `redacao_sugerida` traz texto pronto, com indicador,
+    linha de base e meta quando couber. Nunca inventar dado do mutuário: marcar [preencher].
+  - Opinião fundamentada: toda crítica cita o trecho da carta e o critério, e quando houver
+    precedente anonimizado (`fichas/`, `review/model-texts.md`) dizer o que ele mostra.
+  - Proibido: nota numérica, Nota Geral, sublimite, posição frente à linha de corte, probabilidade
+    e ênfases voltadas ao Banco (essas ficam na lente Banco Mundial).
 
 ## Painel de carteira
 Se o usuário acompanha vários pleitos, registrar cada simulação com
@@ -145,7 +162,9 @@ mesmos títulos por extenso e sem siglas.
   },
   "carta_cliente": {
     "introducao": "…",
-    "itens": [{"secao_anexo": "III. Gestão", "problema": "…", "redacao_sugerida": "…"}],
+    "avaliacao_geral": ["parágrafo 1", "parágrafo 2"],
+    "prioridades": ["Mudança 1 …", "Mudança 2 …"],
+    "itens": [{"secao_anexo": "III. Gestão", "problema": "…", "por_que_importa": "…", "redacao_sugerida": "…"}],
     "fechamento": "…"
   },
   "sugestoes": [
